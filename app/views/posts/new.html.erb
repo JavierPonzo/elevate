@@ -1,2 +1,12 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<%= simple_form_for @post, html: { multipart: true } do |f| %>
+  <div class="f-inputs">
+    <%= f.input :title, label: 'Título', required: true %>
+    <%= f.input :content, label: 'Descripción', as: :text, required: true %>
+    <%= f.input :category, label: 'Categoría', required: true %>
+    <%= f.input :photos, label: 'Imágenes', as: :file, input_html: { multiple: true } %> <!-- Aquí no es requerido -->
+  </div>
+
+  <div class="f-actions">
+    <%= f.button :submit, 'Publicar Artículo', class: 'btn btn-primary' %>
+  </div>
+<% end %>

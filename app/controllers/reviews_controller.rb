@@ -1,4 +1,4 @@
-# class ReviewsController < ApplicationController
+ class ReviewsController < ApplicationController
 #   def create
 #     @review = Review.new(review_params)
 #     @post = Post.find(params[:post_id])
@@ -21,4 +21,4 @@
 #   def review_params
 #     params.require(:review).permit(:rating, :content, :user_id, :post_id)
 #   end
-# end
+ end

@@ -1,2 +1,26 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<%= simple_form_for @post, html: { multipart: true } do |f| %>
+  <div class="f-inputs">
+    <%= f.input :title, label: 'Título', required: true %>
+    <%= f.input :content, label: 'Descripción', as: :text, required: true %>
+    <%= f.input :category, label: 'Categoría', required: true %>
+    <%= f.input :doctor_id, label: 'ID del Doctor', required: true %>
+    <%= f.input :photos, label: 'Imágenes', as: :file, input_html: { multiple: true } %>
+
+      <% if @post.photos.attached? %>
+        <h3>Imágenes actuales:</h3>
+        <div class="current-images">
+          <% @post.photos.each do |photo| %>
+            <div class="image-preview">
+              <%= cl_image_tag photo.key, size: "100x100" %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p>No hay imagenes cargadas.</p>
+      <% end %>
+    </div>
+
+  <div class="f-actions">
+    <%= f.button :submit, 'Actualizar Artículo', class: 'btn btn-primary' %>
+  </div>
+<% end %>

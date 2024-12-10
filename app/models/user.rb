@@ -7,4 +7,13 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :question_answers
   has_many :appointments
+  after_save :create_doctor
+
+  def create_doctor
+    if role == "si"
+      Doctor.find_or_create_by(user_id: id)
+
+    end
+
+  end
 end

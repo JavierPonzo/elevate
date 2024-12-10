@@ -2,7 +2,11 @@ class PostsController < ApplicationController
 before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    if params[:query].present?
+      @posts = Post.where(category: params[:query])
+    else
+      @posts = Post.all
+    end
   end
 
   def show

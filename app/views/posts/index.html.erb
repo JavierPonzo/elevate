@@ -1,4 +1,23 @@
-<% @posts.each do |post| %>
-<ul><%= post.title %></ul>
-<%#= post.content %>
-<% end %>
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+    <div class="text-center text-black mt-5">
+      <h1> Category Selected </h1>
+        <h3 class="typed-js" data-controller="typed-js"></h3>
+    </div>
+  </div>
+<div class="container py-5">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to post_path(post), class: "text-decoration-none text-dark" do %>
+          <div class="card-category">
+            <div class="d-flex justify-content-center mb-3">
+            <img class="img-fluid" style="max-height: 150px;" src="https://i.ibb.co/8MBJYMk/Untitled-design-5.png" />
+            </div>
+            <h4><%= post.title %></h4>
+            <p><strong>Content:</strong> <%= post.content %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -16,7 +16,6 @@ class User < ApplicationRecord
   def create_doctor
     if role == "si"
       Doctor.find_or_create_by(user_id: id)
-
     end
 
   end

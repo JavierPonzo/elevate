@@ -6,7 +6,6 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    # @review = Review.new(post: @post)
   end
 
   def new

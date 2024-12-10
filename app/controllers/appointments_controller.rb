@@ -13,7 +13,12 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = current_user.appointment.find(params[id])
+    @appointment = Appointment.find(params[:id])
+    if @appointment.user == current_user || @appointment.doctor && @appointment.doctor.user == current_user
+     # @appointment
+    else
+      redirect_to appointments_path, alert: "Permission Denied"
+    end
   end
 
   def create

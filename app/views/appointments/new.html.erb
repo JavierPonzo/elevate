@@ -1,2 +1,40 @@
-<h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<h1>Schedule a New Appointment</h1>
+
+<%= form_with(model: @appointment) do |form| %>
+  <% if @appointment.errors.any? %>
+    <div class="errors">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+      <ul>
+        <% @appointment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :doctor_id, "Select Doctor" %>
+    <%= form.collection_select :doctor_id, @doctors, :id, :name, prompt: "Choose a Doctor" %>
+  </div>
+
+  <div>
+    <%= form.label :date, "Appointment Date" %>
+    <%= form.datetime_local_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :status, "Status" %>
+    <%= form.select :status, ['Pending', 'Confirmed', 'Completed'] %>
+  </div>
+
+  <div>
+    <%= form.label :details, "Additional Details" %>
+    <%= form.text_area :details %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Appointment" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Appointments', appointments_path %>

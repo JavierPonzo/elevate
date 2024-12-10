@@ -1,5 +1,10 @@
 require 'securerandom'
-
+Appointment.destroy_all
+Review.destroy_all
+QuestionAnswer.destroy_all
+Post.destroy_all
+Doctor.destroy_all
+User.destroy_all
 # Usuarios
 users = [
   { email: "pedro@gmail.com", name: "Pedro", last_name: "Lopez", role: "doctor" },

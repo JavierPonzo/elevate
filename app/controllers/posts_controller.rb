@@ -2,32 +2,46 @@ class PostsController < ApplicationController
 before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    if params[:query].present?
+      @posts = Post.where(category: params[:query])
+    else
+      @posts = Post.all
+    end
   end
 
   def show
-    # @review = Review.new(post: @post)
   end
 
   def new
     @post = Post.new
+    @post.doctor_id = current_user.doctor&.id
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
-      redirect_to post_path(@post)
+    if current_user.doctor?
+      @post = Post.new(post_params)
+      @post.doctor_id = current_user.doctor&.id
+      if @post.save
+        redirect_to post_path(@post)
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
-      render :new, status: :unprocessable_entity
+      redirect_to posts_path, alert: "Solo los doctores puden crear posts"
     end
   end
 
   def edit
+    redirect_to post_path, alert: "No tenes permiso para editar este articulo." unless @post.doctor_id == current_user.doctor&.id
   end
 
   def update
-    @post.update
-    redirect_to post_path(@post)
+    @post.doctor_id = current_user.doctor&.id
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -42,6 +56,6 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def post_params
-    params.require(:post).permit(:title, :category, :doctor_id, :content)
+    params.require(:post).permit(:title, :category, :content, photos: [])
   end
 end

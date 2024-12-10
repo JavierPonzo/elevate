@@ -10,10 +10,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :reviews, only: [:create, :destroy]
+    resources :question_answers, only: [:index, :new, :create]
   end
-
   resources :appointments, only: [:index, :new, :show, :create, :destroy]
-  resources :question_answers, only: [:index, :new, :create]
   # Defines the root path route ("/")
   # root "posts#index"
 end

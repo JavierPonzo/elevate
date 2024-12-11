@@ -51,3 +51,9 @@
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
 </div>
+
+<% if @post.doctor_id == current_user.doctor&.id %>
+  <div class="mt-3 text-center">
+    <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-warning btn-lg' %>
+  </div>
+<% end %>

@@ -3,4 +3,8 @@ class Post < ApplicationRecord
   has_many :question_answers
   has_many :reviews
   has_many_attached :photos
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :category, presence: true
+  validate :photos
 end

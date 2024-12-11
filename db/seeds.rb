@@ -85,16 +85,32 @@ sexual_health_posts.each do |post_data|
   )
 end
 
-# Appointments
-2.times do
-  Appointment.create!(
-    date: Time.now + rand(1..10).days,
-    status: ["pending", "completed"].sample,
-    details: "Detalles del appointment.",
-    doctor_id: Doctor.all.sample.id,
-    user_id: User.where(role: nil).sample.id
-  )
+# Crear 3 appointments para cada usuario sin rol
+User.where(role: nil).each do |user|
+  3.times do
+    Appointment.create!(
+      date: Time.now + rand(1..10).days,
+      status: ["pending", "completed"].sample,
+      details: "Detalles del appointment asignado al usuario.",
+      doctor_id: Doctor.all.sample.id,
+      user_id: user.id
+    )
+  end
 end
+
+# Crear 3 appointments para cada doctor
+Doctor.all.each do |doctor|
+  3.times do
+    Appointment.create!(
+      date: Time.now + rand(1..10).days,
+      status: ["pending", "completed"].sample,
+      details: "Detalles del appointment asignado al doctor.",
+      doctor_id: doctor.id,
+      user_id: User.where(role: nil).sample.id
+    )
+  end
+end
+
 
 # Preguntas y respuestas
 Post.all.sample(4).each do |post|

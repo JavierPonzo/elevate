@@ -1,3 +1,32 @@
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div class="col-md-12 col-lg-12 shadow-sm mt-4 p-4 rounded">
+      <h1 class="mb-3"><%= current_user.name %></h1>
+      <div class="d-flex">
+        <div class="mb-4">
+        <% @post.photos.each do |photo| %>
+          <%= cl_image_tag :photos, class: "img-fluid mb-4 ms-3 me-3", alt: @post.title %>
+        <% end %>
+        </div>
+        <div>
+
+          <p class="mb-4"><strong></strong> <%= current_user.name %></p>
+
+          <p class="mb-4"><strong>Category:</strong> <%= @post.category %></p>
+
+          <p class="mb-4"><strong>Description:</strong> <%= @post.content %></p>
+
+
+          <div class="d-flex justify-content-between mt-4">
+            <%= link_to "Back to Home", posts_path, class: "btn btn-outline-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="list-group">
   <% @post.reviews.each do |review| %>
     <li class="list-group-item">

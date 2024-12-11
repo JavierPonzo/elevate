@@ -1,4 +1,11 @@
 <h1 class="mb-4 text-center text-primary display-4 font-weight-bold text-shadow">My Appointments</h1>
+
+<% if current_user.patient? %>
+  <div class="text-center mt-4">
+    <%= link_to 'Crea una Cita Nueva', new_appointment_path, class: "btn btn-primary btn-lg shadow-lg rounded-pill px-5 mt-3 mb-3" %>
+  </div>
+<% end %>
+
 <div class="card-body d-flex justify-content-center mb-4">
   <div class="row container align-items-start" style="margin: 0 auto;">
     <% @appointments.each do |appointment| %>
@@ -15,4 +22,3 @@
     <% end %>
   </div>
 </div>
-

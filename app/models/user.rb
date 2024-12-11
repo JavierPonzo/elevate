@@ -13,6 +13,10 @@ class User < ApplicationRecord
     role == "doctor"
   end
 
+  def patient?
+    role == "patient"
+  end
+
   def create_doctor
     if role == "doctor"
       Doctor.find_or_create_by(user_id: id)

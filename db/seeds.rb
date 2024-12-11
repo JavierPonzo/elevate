@@ -12,8 +12,8 @@ User.destroy_all
 users = [
   { email: "doctorm@gmail.com", name: "Juan", last_name: "Perez", role: "doctor" },
   { email: "doctors@gmail.com", name: "Laura", last_name: "Martinez", role: "doctor" },
-  { email: "user1@gmail.com", name: "Carlos", last_name: "Gomez", role: nil },
-  { email: "user2@gmail.com", name: "Ana", last_name: "Diaz", role: nil }
+  { email: "user1@gmail.com", name: "Carlos", last_name: "Gomez", role: "patient" },
+  { email: "user2@gmail.com", name: "Ana", last_name: "Diaz", role: "patient" }
 ]
 
 users.each do |user_data|
@@ -86,7 +86,7 @@ sexual_health_posts.each do |post_data|
 end
 
 # Crear 3 appointments para cada usuario sin rol
-User.where(role: nil).each do |user|
+User.where(role: "patient").each do |user|
   3.times do
     Appointment.create!(
       date: Time.now + rand(1..10).days,
@@ -106,7 +106,7 @@ Doctor.all.each do |doctor|
       status: ["pending", "completed"].sample,
       details: "Detalles del appointment asignado al doctor.",
       doctor_id: doctor.id,
-      user_id: User.where(role: nil).sample.id
+      user_id: User.where(role: "patient").sample.id
     )
   end
 end
@@ -117,7 +117,7 @@ Post.all.sample(4).each do |post|
   QuestionAnswer.create!(
     question: "¿Pregunta sobre el post #{post.title}?",
     answer: "Respuesta a la pregunta.",
-    user_id: User.where(role: nil).sample.id,
+    user_id: User.where(role: "patient").sample.id,
     post_id: post.id
   )
 end

@@ -22,9 +22,7 @@
             <%= link_to "Back to Home", posts_path, class: "btn btn-outline-primary" %>
           </div>
           <div>
-            <%= link_to "Delete Post", posts_path(@post),
-              data: { turbo_method: :delete, turbo_confirm: "Estas seguro que deseas borrar: #{@post.title}?" },
-              class: "btn btn-outline-primary" %>
+            <%= button_to "Eliminar Post", post_path(@post), method: :delete, data: { confirm: "Estas seguro que deseas borrarlo?" }, class: "btn btn-outline-primary" %>
           </div>
         </div>
       </div>

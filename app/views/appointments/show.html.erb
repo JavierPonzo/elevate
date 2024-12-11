@@ -1,0 +1,33 @@
+<div class="container my-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-primary text-white text-center">
+      <h1 class="mb-0">Appointment Details</h1>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <p><strong>Doctor:</strong> <%= @appointment.doctor.user.name %> <%= @appointment.doctor.user.last_name %></p>
+      </div>
+      <div class="mb-3">
+        <p><strong>Patient:</strong> <%= @appointment.user.name %> <%= @appointment.user.last_name %></p>
+      </div>
+      <div class="mb-3">
+        <p><strong>Date:</strong> <%= @appointment.date.strftime('%B %d, %Y at %I:%M %p') %></p>
+      </div>
+      <div class="mb-3">
+        <p><strong>Status:</strong>
+          <span class="badge <%= @appointment.status == 'completed' ? 'bg-success' : 'bg-warning' %>">
+            <%= @appointment.status.capitalize %>
+          </span>
+        </p>
+      </div>
+      <div class="mb-3">
+        <p><strong>Details:</strong> <%= @appointment.details %></p>
+      </div>
+    </div>
+    <div class="card-footer text-center">
+      <%= link_to 'Back to Appointments', appointments_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>
+
+

@@ -1,1 +1,32 @@
-// Specific CSS for your home-page
+.hero-section {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.hero-text {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 15px;
+}
+
+.button-group .btn-primary {
+  background-color: #00bcd4;
+  border-color: #00bcd4;
+}
+
+.button-group .btn-secondary {
+  background-color: #333;
+  border-color: #333;
+}
+
+.hero-section img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

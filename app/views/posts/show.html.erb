@@ -6,7 +6,7 @@
       <div class="d-flex">
         <div class="mb-4">
         <% @post.photos.each do |photo| %>
-          <%= cl_image_tag :photos, class: "img-fluid mb-4 ms-3 me-3", alt: @post.title %>
+          <%= cl_image_tag photo.key, class: "img-fluid mb-4 ms-3 me-3", alt: @post.title %>
         <% end %>
         </div>
         <div>
@@ -21,11 +21,36 @@
           <div class="d-flex justify-content-between mt-4">
             <%= link_to "Back to Home", posts_path, class: "btn btn-outline-primary" %>
           </div>
+          <div>
+            <%= link_to "Delete Post", posts_path(@post),
+              data: { turbo_method: :delete, turbo_confirm: "Estas seguro que deseas borrar: #{@post.title}?" },
+              class: "btn btn-outline-primary" %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<%= form_with model: @question_answer, local: true do |f| %>
+  <div class="row-fluid">
+    <div class="span6">
+
+      <div class="mb-3">
+        <%= f.label :question, "Your Question" %>
+        <%= f.text_field :question, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :answer, "Answer (if available)" %>
+        <%= f.text_area :answer, class: "form-control", disabled: @question_answer %>
+      </div>
+
+      <%= f.submit "Submit Question", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
 
 <div class="list-group">
   <% @post.reviews.each do |review| %>

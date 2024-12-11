@@ -1,9 +1,0 @@
-<h1>Appointment Details</h1>
-
-<p><strong>Doctor:</strong> <%= @appointment.doctor.user.name %> <%= @appointment.doctor.user.last_name %></p>
-<p><strong>Patient:</strong> <%= @appointment.user.name %> <%= @appointment.user.last_name %></p>
-<p><strong>Date:</strong> <%= @appointment.date%></p>
-<p><strong>Status:</strong> <%= @appointment.status %></p>
-<p><strong>Details:</strong> <%= @appointment.details %></p>
-
-<%= link_to 'Back to Appointments', appointments_path %>

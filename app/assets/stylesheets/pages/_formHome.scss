@@ -1,0 +1,37 @@
+/* Ajustes visuales */
+.bg-dark {
+  background-color: #003d66 !important; /* Azul oscuro */
+}
+
+.text-muted {
+  color: #d9d9d9 !important; /* Texto gris claro */
+}
+
+.bg-primary {
+  background-color: #005a99 !important; /* Azul intermedio */
+}
+
+.btn-info {
+  background-color: #00c1d4 !important; /* Verde azulado */
+  border: none;
+}
+
+.btn-info:hover {
+  background-color: #009da8 !important; /* Verde azulado más oscuro */
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.border-light {
+  border-color: #eaeaea !important;
+}
+
+.rounded-pill {
+  border-radius: 50px !important;
+}

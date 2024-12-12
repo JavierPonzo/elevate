@@ -30,6 +30,18 @@
   </div>
 </div>
 
+<div class="user-info">
+  <% if @post.user.photo.attached? %>
+    <%= image_tag @post.user.photo, alt: "Foto de perfil de #{@post.user.name}", class: "profile-photo" %>
+  <% else %>
+    <%= image_tag "default_profile.png", alt: "Foto de perfil por defecto", class: "profile-photo" %>
+  <% end %>
+
+  <p><strong>Nombre:</strong> <%= @post.user.name %> <%= @post.user.last_name %></p>
+  <p><strong>Especialidad:</strong> <%= @post.user.doctor.specialty %></p>
+  <p><strong>Licencia:</strong> <%= @post.user.doctor.license %></p>
+</div>
+
 <%= form_with model: @question_answer, local: true do |f| %>
   <div class="row-fluid">
     <div class="span6">

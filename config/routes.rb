@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :appointments, only: [:index, :new, :show, :create, :destroy]
   # Defines the root path route ("/")
   # root "posts#index"
+  get 'about', to: 'pages#about'
 end

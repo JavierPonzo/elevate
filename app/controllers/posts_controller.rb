@@ -10,7 +10,6 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-
     @question_answer = QuestionAnswer.new
     @question_answers = @post.question_answers
     @doctors = Doctor.all

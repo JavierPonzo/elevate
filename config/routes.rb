@@ -15,6 +15,5 @@ Rails.application.routes.draw do
     resources :question_answers, only: [:index, :new, :create]
   end
   resources :appointments, only: [:index, :new, :show, :create, :destroy]
-  # Defines the root path route ("/")
-  # root "posts#index"
+  resources :users, only: [:show, :edit, :update]
 end

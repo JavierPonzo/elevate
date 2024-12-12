@@ -10,6 +10,8 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @doctors = Doctor.all
+    @appointment = Appointment.new
   end
 
   def new

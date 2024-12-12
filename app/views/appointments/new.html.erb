@@ -1,10 +1,11 @@
 <%= turbo_frame_tag "modal" do %>
-<h1 class="text-center appointment-form-header my-5">Schedule a New Appointment</h1>
 
-<%= form_with(model: @appointment, local: true) do |form| %>
+<h1>Schedule a New Appointment</h1>
+
+<%= form_with(model: @appointment) do |form| %>
   <% if @appointment.errors.any? %>
     <div class="alert alert-danger">
-      <h4><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h4>
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
       <ul>
         <% @appointment.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -31,11 +32,14 @@
       <%= form.submit "Create Appointment", class: "btn btn-primary btn-lg" %>
     </div>
   </div>
-
 <% end %>
 
 <div class="text-center mt-4">
   <%= link_to 'Back to Appointments', appointments_path, class: "btn btn-secondary" %>
 </div>
 
+<%= link_to 'Cancel', '#', data: {
+  controller: 'popup',
+  action: 'popup#close'
+} %>
 <% end %>

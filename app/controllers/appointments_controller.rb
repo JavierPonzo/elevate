@@ -15,7 +15,6 @@ class AppointmentsController < ApplicationController
   def show
     @appointment = Appointment.find(params[:id])
     if @appointment.user == current_user || @appointment.doctor && @appointment.doctor.user == current_user
-     # @appointment
     else
       redirect_to appointments_path, alert: "Permission Denied"
     end
@@ -24,6 +23,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
+    @appointment.status = "Pending"
     if @appointment.save
       redirect_to appointments_path, notice: 'Your appointment has succesfully been created'
     else
@@ -39,9 +39,9 @@ class AppointmentsController < ApplicationController
   end
 
 
-  private  
+  private
 
   def appointment_params
-    params.require(:appointment).permit(:date, :status, :details, :doctor_id)
+    params.require(:appointment).permit(:date, :details, :doctor_id)
   end
 end

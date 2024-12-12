@@ -10,11 +10,15 @@ class User < ApplicationRecord
   after_save :create_doctor
 
   def doctor?
-    role == "si"
+    role == "doctor"
+  end
+
+  def patient?
+    role == "patient"
   end
 
   def create_doctor
-    if role == "si"
+    if role == "doctor"
       Doctor.find_or_create_by(user_id: id)
     end
 

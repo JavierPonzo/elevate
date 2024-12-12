@@ -10,6 +10,8 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @doctors = Doctor.all
+    @appointment = Appointment.new
   end
 
   def new
@@ -40,7 +42,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

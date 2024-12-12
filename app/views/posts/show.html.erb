@@ -23,13 +23,14 @@
             <%= link_to "Back to Home", posts_path, class: "btn btn-outline-primary" %>
           </div>
           <div>
-            <%= button_to "Eliminar Post", post_path(@post), method: :delete, data: { confirm: "Estas seguro que deseas borrarlo?" }, class: "btn btn-outline-primary" %>
+            <%= button_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "btn btn-outline-primary" %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentModal">
   New Appointment
@@ -69,7 +70,7 @@
   </div>
 </div>
 
-<%= form_with model: @question_answer, local: true do |f| %>
+<%= simple_form_for [@post, @question_answer] do |f| %>
   <div class="row-fluid">
     <div class="span6">
 
@@ -88,6 +89,19 @@
   </div>
 <% end %>
 
+<div class="list-group mt-4">
+  <h3>Preguntas y Respuestas</h3>
+  <% @post.question_answers.each do |question_answer| %>
+    <div class="list-group-item">
+      <p><strong>Pregunta:</strong> <%= question_answer.question %></p>
+      <% if question_answer.answer.present? %>
+        <p><strong>Respuesta:</strong> <%= question_answer.answer %></p>
+      <% else %>
+        <p><em>Esta pregunta aún no tiene respuesta.</em></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
 <div class="list-group">
   <% @post.reviews.each do |review| %>

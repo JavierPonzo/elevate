@@ -38,6 +38,9 @@ class AppointmentsController < ApplicationController
     redirect_to appointments_path, notice: "Your appointment has succesfully been deleted"
   end
 
+  def my_appointments
+    @appointments = current_user.appointments
+  end
 
   private
 

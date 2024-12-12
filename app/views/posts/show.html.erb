@@ -32,15 +32,15 @@
 </div>
 
 <div class="user-info">
-  <% if @post.user.photo.attached? %>
-    <%= image_tag @post.user.photo, alt: "Foto de perfil de #{@post.user.name}", class: "profile-photo" %>
+  <% if @post.doctor.user.photo.attached? %>
+    <%= cl_image_tag @post.doctor.user.photo.key, alt: "Foto de perfil de #{@post.doctor.user.name}", class: "profile-photo" %>
   <% else %>
-    <%= image_tag "default_profile.png", alt: "Foto de perfil por defecto", class: "profile-photo" %>
+    <%= image_tag "default_user.jpg", alt: "Foto de perfil por defecto", class: "profile-photo" %>
   <% end %>
 
-  <p><strong>Nombre:</strong> <%= @post.user.name %> <%= @post.user.last_name %></p>
-  <p><strong>Especialidad:</strong> <%= @post.user.doctor.specialty %></p>
-  <p><strong>Licencia:</strong> <%= @post.user.doctor.license %></p>
+  <p><strong>Nombre:</strong> <%= @post.doctor.user.name %> <%= @post.doctor.user.last_name %></p>
+  <p><strong>Especialidad:</strong> <%= @post.doctor.specialty %></p>
+  <p><strong>Licencia:</strong> <%= @post.doctor.license %></p>
 </div>
 
 

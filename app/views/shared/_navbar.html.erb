@@ -1,9 +1,9 @@
 <div class="container-navbar">
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id="navbar">
     <div class="container-fluid">
-      <a href="#" class="navbar-brand">
+      <%= link_to root_path do %>
         <img src="https://i.ibb.co/Hx7WXCs/1.png" alt="Elevate Logo" style="height: 270px; width: auto;">
-      </a>
+      <% end %>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -12,26 +12,34 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a href="appointments" class="nav-link">Mis Citas</a>
+            <%= link_to "Mis Citas", my_appointments_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a href="my_products" class="nav-link">Mis Publicaciones</a>
+          <% if current_user&.doctor? %>
+            <%= link_to "Mis Publicaciones", my_posts_path, class: "nav-link" %>
+          <% end %>
           </li>
           <li class="nav-item">
-            <a href="about" class="nav-link">Sobre Nosotros</a>
+            <%= link_to "Sobre Nosotros", about_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a href="post" class="nav-link">Artículos</a>
+            <%= link_to "Artículos", posts_path, class: "nav-link" %>
+
           </li>
           <li class="nav-item dropdown">
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar" alt="User avatar">
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a href="#" class="dropdown-item">Editar perfil</a>
-              <a href="#" class="dropdown-item">Salir</a>
-            </div>
-          </li>
+  <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar" alt="User avatar">
+  </a>
+  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+    <% if current_user %>
+      <%= link_to "Editar Perfil", edit_user_path(current_user), class: "dropdown-item" %>
+      <%= link_to "Cerrar Sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+    <% else %>
+      <%= link_to "Iniciar Sesión", new_user_session_path, class: "dropdown-item" %>
+    <% end %>
+  </div>
+</li>
+
         </ul>
       </div>
     </div>

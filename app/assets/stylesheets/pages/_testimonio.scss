@@ -1,0 +1,82 @@
+.carousel {
+  margin: 50px auto;
+  max-width: 800px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.text-success {
+  color: #013a63;
+}
+
+.carousel h5 {
+  color: #013a63;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.carousel h2 {
+  color: #013a63;
+  margin-bottom: 20px;
+}
+
+.carousel p {
+  color: #013a63;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.carousel-item img {
+  border: 3px solid #013a63;
+  padding: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item .fw-bold {
+  color: #2c3e50;
+}
+
+.carousel-item .text-muted {
+  font-size: 14px;
+  color: #013a63;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #013a63;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: #013a63;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #013a63;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.carousel-indicators [data-bs-target].active {
+  background-color: #013a63;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    padding: 20px;
+  }
+
+  .carousel h2 {
+    font-size: 20px;
+  }
+
+  .carousel p {
+    font-size: 14px;
+  }
+}

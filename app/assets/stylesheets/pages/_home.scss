@@ -18,15 +18,22 @@
 .button-group .btn-primary {
   background-color: #00bcd4;
   border-color: #00bcd4;
-}
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-.button-group .btn-secondary {
-  background-color: #333;
-  border-color: #333;
+  &:hover {
+    background-color: #0D92F4;
+    box-shadow: 2px 2px 2px #00bcd4;
+    transform: translateY(-3px);
+  }
 }
 
 .hero-section img {
   max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
 }

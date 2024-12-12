@@ -23,11 +23,11 @@
       <div class="mb-3">
         <p><strong>Details:</strong> <%= @appointment.details %></p>
       </div>
+        <%= button_to 'Cancel My Appointment', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Are you sure you want to cancel your appointment
+        ?' }, class: 'btn btn-secondary' %>
     </div>
     <div class="card-footer text-center">
       <%= link_to 'Back to Appointments', appointments_path, class: 'btn btn-secondary' %>
     </div>
   </div>
 </div>
-
-

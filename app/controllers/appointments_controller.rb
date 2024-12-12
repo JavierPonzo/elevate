@@ -15,7 +15,6 @@ class AppointmentsController < ApplicationController
   def show
     @appointment = Appointment.find(params[:id])
     if @appointment.user == current_user || @appointment.doctor && @appointment.doctor.user == current_user
-     # @appointment
     else
       redirect_to appointments_path, alert: "Permission Denied"
     end
@@ -39,8 +38,11 @@ class AppointmentsController < ApplicationController
     redirect_to appointments_path, notice: "Your appointment has succesfully been deleted"
   end
 
+  def my_appointments
+    @appointments = current_user.appointments
+  end
 
-  private  
+  private
 
   def appointment_params
     params.require(:appointment).permit(:date, :details, :doctor_id)

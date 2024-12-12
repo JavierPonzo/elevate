@@ -1,37 +1,41 @@
-/* Ajustes visuales */
-.bg-dark {
-  background-color: #003d66 !important; /* Azul oscuro */
+.bg-dark-form {
+  background-color: #00427a;
 }
 
-.text-muted {
-  color: #d9d9d9 !important; /* Texto gris claro */
+.text-info-form {
+  color: #ffffff;
 }
 
-.bg-primary {
-  background-color: #005a99 !important; /* Azul intermedio */
+.bg-primary-form {
+  background-color: #003665;
 }
 
 .btn-info {
-  background-color: #00c1d4 !important; /* Verde azulado */
+  background-color: #00c1d4;
   border: none;
 }
 
 .btn-info:hover {
-  background-color: #009da8 !important; /* Verde azulado más oscuro */
+  background-color: #009da8;
 }
 
 textarea.form-control {
   resize: none;
 }
 
-.shadow-lg {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+.form-control {
+  background-color: #749ec3;
+  border-color: #999999;
 }
 
-.border-light {
-  border-color: #eaeaea !important;
+.container-fluid {
+  text-align: center;
 }
 
-.rounded-pill {
-  border-radius: 50px !important;
+.row {
+  margin: 0 auto;
+}
+
+.w-75 {
+  width: 75%;
 }

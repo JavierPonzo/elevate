@@ -54,7 +54,8 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def my_posts
-    @posts = current_user.doctor.posts
+    @posts = current_user.doctor.posts if current_user.doctor?
+    redirect_to posts_path, alert: "No tienes permiso" if @posts.blank?
   end
 
   private

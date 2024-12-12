@@ -12,7 +12,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   def show
 
     @question_answer = QuestionAnswer.new
-    @question_answers = @post.question_answer
+    @question_answers = @post.question_answers
     @doctors = Doctor.all
     @appointment = Appointment.new
   end

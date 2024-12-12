@@ -9,6 +9,10 @@ class User < ApplicationRecord
   has_many :appointments
   after_save :create_doctor
 
+  has_one_attached :photo
+
+  #validates :avatar, presence: true, if: :doctor?
+
   def doctor?
     role == "doctor"
   end

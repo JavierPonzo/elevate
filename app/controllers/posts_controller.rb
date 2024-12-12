@@ -10,6 +10,8 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @question_answer = QuestionAnswer.new
+    @question_answers = @post.question_answers
     @doctors = Doctor.all
     @appointment = Appointment.new
   end
@@ -29,7 +31,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
         render :new, status: :unprocessable_entity
       end
     else
-      redirect_to posts_path, alert: "Solo los doctores puden crear posts"
+      redirect_to posts_path, alert: "Posts are only for doctors te create"
     end
   end
 
@@ -49,6 +51,10 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   def destroy
     @post.destroy
     redirect_to posts_path, status: :see_other
+  end
+
+  def my_posts
+    @posts = current_user.doctor.posts
   end
 
   private

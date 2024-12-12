@@ -54,6 +54,10 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
     redirect_to posts_path, status: :see_other
   end
 
+  def my_posts
+    @posts = current_user.doctor.posts
+  end
+
   private
 
   def set_post

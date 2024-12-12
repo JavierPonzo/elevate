@@ -32,7 +32,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
         render :new, status: :unprocessable_entity
       end
     else
-      redirect_to posts_path, alert: "Posts are only for doctors te create"
+      redirect_to posts_path, alert: "Solo Doctores pueden crear articulos"
     end
   end
 

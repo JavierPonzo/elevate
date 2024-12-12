@@ -12,9 +12,9 @@ class QuestionAnswersController < ApplicationController
    @question_answer = @post.question_answers.new(question_answer_params)
    @question_answer.user = current_user
     if @question_answer.save
-      redirect_to post_path(@post), notice: 'Your inquiry will be answered soon' 
+      redirect_to post_path(@post), notice: 'Tu pregunta será respondida a la brevedad.'
     else
-      render :new, alert: 'Your inquiry has not been saved'
+      render :new, alert: 'Tu pregunta no fue posible, intenta otra vez.'
     end
   end
   private

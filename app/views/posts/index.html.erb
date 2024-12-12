@@ -1,7 +1,7 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-black mt-5">
 
-    <h1> Category Selected </h1>
+    <h1> Categoría seleccionada: <%#= post.category %> </h1>
     <h3 class="typed-js" data-controller="typed-js"></h3>
 
     <% if current_user.doctor? %>
@@ -27,11 +27,10 @@
                   <%= cl_image_tag photo.key, class: "img-fluid mb-4 ms-3 me-3", alt: post.title %>
                 <% end %>
               <% else %>
-                <p>No image available</p>
+                <p>No imagen disponible</p>
               <% end %>
             </div>
             <h4><%= post.title %></h4>
-            <p><strong>Content:</strong> <%= post.content %></p>
           </div>
         <% end %>
       </div>

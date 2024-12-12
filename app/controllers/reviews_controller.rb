@@ -4,9 +4,9 @@
     @review = @post.reviews.new(review_params)
     @review.user = current_user
     if @review.save
-      redirect_to post_path(@post), notice: 'Review created succesfully'
+      redirect_to post_path(@post), notice: 'Reseña creada exitosamente'
     else
-      redirect_to post_path(@post), alert: "Error, Review can't be blank"
+      redirect_to post_path(@post), alert: "Error, la reseña no puede estar en blanco"
     end
   end
 

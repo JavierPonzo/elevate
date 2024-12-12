@@ -3,7 +3,7 @@
 <%= form_with(model: @appointment) do |form| %>
   <% if @appointment.errors.any? %>
     <div class="alert alert-danger">
-      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+      <h2><%= pluralize(@appointment.errors.count, "error") %> no ha permitido crear la cita.</h2>
       <ul>
         <% @appointment.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -14,24 +14,24 @@
 
   <div class="appointment-form">
     <div class="form-group">
-      <%= form.label :doctor_id, "Select Doctor", class: "form-label" %>
-      <%= form.select :doctor_id, @doctors.collect { |doctor| [doctor.user.name + ' ' + doctor.user.last_name, doctor.id] }, { prompt: "Choose a Doctor" }, class: "form-control" %>
+      <%= form.label :doctor_id, "Selecciona Doctor", class: "form-label" %>
+      <%= form.select :doctor_id, @doctors.collect { |doctor| [doctor.user.name + ' ' + doctor.user.last_name, doctor.id] }, { prompt: "Elige un Doctor" }, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= form.label :date, "Appointment Date", class: "form-label" %>
+      <%= form.label :date, "Fecha de Cita", class: "form-label" %>
       <%= form.datetime_local_field :date, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= form.label :details, "Additional Details", class: "form-label" %>
+      <%= form.label :details, "Detalles Adicionales", class: "form-label" %>
       <%= form.text_area :details, class: "form-control", rows: 4 %>
     </div>
     <div class="form-group text-center">
-      <%= form.submit "Create Appointment", class: "btn btn-primary btn-lg" %>
+      <%= form.submit "Crear Cita", class: "btn btn-primary btn-lg" %>
     </div>
   </div>
 <% end %>
 
 <div class="text-center mt-4">
-  <%= link_to 'Back to Appointments', appointments_path, class: "btn btn-secondary" %>
+  <%= link_to 'Volver a Citas', appointments_path, class: "btn btn-secondary" %>
 </div>

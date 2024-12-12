@@ -1,4 +1,4 @@
-<h1 class="mb-4 text-center text-primary display-4 font-weight-bold text-shadow">My Appointments</h1>
+<h1 class="mb-4 text-center text-primary display-4 font-weight-bold text-shadow">Mis Citas</h1>
 
 <% if current_user.patient? %>
   <div class="text-center mt-4">
@@ -16,7 +16,7 @@
           <% end %>
           <h5 class="card-title"><i class="fas fa-calendar-alt"></i> <%= appointment.date %></h5>
           <p class="card-text"><i class="fas fa-info-circle"></i> <%= appointment.details %></p>
-          <p class="card-text"><i class="fas fa-circle"></i> Status: <%= appointment.status %></p>
+          <p class="card-text"><i class="fas fa-circle"></i> Estado: <%= appointment.status %></p>
         </div>
       </div>
     <% end %>

@@ -15,31 +15,29 @@
             <%= link_to "Mis Citas", my_appointments_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-          <% if current_user&.doctor? %>
-            <%= link_to "Mis Publicaciones", my_posts_path, class: "nav-link" %>
-          <% end %>
+            <% if current_user&.doctor? %>
+              <%= link_to "Mis Publicaciones", my_posts_path, class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item">
             <%= link_to "Sobre Nosotros", about_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Artículos", posts_path, class: "nav-link" %>
-
           </li>
           <li class="nav-item dropdown">
-  <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar" alt="User avatar">
-  </a>
-  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-    <% if current_user %>
-      <%= link_to "Editar Perfil", edit_user_path(current_user), class: "dropdown-item" %>
-      <%= link_to "Cerrar Sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-    <% else %>
-      <%= link_to "Iniciar Sesión", new_user_session_path, class: "dropdown-item" %>
-    <% end %>
-  </div>
-</li>
-
+            <% if current_user %>
+              <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag current_user.photo.attached? ? current_user.photo : "default_user.jpg", alt: "User avatar", class: "avatar rounded-circle" %>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Mi Perfil", user_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Cerrar Sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
+            <% else %>
+              <%= link_to "Iniciar Sesión", new_user_session_path, class: "dropdown-item" %>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>

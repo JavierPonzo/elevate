@@ -22,15 +22,22 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-7px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
   }
 }
 
-.service-icon {
+.icon-ourservices {
   font-size: 50px;
   color: #00c4cc;
-  margin-bottom: 0;
+  margin-bottom: 20px;
+}
+
+.especial {
+  font-size: 50px;
+  color: #255097;
+  margin-bottom: 20px;
 }
 
 .service-title {
@@ -42,4 +49,10 @@
 .service-description {
   font-size: 0.95rem;
   color: #6c757d;
+}
+
+.border {
+  color: gray;
+  border-radius: 25px;
+  padding: 2px;
 }

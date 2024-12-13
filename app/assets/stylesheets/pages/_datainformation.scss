@@ -1,0 +1,59 @@
+.container-numbers {
+  background-color: #f9f9f9;
+}
+
+.container-numbers h2 {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.container-numbers p {
+  color: #7f8c8d;
+  font-size: 16px;
+}
+
+.container-numbers .card {
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-numbers .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon-ourservices-data {
+  font-size: 50px;
+  color: #003665;
+  margin-bottom: 20px;
+}
+
+.container-numbers h3 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.container-numbers .text-muted {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .container-numbers h2 {
+    font-size: 24px;
+  }
+
+  .container-numbers h3 {
+    font-size: 22px;
+  }
+
+  .container-numbers p {
+    font-size: 14px;
+  }
+}
+
+.data {
+  color: #00427A;
+}

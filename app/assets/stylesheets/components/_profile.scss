@@ -1,0 +1,40 @@
+.profile-header {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007BFF; /* Color azul similar al de Facebook */
+}
+
+.profile-container {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.profile-photo-container {
+  position: relative;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-info {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background-color: #007BFF;
+  border-color: #007BFF;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}

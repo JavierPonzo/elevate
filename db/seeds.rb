@@ -6,6 +6,7 @@ Review.destroy_all
 QuestionAnswer.destroy_all
 Post.destroy_all
 Doctor.destroy_all
+Question.destroy_all
 User.destroy_all
 
 # Usuarios

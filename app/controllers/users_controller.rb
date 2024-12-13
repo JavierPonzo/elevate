@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      if @user.doctor? && params[:doctor].present?
+      if @user.doctor?
         @user.doctor.update(doctor_params)
       end
 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
 
   def doctor_params
-    params.require(:doctor).permit(:specialty, :license)
+    params.require(:user).permit(:specialty, :license)
   end
 
   def authorize_user

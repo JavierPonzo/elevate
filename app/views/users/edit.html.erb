@@ -29,7 +29,7 @@
 <% if @doctor %>
   <hr>
   <h2>Editar Datos de Doctor</h2>
-  <%= form_with(model: @doctor, local: true, url: user_path(@user)) do |f| %>
+  <%= form_with(model: @user, local: true, url: user_path(@user)) do |f| %>
     <div class="form-group">
       <%= f.label :specialty, "Especialidad" %>
       <%= f.text_field :specialty, class: "form-control" %>

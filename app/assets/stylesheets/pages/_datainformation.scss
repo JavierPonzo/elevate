@@ -24,9 +24,10 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.container-numbers img {
-  width: 50px;
-  height: 50px;
+.icon-ourservices-data {
+  font-size: 50px;
+  color: #003665;
+  margin-bottom: 20px;
 }
 
 .container-numbers h3 {
@@ -51,4 +52,8 @@
   .container-numbers p {
     font-size: 14px;
   }
+}
+
+.data {
+  color: #00427A;
 }

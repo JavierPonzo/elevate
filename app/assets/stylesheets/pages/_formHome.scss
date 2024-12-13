@@ -13,10 +13,10 @@
 .btn-info {
   background-color: #00c1d4;
   border: none;
-}
 
-.btn-info:hover {
-  background-color: #009da8;
+  &:hover {
+    background-color: #009da8;
+  }
 }
 
 textarea.form-control {
@@ -24,18 +24,9 @@ textarea.form-control {
 }
 
 .form-control {
-  background-color: #749ec3;
-  border-color: #999999;
+  border-color: #00c1d4;
 }
 
 .container-fluid {
   text-align: center;
-}
-
-.row {
-  margin: 0 auto;
-}
-
-.w-75 {
-  width: 75%;
 }

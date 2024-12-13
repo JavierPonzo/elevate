@@ -1,15 +1,14 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-black mt-5">
 
-    <h1> Categoría seleccionada: <%#= post.category %> </h1>
+    <h1> My Posts </h1>
     <h3 class="typed-js" data-controller="typed-js"></h3>
 
     <% if current_user.doctor? %>
       <div class="mt-4">
-        <%= link_to 'Crear Artículo', new_post_path, class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-5' %>
+        <%= link_to 'Crear Post', new_post_path, class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-5' %>
       </div>
     <% end %>
-
 
   </div>
 </div>

@@ -1,17 +1,10 @@
 <h1 class="mb-4 text-center text-primary display-4 font-weight-bold text-shadow">Mis Citas</h1>
-
-<% if current_user.patient? %>
-  <div class="text-center mt-4">
-    <%= link_to 'Crea una Cita Nueva', new_appointment_path, class: "btn btn-primary btn-lg shadow-lg rounded-pill px-5 mt-3 mb-3" %>
-  </div>
-<% end %>
-
 <div class="card-body d-flex justify-content-center mb-4">
   <div class="row container align-items-start" style="margin: 0 auto;">
     <% @appointments.each do |appointment| %>
       <div class="col-md-4 col-lg-3 mb-4">
         <div class="card shadow-lg border-light h-100">
-           <%= link_to appointment_path(appointment), class: "d-block" do %>
+          <%= link_to appointment_path(appointment), class: "d-block" do %>
             <img src="https://i.ibb.co/8MBJYMk/Untitled-design-5.png" class="card-img-top" alt="Appointment Image" style="max-width: 100%; height: auto;" />
           <% end %>
           <h5 class="card-title"><i class="fas fa-calendar-alt"></i> <%= appointment.date %></h5>

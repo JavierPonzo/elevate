@@ -2,15 +2,15 @@ class PostsController < ApplicationController
 before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query].present?
-      @posts = Post.where(category: params[:query])
+    if params[:category].present?
+      @posts = Post.where(category: 'Salud Mental') if params[:category] == 'salud_mental'
+      @posts = Post.where(category: 'Salud Sexual') if params[:category] == 'salud_sexual'
     else
       @posts = Post.all
     end
   end
 
   def show
-
     @question_answer = QuestionAnswer.new
     @question_answers = @post.question_answers
     @doctors = Doctor.all
@@ -32,7 +32,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
         render :new, status: :unprocessable_entity
       end
     else
-      redirect_to posts_path, alert: "Posts are only for doctors te create"
+      redirect_to posts_path, alert: "Solo Doctores pueden crear articulos"
     end
   end
 
@@ -52,6 +52,11 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   def destroy
     @post.destroy
     redirect_to posts_path, status: :see_other
+  end
+
+  def my_posts
+    @posts = current_user.doctor.posts if current_user.doctor?
+    redirect_to posts_path, alert: "No tienes permiso" if @posts.blank?
   end
 
   private

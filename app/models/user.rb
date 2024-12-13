@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :question_answers
   has_many :appointments
   after_save :create_doctor
-
+  has_many :questions
   has_one_attached :photo
 
   #validates :avatar, presence: true, if: :doctor?

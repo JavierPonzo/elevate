@@ -2,8 +2,9 @@ class PostsController < ApplicationController
 before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query].present?
-      @posts = Post.where(category: params[:query])
+    if params[:category].present?
+      @posts = Post.where(category: 'Salud Mental') if params[:category] == 'salud_mental'
+      @posts = Post.where(category: 'Salud Sexual') if params[:category] == 'salud_sexual'
     else
       @posts = Post.all
     end

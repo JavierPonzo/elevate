@@ -39,6 +39,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def edit
     redirect_to post_path, alert: "No tenes permiso para editar este articulo." unless @post.doctor_id == current_user.doctor&.id
+    end
   end
 
   def update

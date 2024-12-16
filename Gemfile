@@ -74,12 +74,14 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# gem "cloudinary"
+gem "cloudinary"
 
-# gem "ruby-openai"
+gem "ruby-openai"
 
-# gem "solid_cable", "~> 1.0"
+gem "solid_cable", "~> 1.0"
 
-# gem "solid_queue"
+gem "solid_queue"
 
-# gem 'neighbor'
+gem 'neighbor'
+
+gem "pgvector"

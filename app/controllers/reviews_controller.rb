@@ -3,6 +3,7 @@
     @post = Post.find(params[:post_id])
     @review = @post.reviews.new(review_params)
     @review.user = current_user
+    @review.post = @post
     if @review.save
       redirect_to post_path(@post), notice: 'Reseña creada exitosamente'
     else
@@ -19,6 +20,6 @@
   private
 
   def review_params
-    params.require(:review).permit(:rating, :content, :user_id, :post_id)
+    params.require(:review).permit(:rating, :content)
   end
  end

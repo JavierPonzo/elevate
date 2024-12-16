@@ -1,10 +1,9 @@
 <div class="container">
-  <div class="row justify-content-center">
-
-    <div class="col-md-12 col-lg-12 shadow-sm mt-4 p-4 rounded">
-      <div class="d-flex">
+  <div class="d-flex">
+    <div class="">
+      <div class="d-flex justify-content-between">
         <h1 class="mb-3"><%= @post.title %></h1>
-        <% if @post.doctor_id == current_user.doctor&.id %>
+        <% if @post.doctor_id %>
           <div class="text-end">
             <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary btn-lg' %>
           </div>
@@ -13,139 +12,97 @@
           </div>
         <% end %>
       </div>
-
       <div class="mb-4">
         <% @post.photos.each do |photo| %>
           <%= cl_image_tag photo.key, class: "banner-image", alt: @post.title %>
         <% end %>
       </div>
-
       <div>
         <p class="mb-4"><strong>Categoria:</strong> <%= @post.category %></p>
         <p class="mb-4"><strong>Descripción:</strong> <%= @post.content %></p>
       </div>
-    </div>
-
-    <div class="d-flex justify-content-between mt-4">
-      <%= link_to "Back to Home", posts_path, class: "btn btn-outline-primary" %>
-    </div>
   </div>
 
-  <div class="user-info">
-    <% if @post.doctor.user.photo.attached? %>
-      <%= cl_image_tag @post.doctor.user.photo.key, alt: "Foto de perfil de #{@post.doctor.user.name}", class: "profile-photo" %>
-    <% else %>
-      <%= image_tag "default_user.jpg", alt: "Foto de perfil por defecto", class: "profile-photo" %>
+      <div class="user-info">
+        <% if @post.doctor.user.photo.attached? %>
+          <%= cl_image_tag @post.doctor.user.photo.key, alt: "Foto de perfil de #{@post.doctor.user.name}", class: "profile-photo" %>
+        <% else %>
+          <%= image_tag "default_user.jpg", alt: "Foto de perfil por defecto", class: "profile-photo" %>
+        <% end %>
+
+        <p><strong>Nombre:</strong> <%= @post.doctor.user.name %> <%= @post.doctor.user.last_name %></p>
+        <p><strong>Especialidad:</strong> <%= @post.doctor.specialty %></p>
+        <p><strong>Licencia:</strong> <%= @post.doctor.license %></p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+          Nueva Cita
+        </button>
+      </div>
+  </div>
+</div>
+
+<div class="card-body d-flex">
+  <div class="col-6">
+    <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="appointmentModalLabel">Nueva Cita</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= form_with(model: @appointment, local: true) do |form| %>
+              <div class="form-group">
+                <p>Doctor/a: <%= @post.doctor.user.name %> <%= @post.doctor.user.last_name %></p>
+                <%= form.hidden_field :doctor_id, value: @post.doctor.id %>
+              </div>
+
+              <div class="form-group">
+                <%= form.label :date, "Fecha de Cita", class: "form-label" %>
+                <%= form.datetime_local_field :date, class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= form.label :details, "Detalles Adicionales", class: "form-label" %>
+                <%= form.text_area :details, class: "form-control", rows: 4 %>
+              </div>
+
+              <div class="text-center">
+                <%= form.submit "Crear Cita", class: "btn btn-primary btn-lg" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= simple_form_for [@post, @question_answer] do |f| %>
+      <div class="row-fluid">
+        <div class="span6">
+          <div class="mb-3">
+            <%= f.label :question, "Haz una pregunta:" %>
+            <%= f.text_field :question, class: "form-control" %>
+          </div>
+
+          <%= f.submit "Preguntar", class: "btn btn-primary" %>
+        </div>
+      </div>
     <% end %>
 
-    <p><strong>Nombre:</strong> <%= @post.doctor.user.name %> <%= @post.doctor.user.last_name %></p>
-    <p><strong>Especialidad:</strong> <%= @post.doctor.specialty %></p>
-    <p><strong>Licencia:</strong> <%= @post.doctor.license %></p>
-  </div>
-  <div class="parrafo">
-    <p>
-      Acciones para mejorar el autoestima: 9 claves
-      Los sentimientos que tenemos hacia nosotros mismos influyen en nuestras decisiones y acciones, por lo que siempre es importante mejorar el autoestima.
-      Todos tenemos una imagen de cómo somos, que se va formando con el pasar de los años, iniciando en la infancia.
-      Además, una gran parte de la autoimagen que tenemos se basa en la interacción con otras personas o experiencias vividas.
-      Por ello, la autoestima es ese conjunto de percepciones y pensamientos que tenemos hacia nosotros mismos.
-      Las personas que tienen una sana autoestima se sienten bien con quienes son y saben valorar sus capacidades, habilidades y logros.
-      Mientras que con una baja autoestima se puede sentir que el entorno nos rechaza o no somos buenos en nada.
-      Todos podemos pasar por esa etapa de baja autoestima, principalmente en la adolescencia, pero hay acciones para mejorar la autoestima que pueden ayudarnos a valorar lo que somos.
-      Síntomas de autoestima baja
-      Hay muchos síntomas que sufre una persona con baja autoestima regularmente.
-
-      Aquí te mencionamos algunos de ellos:
-
-      Falta de seguridad en sí mismo.
-      Imposibilidad de expresar gustos ante el miedo a ser rechazado.
-      Pensar que sus opiniones no tienen valor.
-      Sentirse que no merece obtener cosas buenas de la vida.
-      Evitar tomar alguna acción por miedo al fracaso.
-      Evitar relaciones sociales por miedo a no hacerlo bien y quedar excluido.
-      Búsqueda frecuente de aprobación de los demás.
-      Dejarse menospreciar por otros ante el miedo a imponerse cuando se requiere.
-      Ver a las demás personas como superiores y querer ser como ellos.
-      Creer que los logros personales se deben a factores externos, pero los fracasos son por responsabilidades propias.
-      No valorar lo que se tiene por creer que se podría estar mejor.
-      Sentirse infeliz.
-      Problemas para concluir actividades o proyectos por falta de motivación permanente.
-      Evitar tomar decisiones por creer que lo que se decida será la opción incorrecta, dejando que los demás decidan hasta en los temas más personales.
-      Pensar constantemente en las debilidades y nunca en las fortalezas y capacidades que se tienen.
-      Estar nervioso durante gran parte del día.
-      Dificultades en la toma de iniciativas.
-      Sentirse permanentemente evaluado en las actividades sociales.
-      Tener un sentimiento de culpa.
-      Sentirse poco atractivo.
-      Envidiar la vida y logros de otras personas.
-      Sentir que no se tiene nada bueno que aportar.
-      Estos sentimientos pueden superarse para conseguir una sana autoestima que beneficie tu salud mental.
-    </p>
-  </div>
-
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentModal">
-    Nueva Cita
-  </button>
-
-  <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="appointmentModalLabel">Nueva Cita</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= form_with(model: @appointment, local: true) do |form| %>
-            <div class="form-group">
-              <p>Doctor/a: <%= @post.doctor.user.name %> <%= @post.doctor.user.last_name %></p>
-              <%= form.hidden_field :doctor_id, value: @post.doctor.id %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :date, "Fecha de Cita", class: "form-label" %>
-              <%= form.datetime_local_field :date, class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :details, "Detalles Adicionales", class: "form-label" %>
-              <%= form.text_area :details, class: "form-control", rows: 4 %>
-            </div>
-
-            <div class="text-center">
-              <%= form.submit "Crear Cita", class: "btn btn-primary btn-lg" %>
-            </div>
+    <div class="list-group mt-4">
+      <% @post.question_answers.each do |question_answer| %>
+        <div class="list-group-item">
+          <p><strong>Pregunta:</strong> <%= question_answer.question %></p>
+          <% if question_answer.answer.present? %>
+            <p><strong>Respuesta:</strong> <%= question_answer.answer %></p>
+          <% else %>
+            <p><em>Esta pregunta aún no tiene respuesta.</em></p>
           <% end %>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 
-  <%= simple_form_for [@post, @question_answer] do |f| %>
-    <div class="row-fluid">
-      <div class="span6">
-        <div class="mb-3">
-          <%= f.label :question, "Haz una pregunta:" %>
-          <%= f.text_field :question, class: "form-control" %>
-        </div>
-
-        <%= f.submit "Preguntar", class: "btn btn-primary" %>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="list-group mt-4">
-    <% @post.question_answers.each do |question_answer| %>
-      <div class="list-group-item">
-        <p><strong>Pregunta:</strong> <%= question_answer.question %></p>
-        <% if question_answer.answer.present? %>
-          <p><strong>Respuesta:</strong> <%= question_answer.answer %></p>
-        <% else %>
-          <p><em>Esta pregunta aún no tiene respuesta.</em></p>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-
+<div class="col-6">
   <div class="list-group">
     <% @post.reviews.each do |review| %>
       <li class="list-group-item">
@@ -170,4 +127,9 @@
       <%= f.submit class: 'btn btn-primary' %>
     <% end %>
   </div>
+
+  </div>
 </div>
+    <div class="d-flex justify-content-between mt-4">
+      <%= link_to "Back to Home", posts_path, class: "btn btn-outline-primary" %>
+    </div>

@@ -84,3 +84,4 @@ gem "solid_queue"
 
 gem 'neighbor'
 
+gem "pgvector"

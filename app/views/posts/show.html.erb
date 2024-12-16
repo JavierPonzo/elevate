@@ -104,31 +104,42 @@
     </div>
   </div>
 
-<div class="col-6">
-  <div class="list-group">
-    <% @post.reviews.each do |review| %>
-      <li class="list-group-item">
-        <small>
-          <% count = 0 %>
-          <% 5.times do %>
-            <% if review.rating > count %>
-              <i class="fa-solid fa-star"></i>
-            <% else %>
-              <i class="fa-regular fa-star"></i>
+  <div class="col-6">
+    <div class="list-group">
+      <% @post.reviews.each do |review| %>
+        <li class="list-group-item">
+          <small>
+            <% count = 0 %>
+            <% 5.times do %>
+              <% if review.rating > count %>
+                <i class="fa-solid fa-star"></i>
+              <% else %>
+                <i class="fa-regular fa-star"></i>
+              <% end %>
+              <% count += 1 %>
             <% end %>
-            <% count += 1 %>
-          <% end %>
-        </small>
-        <p><%= review.content %></p>
-      </li>
-    <% end %>
+          </small>
+          <p><%= review.content %></p>
+        </li>
+      <% end %>
 
-    <%= simple_form_for [@post, Review.new] do |f| %>
-      <%= f.input :rating, collection: 0..5 %>
-      <%= f.input :content %>
-      <%= f.submit class: 'btn btn-primary' %>
-    <% end %>
+      <%= simple_form_for [@post, Review.new] do |f| %>
+        <div class="mb-3">
+          <%= f.label :rating, "Calificación", class: "form-label" %>
+          <div class="stars">
+            <%= f.input :rating, collection: (1..5).to_a, label: "Esta informacion te fue util?", input_html: {data: {controller: "star-rating"}} %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.input :content, label: "Comentario", as: :text %>
+        </div>
+
+        <%= f.submit "Enviar Calificación", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
+
 
   </div>
 </div>

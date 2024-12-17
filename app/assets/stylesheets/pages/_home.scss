@@ -37,3 +37,14 @@
     transform: translateY(-3px);
   }
 }
+
+.chatbot-ai {
+  height: 120px;
+  width: 120px;
+  background-color: white;
+  border-radius: 50%;
+  i {
+    font-size: 40px;
+    color: #00bcd4;
+  }
+}

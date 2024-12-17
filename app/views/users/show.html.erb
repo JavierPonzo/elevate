@@ -13,7 +13,7 @@
     <p><strong>Email:</strong> <%= @user.email %></p>
 
     <% if @user == current_user %>
-      <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-primary" %>
+      <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-primary btn-lg shadow-lg rounded-pill px-5" %>
     <% end %>
 
     <% if @user.doctor.present? %>

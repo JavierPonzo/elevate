@@ -1,4 +1,3 @@
-
 <section class="hero-section">
   <div class="container">
     <div class="row align-items-center">
@@ -25,46 +24,52 @@
       <div class="section-underline mx-auto"></div>
     </div>
     <div class="row">
-      <div class="col-md-4 text-center border">
+      <%= link_to posts_path(category: "salud_sexual"), class:"col-md-4 text-center border" do %>
         <div class="service-item">
           <i class="fa-solid fa-fire icon-ourservices especial"></i>
+          <h5 class="service-title-home">Salud Sexual</h5>
+          <i class="fa-solid fa-fire icon-ourservices"></i>
           <h5 class="service-title">Salud Sexual</h5>
-          <p class="service-description">La salud sexual consiste en el <strong>bienestar</strong>, y no meramente en la ausencia de enfermedad. La salud sexual implica el respeto, la seguridad y la libertad frente a la discriminación y la violencia.</p>
+          <p class="service-description">La salud sexual consiste en el <strong>bienestar</strong>, y no solamente en la <strong>ausencia de enfermedad</strong>. Implica respeto, seguridad y libertad frente a la violencia y la discriminación. Elevate.</p>
         </div>
-      </div>
-      <div class="col-md-4 text-center border">
+      <% end %>
+      <%= link_to posts_path(category: "salud_mental"), class:"col-md-4 text-center border" do %>
         <div class="service-item">
           <i class="fa-solid fa-brain icon-ourservices especial"></i>
+          <h5 class="service-title-home">Salud Mental</h5>
+          <i class="fa-solid fa-brain icon-ourservices"></i>
           <h5 class="service-title">Salud Mental</h5>
-          <p class="service-description">La salud mental es un estado de bienestar mental que permite a las personas hacer frente a los momentos de estrés de la vida, desarrollar todas sus habilidades, poder aprender y trabajar adecuadamente y contribuir a la mejora de su comunidad.</p>
+          <p class="service-description">La salud mental es un estado de <strong>bienestar mental</strong> que permite a las personas hacer frente a los momentos de estrés de la vida, desarrollar habilidades, aprender, trabajar y contribuir a su comunidad.</p>
         </div>
-      </div>
+      <% end %>
       <div class="col-md-4 text-center border">
         <div class="service-item">
           <i class="fa-solid fa-comment icon-ourservices"></i>
-          <h5 class="service-title">Consultas con especialistas</h5>
-          <p class="service-description">La consulta médica especializada es aquella consulta atendida por personal médico con <strong>especialidad certificada por el Ministerio de Educación</strong>, brindado calidad en la atención y brindando integridad en la atención a los usuarios.</p>
+          <h5 class="service-title-home">Consultas con especialistas</h5>
+          <p class="service-description">La consulta médica especializada es brindada por personal médico con <strong>especialidad certificada</strong>. Ofrecemos atención integral y garantizamos <strong>calidad</strong> en el cuidado a los usuarios.</p>
         </div>
       </div>
       <div class="col-md-4 text-center border">
         <div class="service-item">
           <i class="fa-regular fa-message icon-ourservices"></i>
-          <h5 class="service-title">Foro de consultas</h5>
-          <p class="service-description">Nuestro foro abierto de consultas es un <strong>espacio abierto para poder consultar con libertad</strong> en cualquiera de nuestras categorias, recibe respuestas de expertos o de la comunidad misma, todos nos ayudamos. Crezcamos juntos.</p>
+          <h5 class="service-title-home">Foro de consultas</h5>
+          <p class="service-description">Nuestro foro abierto es un <strong>espacio seguro</strong> para que puedas consultar con libertad sobre temas importantes, recibir respuestas de expertos y <strong>crecer juntos</strong> a la par como comunidad.</p>
         </div>
       </div>
-      <div class="col-md-4 text-center border">
+      <%= link_to questions_path, class:"col-md-4 text-center border" do %>
         <div class="service-item">
           <i class="fa-solid fa-robot icon-ourservices"></i>
-          <h5 class="service-title">Chatbot con IA</h5>
-          <p class="service-description"><strong>Realiza consultas detalladas sin miedo a ser juzgado</strong>, o pregunta por nuestros especialistas, horarios de atención, disponibilidad o preguntas abiertas que no deseas abordar en grupo.</p>
+          <h5 class="service-title-home">Chatbot con IA</h5>
+          <p class="service-description">Realiza consultas detalladas sin miedo a ser juzgado, o pregunta sobre especialistas, horarios de atención, disponibilidad y dudas que prefieras tratar de <strong>manera privada</strong>, nuestros AI te guiara.</p>
         </div>
-      </div>
+      <% end %>
       <div class="col-md-4 text-center border">
         <div class="service-item">
+          <i class="fa-solid fa-info icon-ourservices"></i>
+          <h5 class="service-title-home">Información detallada</h5>
           <i class="fa-solid fa-robot icon-ourservices"></i>
           <h5 class="service-title">Información detallada</h5>
-          <p class="service-description">Brindamos información especializada y detallada para tu aprendizaje en temas de <strong>Salud Sexual</strong> y <strong>Salud Mental</strong>, desde informes, infografías y videos de organizaciones mundiales que apoyan esta causa.</p>
+          <p class="service-description">Brindamos información especializada y detallada sobre <strong>Salud Sexual</strong> y <strong>Salud Mental</strong>, mediante informes, infografías y <strong>contenido educativo</strong> de organizaciones reconocidas.</p>
         </div>
       </div>
     </div>
@@ -247,9 +252,12 @@
       </div>
     </div>
   </div>
+
+  <%= render "pages/chatbot" %>
 </div>
 
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

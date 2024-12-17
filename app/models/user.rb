@@ -11,8 +11,6 @@ class User < ApplicationRecord
   has_many :questions
   has_one_attached :photo
 
-  #validates :avatar, presence: true, if: :doctor?
-
   def doctor?
     role == "doctor"
   end

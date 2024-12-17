@@ -20,12 +20,22 @@
             </p>
           </div>
           <div class="card-footer bg-transparent text-center">
-            <% if appointment.status == "pending" %>
-              <button class="btn text-white font-weight-bold" style="background-color: #00427A; border-radius: 8px;">
-                Confirmar
-              </button>
+            <% if current_user.doctor? && appointment.status == "Pendiente" %>
+              <%= button_to "Confirmar", confirm_appointment_path(appointment), method: :patch, class: "btn text-white font-weight-bold", style: "background-color: #1EDD88; border-radius: 8px;" %>
+            <% elsif current_user.patient? %>
+              <% if appointment.status == "Pendiente" %>
+
+                <%= form_with model: appointment, url: appointment_path(appointment), method: :patch, local: true do |f| %>
+                  <%= f.hidden_field :status, value: "Cancelado" %>
+                  <%= f.submit "Cancelar", class: "btn text-white font-weight-bold", style: "background-color: #FF6F61; border-radius: 8px;" %>
+                <% end %>
+
+                <%= link_to "Reprogramar", edit_appointment_path(appointment), class: "btn text-white font-weight-bold", style: "background-color: #00BCD4; border-radius: 8px;" %>
+              <% else %>
+                <span class="text-muted">Estado: <%= appointment.status %></span>
+              <% end %>
             <% else %>
-              <span class="text-muted">Completado</span>
+              <span class="text-muted">Estado: <%= appointment.status %></span>
             <% end %>
           </div>
         </div>

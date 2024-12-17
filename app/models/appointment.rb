@@ -4,9 +4,13 @@ class Appointment < ApplicationRecord
   validates :date, presence: true
   validates :rating, presence: true
 
+  before_save :set_default_status
+
+  validates :status, inclusion: { in: ["Pendiente", "Confirmado", "Cancelado"] }
+
   private
 
   def set_default_status
-    self.status ||= "Pending"
+    self.status ||= "Pendiente"
   end
 end

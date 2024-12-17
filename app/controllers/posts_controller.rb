@@ -7,8 +7,15 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
       @posts = Post.where(category: 'Salud Sexual') if params[:category] == 'salud_sexual'
     else
       params[:query].present?
-      @posts = Post.where("title ILIKE ?", "%#{params[:query]}%")
+      @posts = Post.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
     end
+  end
+
+  def search_suggestions
+    query = params[:query]
+    @posts = Post.elevate_search(query).limit(5)
+    suggestions = @posts.map(&:title)
+    render json: suggestions
   end
 
   def show

@@ -85,3 +85,5 @@ gem "solid_queue"
 gem 'neighbor'
 
 gem "pgvector"
+
+gem 'pg_search'

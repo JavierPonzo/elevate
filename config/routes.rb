@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'my_posts', to: 'posts#my_posts'
   get 'my_appointments', to: 'appointments#my_appointments'
   resources :posts do
+    collection do
+      get 'search_suggestions'
+    end
     resources :reviews, only: [:create, :destroy]
     resources :question_answers, only: [:index, :new, :create]
   end

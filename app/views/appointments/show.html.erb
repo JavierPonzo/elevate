@@ -26,7 +26,7 @@
       <div class="mb-3">
         <p><strong>Detalles:</strong> <%= @appointment.details %></p>
       </div>
-        <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita
+        <%= link_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita
         ?' }, class: 'btn btn-secondary' %>
     </div>
     <div class="card-footer text-center">

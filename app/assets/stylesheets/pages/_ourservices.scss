@@ -6,7 +6,7 @@
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #000;
+  color: #000 !important;
 }
 
 .section-underline {
@@ -40,7 +40,7 @@
   margin-bottom: 20px;
 }
 
-.service-title {
+.service-title-home {
   font-size: 1.25rem;
   font-weight: 600;
   color: #000;
@@ -49,6 +49,7 @@
 .service-description {
   font-size: 0.95rem;
   color: #6c757d;
+  font-weight: 400;
 }
 
 .border {

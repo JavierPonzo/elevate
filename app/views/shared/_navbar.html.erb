@@ -11,7 +11,10 @@
                               placeholder: "Busca un articulo..",
                               data: {action: "keyup->search#suggestions", search_target: "input" },
                               class: 'form-control' %>
-          <ul data-search-target="list"></ul>
+          <ul data-search-target="list"
+              class="list-group position-absolute"
+              style="overflow-y: auto; z-index: 1050; background-color: white; border: 1px solid #ccc;
+                    display: none; width: auto; left: 40%; transform: translateX(-50%);"></ul>
         <% end %>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

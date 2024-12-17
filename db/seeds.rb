@@ -31,13 +31,15 @@ end
 mental_health_doctor = Doctor.create!(
   user_id: User.find_by(email: "doctorm@gmail.com").id,
   specialty: "Psicólogo",
-  license: "LIC#{rand(1000..9999)}"
+  license: "LIC#{rand(1000..9999)}",
+  address: "Av. de las Américas 1049, La Victoria 15034, Perú"
 )
 
 sexual_health_doctor = Doctor.create!(
   user_id: User.find_by(email: "doctors@gmail.com").id,
   specialty: "Sexólogo",
-  license: "LIC#{rand(1000..9999)}"
+  license: "LIC#{rand(1000..9999)}",
+  address: "Av. Carlos Izaguirre 126, Independencia 15311, Perú"
 )
 
 # Posts de Salud Mental

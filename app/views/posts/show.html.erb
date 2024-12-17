@@ -1,49 +1,45 @@
-<div class="container">
-  <div class="container d-flex">
-    <div class="d-flex">
-      <div class="row">
-      <div class="col-md-8">
-        <div class="mb-4">
-          <h1><%= @post.title %></h1>
-          <% @post.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, class: "banner-image", alt: @post.title %>
-          <% end %>
-        </div>
-        <div>
-          <p class="mb-4"><strong>Categoria:</strong> <%= @post.category %></p>
-          <p class="mb-4"><strong>Descripción:</strong> <%= @post.content %></p>
-        </div>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="mb-4">
+        <h1><%= @post.title %></h1>
+        <% @post.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, class: "banner-image img-fluid mb-3 shadow", alt: @post.title %>
+        <% end %>
+      </div>
+      <div>
+        <p class="mb-4"><strong>Categoría:</strong> <%= @post.category %></p>
+        <p class="mb-4"><strong>Descripción:</strong> <%= @post.content %></p>
+      </div>
     </div>
-      <% if @post.doctor.present? %>
-        <div class="col-md-4 d-flex justify-content-end mt-5">
-          <div class="user-info">
-            <% if @post.doctor.user.photo.attached? %>
-              <%= cl_image_tag @post.doctor.user.photo.key, alt: "Foto de perfil de #{@post.doctor.user.name}", class: "profile-photo" %>
-            <% else %>
-              <%= image_tag "default_user.jpg", alt: "Foto de perfil por defecto", class: "profile-photo" %>
-            <% end %>
 
-            <p><strong>Nombre:</strong> <%= @post.doctor.user.name %> <%= @post.doctor.user.last_name %></p>
-            <p><strong>Especialidad:</strong> <%= @post.doctor.specialty %></p>
-            <p><strong>Licencia:</strong> <%= @post.doctor.license %></p>
-            <button type="button" class="btn btn-primary btn-lg shadow-lg rounded-pill px-5" data-bs-toggle="modal" data-bs-target="#appointmentModal">
-              Nueva Cita
-            </button>
-          </div>
+    <div class="col-md-4 mt-5">
+      <% if current_user.present? && current_user == @post.doctor.user %>
+        <div class="card p-4 shadow-sm mt-2">
+          <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3' %>
+          <%= link_to "Borrar", post_path(@post), method: :delete, data: { confirm: "¿Estás seguro que lo deseas?" }, class: "btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3" %>
         </div>
       <% else %>
-        <div class="col-md-4 justify-content-end p-5 mt-5">
-          <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-5 mb-3 ml-5' %>
-          <%= button_to "Borrar", post_path(@post), method: :delete, data: { confirm: "Estas seguro que lo deseas?" }, class: "btn btn-danger btn-lg shadow-lg rounded-pill px-5" %>
+        <div class="card p-4 shadow-sm mt-2">
+          <% if @post.doctor.user.photo.attached? %>
+            <%= cl_image_tag @post.doctor.user.photo.key, class: "img-thumbnail rounded-circle mb-3", alt: "Foto de perfil de #{@post.doctor.user.name}" %>
+          <% else %>
+            <%= image_tag "default_user.jpg", class: "img-thumbnail rounded-circle mb-3", alt: "Foto de perfil por defecto" %>
+          <% end %>
+          <p><strong>Nombre:</strong> <%= @post.doctor.user.name %> <%= @post.doctor.user.last_name %></p>
+          <p><strong>Especialidad:</strong> <%= @post.doctor.specialty %></p>
+          <p><strong>Licencia:</strong> <%= @post.doctor.license %></p>
+          <button type="button" class="btn btn-primary btn-lg shadow rounded-pill px-4 mt-3" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+            Nueva Cita
+          </button>
         </div>
       <% end %>
     </div>
   </div>
-  </div>
 </div>
 
 <div class="card-body d-flex">
-  <div class="col-6">
+  <div class="col-6 p-5">
     <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -104,7 +100,7 @@
     </div>
   </div>
 
-  <div class="col-6">
+  <div class="col-6 p-5">
     <div class="list-group">
       <% @post.reviews.each do |review| %>
         <li class="list-group-item">
@@ -140,9 +136,15 @@
     </div>
   </div>
 
+  </div>
+</div>
+
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-black mt-5">
+
+    <div class="mt-4 mb-5">
+      <%= button_to "Volver a Publicaciones", posts_path(@post), class: "btn btn-outline-primary text-center" %>
+    </div>
 
   </div>
 </div>
-    <div class="d-flex justify-content-between mt-4">
-      <%= link_to "Back to Home", posts_path, class: "btn btn-outline-primary" %>
-    </div>

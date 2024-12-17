@@ -1,9 +1,33 @@
 class AppointmentsController < ApplicationController
   def index
     if current_user.doctor?
-      @appointments = Appointment.where(doctor_id: current_user.doctor.id)
+      @appointments = Appointment.where(doctor_id: current_user.doctor.id, status: "Pendiente")
     else
       @appointments = current_user.appointments
+    end
+  end
+
+  def confirm
+    if current_user.doctor? && @appointment.status == "Pendiente"
+      @appointment.update(status: "Confirmado")
+      redirect_to appointments_path, notice: "Cita confirmada exitosamente."
+    else
+      redirect_to appointments_path, alert: "No tienes permiso para confirmar esta cita."
+    end
+  end
+
+  def update
+    if current_user.patient? && @appointment.user == current_user
+      if params[:appointment][:status] == "Cancelado"
+        @appointment.update(status: "Cancelado")
+        notice_message = "La cita ha sido cancelada."
+      else
+        @appointment.update(appointment_params)
+        notice_message = "La cita ha sido reprogramada."
+      end
+      redirect_to appointments_path, notice: notice_message
+    else
+      redirect_to appointments_path, alert: "No tienes permiso para modificar esta cita."
     end
   end
 
@@ -32,10 +56,19 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  # def destroy
+  #   @appointment = Appointment.find(params[:id])
+  #   @appointment.destroy
+  #   redirect_to appointments_path, notice: "Tu cita ha sido cancelada"
+  # end
+  #
   def destroy
-    @appointment = Appointment.find(params[:id])
     @appointment.destroy
-    redirect_to appointments_path, notice: "Tu cita ha sido cancelada"
+    redirect_to appointments_path, notice: "Tu cita ha sido cancelada."
+  end
+
+  def set_appointment
+    @appointment = Appointment.find(params[:id])
   end
 
   def my_appointments
@@ -45,6 +78,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:date, :details, :doctor_id)
+    params.require(:appointment).permit(:date, :details, :doctor_id, :status)
   end
 end

@@ -17,7 +17,7 @@
       <% if current_user.present? && current_user == @post.doctor.user %>
         <div class="card p-4 shadow-sm mt-2">
           <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3' %>
-          <%= link_to "Borrar", post_path(@post), method: :delete, data: { confirm: "¿Estás seguro que lo deseas?" }, class: "btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3" %>
+          <%= link_to "Borrar", posts_path, method: :delete, data: { confirm: "¿Estás seguro que lo deseas?" }, class: "btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3" %>
         </div>
       <% else %>
         <div class="card p-4 shadow-sm mt-2">

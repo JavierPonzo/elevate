@@ -38,13 +38,30 @@
   }
 }
 
-.chatbot-ai {
-  height: 120px;
-  width: 120px;
-  background-color: white;
-  border-radius: 50%;
-  i {
+
+  .chatbot-ai {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 120px;
+    height: 120px;
+    
+    cursor: pointer;
+    z-index: 1000;
+    text-decoration: none;
+    color: #008CBA;
+  }
+
+  .chatbot-ai i {
     font-size: 40px;
     color: #00bcd4;
   }
-}
+
+  .chatbot-ai:hover {
+    background-color: #008CBA;
+    color: #fff;
+    transition: all 0.3s ease;
+  }

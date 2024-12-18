@@ -26,19 +26,15 @@
     <div class="row">
       <%= link_to posts_path(category: "salud_sexual"), class:"col-md-4 text-center border" do %>
         <div class="service-item">
-          <i class="fa-solid fa-fire icon-ourservices especial"></i>
-          <h5 class="service-title-home">Salud Sexual</h5>
           <i class="fa-solid fa-fire icon-ourservices"></i>
-          <h5 class="service-title">Salud Sexual</h5>
+          <h5 class="service-title-home">Salud Sexual</h5>
           <p class="service-description">La salud sexual consiste en el <strong>bienestar</strong>, y no solamente en la <strong>ausencia de enfermedad</strong>. Implica respeto, seguridad y libertad frente a la violencia y la discriminación. Elevate.</p>
         </div>
       <% end %>
       <%= link_to posts_path(category: "salud_mental"), class:"col-md-4 text-center border" do %>
         <div class="service-item">
-          <i class="fa-solid fa-brain icon-ourservices especial"></i>
-          <h5 class="service-title-home">Salud Mental</h5>
           <i class="fa-solid fa-brain icon-ourservices"></i>
-          <h5 class="service-title">Salud Mental</h5>
+          <h5 class="service-title-home">Salud Mental</h5>
           <p class="service-description">La salud mental es un estado de <strong>bienestar mental</strong> que permite a las personas hacer frente a los momentos de estrés de la vida, desarrollar habilidades, aprender, trabajar y contribuir a su comunidad.</p>
         </div>
       <% end %>
@@ -67,8 +63,6 @@
         <div class="service-item">
           <i class="fa-solid fa-info icon-ourservices"></i>
           <h5 class="service-title-home">Información detallada</h5>
-          <i class="fa-solid fa-robot icon-ourservices"></i>
-          <h5 class="service-title">Información detallada</h5>
           <p class="service-description">Brindamos información especializada y detallada sobre <strong>Salud Sexual</strong> y <strong>Salud Mental</strong>, mediante informes, infografías y <strong>contenido educativo</strong> de organizaciones reconocidas.</p>
         </div>
       </div>
@@ -254,6 +248,7 @@
   </div>
 
   <%= render "pages/chatbot" %>
+
 </div>
 
 <div style="width: 100%; height: 600px;"

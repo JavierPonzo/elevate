@@ -3,19 +3,45 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:category].present?
-      @posts = Post.where(category: 'Salud Mental') if params[:category] == 'salud_mental'
-      @posts = Post.where(category: 'Salud Sexual') if params[:category] == 'salud_sexual'
-    else
-      params[:query].present?
+      if params[:category] == 'salud_mental'
+        @posts = Post.where(category: 'Salud Mental')
+        @category = 'Salud Mental'
+      elsif params[:category] == 'salud_sexual'
+        @posts = Post.where(category: 'Salud Sexual')
+        @category = 'Salud Sexual'
+      end
+    elsif params[:query].present?
       @posts = Post.where("title ILIKE ?", "%#{params[:query]}%")
+      @category = 'Relacionado con tu busqueda'
+    else
+
+      @posts = Post.all
+      @category = 'Relacionado con tu busqueda'
     end
+  end
+
+
+  def search_suggestions
+    query = params[:query]
+    @posts = Post.elevate_search(query).limit(5)
+    suggestions = @posts.map do |post|
+      {title: post.title, id: post.id}
+    end
+    render json: suggestions
   end
 
   def show
     @question_answer = QuestionAnswer.new
     @question_answers = @post.question_answers
     @doctors = Doctor.all
+    @doctor = Doctor.where(id: @post.doctor_id) #Necesario para el mapa
     @appointment = Appointment.new
+    @markers = @doctor.geocoded.map do |doc|
+      {
+        lat: doc.latitude,
+        lng: doc.longitude
+      }
+    end
   end
 
   def new

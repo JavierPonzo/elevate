@@ -17,6 +17,10 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
   def update
     @appointment = Appointment.find(params[:id])
     if current_user.patient? && @appointment.user == current_user
@@ -51,7 +55,7 @@ class AppointmentsController < ApplicationController
     @appointment.user = current_user
     @appointment.status = "Pendiente"
     if @appointment.save
-      redirect_to appointments_path, notice: 'Tu cita ha sido creada exitosamente'
+      redirect_to my_appointments_path, notice: 'Tu cita ha sido creada exitosamente'
     else
       @doctors = Doctor.all
       render :new , alert: 'Tu cita no ha sido creada, por favor intenta nuevamente.'
@@ -66,7 +70,7 @@ class AppointmentsController < ApplicationController
   #
   def destroy
     @appointment.destroy
-    redirect_to appointments_path, notice: "Tu cita ha sido cancelada."
+    redirect_to my_appointments_path, notice: "Tu cita ha sido cancelada."
   end
 
   def set_appointment

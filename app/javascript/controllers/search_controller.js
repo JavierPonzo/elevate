@@ -25,6 +25,7 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then(data => this.updateList(data))
+    //.then(data => console.log(data))
   }
 
   updateList(suggestions) {
@@ -33,7 +34,8 @@ export default class extends Controller {
       this.listTarget.style.display = 'none'
     } else {
       suggestions.forEach((suggestion) => {
-        const li = `<li class="list-group-item"><a href="/posts?query=${encodeURIComponent(suggestion)}">${suggestion}</a></li>`
+        const li = `<li class="list-group-item"><a href="/posts/${(suggestion.id)}">${suggestion.title}</a></li>`
+        console.log(suggestion)
         this.listTarget.insertAdjacentHTML("beforeend", li)
       })
       this.listTarget.style.display = 'block'

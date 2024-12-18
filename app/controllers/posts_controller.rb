@@ -16,7 +16,9 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   def search_suggestions
     query = params[:query]
     @posts = Post.elevate_search(query).limit(5)
-    suggestions = @posts.map(&:title)
+    suggestions = @posts.map do |post|
+      {title: post.title, id: post.id}
+    end
     render json: suggestions
   end
 

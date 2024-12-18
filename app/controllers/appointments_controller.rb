@@ -17,6 +17,10 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
   def update
     @appointment = Appointment.find(params[:id])
     if current_user.patient? && @appointment.user == current_user

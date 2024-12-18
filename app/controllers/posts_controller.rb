@@ -5,9 +5,11 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
     if params[:category].present?
       @posts = Post.where(category: 'Salud Mental') if params[:category] == 'salud_mental'
       @posts = Post.where(category: 'Salud Sexual') if params[:category] == 'salud_sexual'
-    else
+    elsif
       params[:query].present?
       @posts = Post.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
+    else
+      @posts = Post.all
     end
   end
 

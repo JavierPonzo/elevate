@@ -3,15 +3,25 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:category].present?
-      @posts = Post.where(category: 'Salud Mental') if params[:category] == 'salud_mental'
-      @posts = Post.where(category: 'Salud Sexual') if params[:category] == 'salud_sexual'
-    elsif
-      params[:query].present?
-      @posts = Post.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
+      # Asignar los posts filtrados por categoría
+      if params[:category] == 'salud_mental'
+        @posts = Post.where(category: 'Salud Mental')
+        @category = 'Salud Mental'
+      elsif params[:category] == 'salud_sexual'
+        @posts = Post.where(category: 'Salud Sexual')
+        @category = 'Salud Sexual'
+      end
+    elsif params[:query].present?
+      # Filtrar por el título de la publicación
+      @posts = Post.where("title ILIKE ?", "%#{params[:query]}%")
+      @category = 'Relacionado con tu busqueda' # O alguna categoría predeterminada
     else
+      # Si no hay filtros, obtener todos los posts
       @posts = Post.all
+      @category = 'Relacionado con tu busqueda' # O alguna categoría predeterminada
     end
   end
+
 
   def search_suggestions
     query = params[:query]

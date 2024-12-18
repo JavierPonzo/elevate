@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :question_answers
   has_many :appointments
-  after_save :create_doctor
+  # after_save :create_doctor
   has_many :questions
   has_one_attached :photo
 
@@ -19,10 +19,9 @@ class User < ApplicationRecord
     role == "patient"
   end
 
-  def create_doctor
-    if role == "doctor"
-      Doctor.find_or_create_by(user_id: id)
-    end
-
-  end
+  # def create_doctor
+  #   if role == "doctor"
+  #     Doctor.find_or_create_by(user_id: id)
+  #   end
+  # end
 end

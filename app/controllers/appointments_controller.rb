@@ -8,15 +8,17 @@ class AppointmentsController < ApplicationController
   end
 
   def confirm
+    @appointment = Appointment.find(params[:id])
     if current_user.doctor? && @appointment.status == "Pendiente"
       @appointment.update(status: "Confirmado")
-      redirect_to appointments_path, notice: "Cita confirmada exitosamente."
+      redirect_to my_appointments_path, notice: "Cita confirmada exitosamente."
     else
-      redirect_to appointments_path, alert: "No tienes permiso para confirmar esta cita."
+      redirect_to my_appointments_path, alert: "No tienes permiso para confirmar esta cita."
     end
   end
 
   def update
+    @appointment = Appointment.find(params[:id])
     if current_user.patient? && @appointment.user == current_user
       if params[:appointment][:status] == "Cancelado"
         @appointment.update(status: "Cancelado")
@@ -25,9 +27,9 @@ class AppointmentsController < ApplicationController
         @appointment.update(appointment_params)
         notice_message = "La cita ha sido reprogramada."
       end
-      redirect_to appointments_path, notice: notice_message
+      redirect_to my_appointments_path, notice: notice_message
     else
-      redirect_to appointments_path, alert: "No tienes permiso para modificar esta cita."
+      redirect_to my_appointments_path, alert: "No tienes permiso para modificar esta cita."
     end
   end
 
@@ -72,7 +74,14 @@ class AppointmentsController < ApplicationController
   end
 
   def my_appointments
-    @appointments = current_user.appointments
+    user = User.find(current_user.id)
+    role = user.role
+    if role == "patient"
+      @appointments = user.appointments
+    else
+      @doctor = Doctor.where(user: user)[0]
+      @appointments = @doctor.appointments
+    end
   end
 
   private

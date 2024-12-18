@@ -4,12 +4,19 @@
       <%= link_to root_path do %>
         <img src="https://i.ibb.co/Hx7WXCs/1.png" alt="Elevate Logo" style="height: 270px; width: auto;">
       <% end %>
-    <%= form_with url: posts_path, method: :get do %>
-      <%= text_field_tag :query,
-                          params[:query],
-                          placeholder: "Busca un articulo..",
-                          class: 'form-control' %>
-    <% end %>
+      <div data-controller="search">
+        <%= form_with url: posts_path, method: :get do %>
+          <%= text_field_tag :query,
+                              params[:query],
+                              placeholder: "Busca un articulo..",
+                              data: {action: "keyup->search#suggestions", search_target: "input" },
+                              class: 'form-control' %>
+          <ul data-search-target="list"
+              class="list-group position-absolute"
+              style="overflow-y: auto; z-index: 1050; background-color: white; border: 1px solid #ccc;
+                    display: none; width: auto; left: 40%; transform: translateX(-50%);"></ul>
+        <% end %>
+      </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

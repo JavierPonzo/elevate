@@ -20,7 +20,7 @@
             <div class="d-flex justify-content-center mb-3">
               <% if post.photos.attached? %>
                 <% post.photos.each do |photo| %>
-                  <%= cl_image_tag photo.key, class: "img-fluid mb-4 ms-3 me-3", alt: post.title %>
+                  <%= cl_image_tag photo.key, class: "img-fluid mb-4 ms-3 me-3",style: "height: 300px; width: 400px; object-fit: cover;", alt: post.title %>
                 <% end %>
               <% else %>
                 <p>No imagen disponible</p>

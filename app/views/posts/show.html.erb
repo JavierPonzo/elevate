@@ -4,12 +4,11 @@
       <div class="mb-4">
         <h1><%= @post.title %></h1>
         <% @post.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, class: "banner-image img-fluid mb-3 shadow", alt: @post.title %>
+          <%= cl_image_tag photo.key, class: "banner-image img-fluid mb-3 shadow",style: "height: 600px; width: 1280px; object-fit: cover;", alt: @post.title %>
         <% end %>
       </div>
       <div>
-        <p class="mb-4"><strong>Categoría:</strong> <%= @post.category %></p>
-        <p class="mb-4"><strong>Descripción:</strong> <%= @post.content %></p>
+        <p class="mb-4"><%= @post.content %></p>
       </div>
     </div>
 

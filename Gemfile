@@ -88,4 +88,7 @@ gem 'neighbor'
 gem 'geocoder'
 
 gem "importmap-rails", "~> 1.2.3"
+
 gem "pgvector"
+
+gem 'pg_search'

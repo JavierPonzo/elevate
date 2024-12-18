@@ -11,34 +11,31 @@ User.destroy_all
 
 # Usuarios
 users = [
-  { email: "doctorm@gmail.com", name: "Juan", last_name: "Perez", role: "doctor" },
-  { email: "doctors@gmail.com", name: "Laura", last_name: "Martinez", role: "doctor" },
-  { email: "user1@gmail.com", name: "Carlos", last_name: "Gomez", role: "patient" },
-  { email: "user2@gmail.com", name: "Ana", last_name: "Diaz", role: "patient" }
+  { email: "doctorm@gmail.com", name: "Juan", last_name: "Perez", role: "doctor", password: 123456 },
+  { email: "doctors@gmail.com", name: "Laura", last_name: "Martinez", role: "doctor", password: 123456 },
+  { email: "user1@gmail.com", name: "Carlos", last_name: "Gomez", role: "patient", password: 123456 },
+  { email: "user2@gmail.com", name: "Ana", last_name: "Diaz", role: "patient", password: 123456 }
 ]
 
 users.each do |user_data|
-  generated_password = '123456'
-  User.create!(
-    user_data.merge(
-      password: generated_password,
-      password_confirmation: generated_password
-    )
-  )
+  User.create!(user_data)
 end
 
 # Doctores
 mental_health_doctor = Doctor.create!(
-  user_id: User.find_by(email: "doctorm@gmail.com").id,
+  user: User.find_by(email: "doctorm@gmail.com"),
+  # user: User.first,
   specialty: "Psicólogo",
-  license: "LIC#{rand(1000..9999)}",
+  license: "LIC152643",
   address: "Av. de las Américas 1049, La Victoria 15034, Perú"
 )
 
 sexual_health_doctor = Doctor.create!(
-  user_id: User.find_by(email: "doctors@gmail.com").id,
+  user: User.find_by(email: "doctors@gmail.com"),
+
+  # user: User.second,
   specialty: "Sexólogo",
-  license: "LIC#{rand(1000..9999)}",
+  license: "LIC123456",
   address: "Av. Carlos Izaguirre 126, Independencia 15311, Perú"
 )
 
@@ -93,8 +90,8 @@ User.where(role: "patient").each do |user|
   3.times do
     Appointment.create!(
       date: Time.now + rand(1..10).days,
-      status: ["pending", "completed"].sample,
-      details: "Detalles del appointment asignado al usuario.",
+      status: "Pendiente",
+      details: "Detalles de la cita asignada al usuario.",
       doctor_id: Doctor.all.sample.id,
       user_id: user.id
     )
@@ -106,8 +103,8 @@ Doctor.all.each do |doctor|
   3.times do
     Appointment.create!(
       date: Time.now + rand(1..10).days,
-      status: ["pending", "completed"].sample,
-      details: "Detalles del appointment asignado al doctor.",
+      status: "Pendiente",
+      details: "Detalles de la cita asignada al usuario.",
       doctor_id: doctor.id,
       user_id: User.where(role: "patient").sample.id
     )

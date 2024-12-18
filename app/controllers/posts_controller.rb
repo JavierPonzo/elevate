@@ -15,7 +15,14 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
     @question_answer = QuestionAnswer.new
     @question_answers = @post.question_answers
     @doctors = Doctor.all
+    @doctor = Doctor.where(id: @post.doctor_id) #Necesario para el mapa
     @appointment = Appointment.new
+    @markers = @doctor.geocoded.map do |doc|
+      {
+        lat: doc.latitude,
+        lng: doc.longitude
+      }
+    end
   end
 
   def new

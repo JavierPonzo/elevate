@@ -1,10 +1,9 @@
-<div class="container mt-3 mb-3">
-  <div class="row align-items-center">
-    <div class="col-4"></div>
-    <div class="col-4">
-      <h1 class="profile-header text-center mb-4">Perfil de <%= @user.name %> <%= @user.last_name %></h1>
+<div class="container-fluid d-flex justify-content-center">
+  <div class="row align-items-center min-vh-100 w-50">
+      <div class="card p-4 shadow-sm border">
+        <h1 class="hero-title text-center mb-4">Perfil de <%= @user.name %> <%= @user.last_name %></h1>
 
-      <div class="profile-container text-center">
+      <div class="text-center">
         <div class="profile-photo-container mb-3">
           <% if @user.photo.attached? %>
             <%= cl_image_tag @user.photo.key, alt: "Foto de perfil", class: "profile-photo rounded-circle border" %>
@@ -14,8 +13,9 @@
         </div>
 
         <div class="profile-info">
+          <p><strong>Nombre:</strong> <%= @user.name %></p>
+          <p><strong>Apellido:</strong> <%= @user.last_name %></p>
           <p><strong>Email:</strong> <%= @user.email %></p>
-
           <% if @user == current_user %>
             <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn-edit btn btn-primary btn-lg shadow-lg rounded-pill px-5" %>
           <% end %>
@@ -29,6 +29,5 @@
         </div>
       </div>
     </div>
-    <div class="col-4"></div>
   </div>
 </div>

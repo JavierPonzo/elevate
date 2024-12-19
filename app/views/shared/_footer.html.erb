@@ -2,11 +2,11 @@
 <footer class="bg-primary-footer text-white mb-0 footer">
   <div class="container pb-1">
     <div class="row">
-      <div class="col-md-3 ">
+      <div class="col-md-3">
         <h5 class="fw-bold">Salud <span class="text-success">Integral</span></h5>
         <hr class="bg-white mb-3 mt-1" style="width: 60px; height: 2px;">
         <p>Conoce tu cuerpo. Tu salud, en tus manos. Vive una vida sexual y mental en total plenitud, crezcamos de la mano y marquemos la diferencia.</p>
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2 justify-content-center">
           <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
           <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
           <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
@@ -28,14 +28,17 @@
       <div class="col-md-3 mb-4">
         <h5 class="fw-bold">Contactos</h5>
         <hr class="bg-white mb-3 mt-1" style="width: 60px; height: 2px;">
-        <p><strong>Location:</strong> Av. El Sol - 254</p>
-        <p><strong>Email:</strong> info@example.com</p>
+        <p><strong>Location:</strong> Av. El Sol 254, Lima, Perú</p>
+        <p><strong>Email:</strong> info@elevate.com</p>
         <p><strong>Support:</strong> +51 900 912 854</p>
       </div>
 
       <div class="col-md-3 mb-4">
-        <img src="https://i.ibb.co/Hx7WXCs/1.png" alt="Elevate Logo" style="height: 200px; width: auto;">
+        <h5 class="fw-bold">Nuestras Ubicaciones</h5>
+        <hr class="bg-white mb-3 mt-1" style="width: 60px; height: 2px;">
+        <div id="footer-map" style="height: 200px; width: 100%; border-radius: 10px; overflow: hidden;"></div>
       </div>
+    </div>
 
     <div class="row">
       <div class="col text-center">
@@ -44,3 +47,21 @@
     </div>
   </div>
 </footer>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var map = L.map('footer-map').setView([-12.0464, -77.0428], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([-12.0766, -77.0293]).addTo(map)
+      .bindPopup('Doctor Juan Perez: Av. de las Américas 1049, La Victoria.');
+
+    L.marker([-11.9920, -77.0603]).addTo(map)
+      .bindPopup('Doctora Laura Martinez: Av. Carlos Izaguirre 126, Independencia.');
+  });
+</script>

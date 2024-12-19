@@ -28,7 +28,8 @@ class ChatbotJob < ApplicationJob
     questions = @question.user.questions
     results = []
 
-    system_text = "You will answer questions associated with the posts. If you don't know the information, respond with 'I don't know'. The website includes psychologists and sexologists. Provide the links to the posts where the information is sourced from. Below are the relevant posts:\n\n"
+    system_text = "Responderás preguntas relacionadas con los articulos. Si no tienes la información, responde con 'No lo sé'. El sitio web incluye psicólogos y sexólogos, articulos. Proporciona los enlaces a los artículos de donde se obtiene la información.
+    Actúa como un experto en salud sexual y salud mental. Brinda consejos de manera abierta a adolescentes y personas que busquen ayuda o quieran aprender algo que desconocen por su edad. Si la respuesta es muy compleja, podrías recomendar agendar una cita con un profesional que cuesta 70 soles (aproximadamente 18-20 USD):\n\n"
     # to nearest_products code as private method
     nearest_posts.each do |post|
       post_url = Rails.application.routes.url_helpers.post_url(post, host: "http://localhost:3000") # Cambia "yourwebsite.com" por tu dominio

@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :question_answers, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many_attached :photos
+  has_rich_text :rich_content
   validates :title, presence: true
   validates :content, presence: true
   validates :category, presence: true

@@ -11,6 +11,10 @@
       <div class="f-inputs mb-4">
         <%= f.input :content, label: 'Descripción', as: :text, required: true, input_html: { class: 'form-control', rows: 4 } %>
       </div>
+      
+      <div class="f-inputs mb-4">
+        <%= f.rich_text_area :rich_content %>
+      </div>
 
       <div class="f-inputs mb-4">
         <%= f.input :category, label: 'Categoría', required: true, input_html: { class: 'form-control' } %>

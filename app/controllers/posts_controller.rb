@@ -85,6 +85,6 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def post_params
-    params.require(:post).permit(:title, :category, :content, photos: [])
+    params.require(:post).permit(:title, :category, :rich_content, :content, photos: [])
   end
 end

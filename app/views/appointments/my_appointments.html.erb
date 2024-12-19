@@ -11,7 +11,7 @@
             <h5 class="card-title mb-3" style="color: #00BCD4;">
               <i class="fas fa-calendar-alt"></i> <%= appointment.date %>
             </h5>
-            <p class="card-text" style="color: #00427A;">
+            <p class="card-text" style="color: #00427A; ">
               <i class="fas fa-info-circle"></i> <%= appointment.details %>
             </p>
             <p class="font-weight-bold" style="color: <%= appointment.status == 'completed' ? '#1EDD88' : '#FF6F61' %>;">
@@ -28,8 +28,10 @@
                   <%= f.hidden_field :status, value: "Cancelado" %>
                   <%= f.submit "Cancelar", class: "btn text-white font-weight-bold", style: "background-color: #FF6F61; border-radius: 8px;" %>
                 <% end %>
-
-                <%= link_to "Reprogramar", edit_appointment_path(appointment), class: "btn text-white font-weight-bold", style: "background-color: #00BCD4; border-radius: 8px;" %>
+                <%# <%= link_to "Reprogramar", edit_appointment_path(appointment), class: "btn text-white font-weight-bold", style: "background-color: #00BCD4; border-radius: 8px;"%>
+                <button type="button" class="btn btn-primary btn-lg shadow rounded-pill px-4 mt-3" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+                  Nueva Cita
+                </button>
               <% else %>
                 <span class="text-muted">Estado: <%= appointment.status %></span>
               <% end %>

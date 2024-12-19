@@ -1,8 +1,8 @@
 <div class="my-5 ms-5">
   <div class="row container-fluid">
     <div class="col-md-8">
-      <div class="mb-4">
-        <h1><%= @post.title %></h1>
+      <div class="mb-2">
+        <h1 class="hero-title mb-2"><%= @post.title %></h1>
         <% @post.photos.each do |photo| %>
           <%= cl_image_tag photo.key, class: "banner-image img-fluid mb-3 shadow",style: "height: 600px; width: 1280px; object-fit: cover;", alt: @post.title %>
         <% end %>
@@ -15,13 +15,35 @@
 
     <div class="col-md-4 mt-5">
       <% if current_user.present? && current_user == @post.doctor.user %>
-        <div class="card p-4 shadow-sm mt-2">
-          <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3' %>
-          <%= link_to "Borrar", post_path(@post), data: {turbo_method: :delete, turbo_confirm: "¿Estás seguro que lo deseas?"}, class: "btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3" %>
+        <div class="card p-4 shadow-sm mt-2 ">
+          <div class="d-flex justify-content-around ">
+            <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3' %>
+            <%= link_to "Borrar", post_path(@post), data: {turbo_method: :delete, turbo_confirm: "¿Estás seguro que lo deseas?"}, class: "btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3" %>
+          </div>
         </div>
+        <div class="p-5">
+          <div class="list-group">
+          <h1 class="hero-title">Opiniones</h1>
+            <% @post.reviews.each do |review| %>
+              <li class="list-group-item">
+                <small>
+                  <% count = 0 %>
+                  <% 5.times do %>
+                    <% if review.rating > count %>
+                      <i class="fa-solid fa-star"></i>
+                    <% else %>
+                      <i class="fa-regular fa-star"></i>
+                    <% end %>
+                    <% count += 1 %>
+                  <% end %>
+                </small>
+                <p><%= review.content %></p>
+              </li>
+            <% end %>
+
       <% else %>
         <div class="card p-4 shadow-sm mt-2 ">
-         <div class="d-flex justify-content-center align-items-center">
+          <div class="d-flex justify-content-center align-items-center">
             <% if @post.doctor.user.photo.attached? %>
               <%= cl_image_tag @post.doctor.user.photo.key, class: "img-thumbnail rounded-circle mb-3", style: "height: 200px; width: 200px; object-fit: cover;", alt: "Foto de perfil de #{@post.doctor.user.name}" %>
             <% else %>
@@ -80,8 +102,8 @@
   </div>
 </div>
 
-<div class="card-body d-flex">
-  <div class="col-8 p-5">
+<div class="card-body d-flex justify-content-center mt-5">
+  <div class="col-12 p-5 w-75">
     <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">

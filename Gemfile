@@ -80,6 +80,9 @@ gem "ruby-openai"
 
 gem "solid_cable", "~> 1.0"
 
+gem "solid_cache"
+
+
 gem "solid_queue"
 
 gem 'neighbor'

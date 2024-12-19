@@ -14,9 +14,8 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
       @posts = Post.where("title ILIKE ?", "%#{params[:query]}%")
       @category = 'Relacionado con tu busqueda'
     else
-
       @posts = Post.all
-      @category = 'Relacionado con tu busqueda'
+      @category = 'Articulos'
     end
   end
 

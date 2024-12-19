@@ -1,12 +1,12 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-black mt-5">
 
-    <h1> Mis Publicaciones </h1>
+    <h1 class="hero-title"> Mis Articulos </h1>
     <h3 class="typed-js" data-controller="typed-js"></h3>
 
     <% if current_user.doctor? %>
       <div class="mt-4">
-        <%= link_to 'Crear Publicación', new_post_path, class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-5' %>
+        <%= link_to 'Crear Artículo', new_post_path, class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-5' %>
       </div>
     <% end %>
 
@@ -22,13 +22,13 @@
             <div class="d-flex justify-content-center mb-3">
               <% if post.photos.attached? %>
                 <% post.photos.each do |photo| %>
-                  <%= cl_image_tag photo.key, class: "img-fluid mb-4 ms-3 me-3", alt: post.title %>
+                  <%= cl_image_tag photo.key, class: "img-fluid mb-4 ms-3 me-3", style: "height: 300px; width: 400px; object-fit: cover;", alt: post.title %>
                 <% end %>
               <% else %>
                 <p>No imagen disponible</p>
               <% end %>
             </div>
-            <h4><%= post.title %></h4>
+            <h4 class="text-center"><%= post.title %></h4>
           </div>
         <% end %>
       </div>

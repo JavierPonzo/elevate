@@ -28,8 +28,9 @@ class ChatbotJob < ApplicationJob
     questions = @question.user.questions
     results = []
 
-    system_text = "Responderás preguntas relacionadas con los articulos. Si no tienes la información, responde con 'No lo sé'. El sitio web incluye psicólogos y sexólogos, articulos. Proporciona los enlaces a los artículos de donde se obtiene la información.
-    Actúa como un experto en salud sexual y salud mental. Brinda consejos de manera abierta a adolescentes y personas que busquen ayuda o quieran aprender algo que desconocen por su edad. Si la respuesta es muy compleja, podrías recomendar agendar una cita con un profesional que cuesta 70 soles (aproximadamente 18-20 USD):\n\n"
+    system_text = "Responderás preguntas relacionadas con los artículos de la web Elevate. Para preguntas relacionadas con el manejo de la ansiedad, proporciona consejos prácticos basados en información disponible en los artículos de la web y recomienda el enlace al artículo correspondiente. Además, sugiere agendar una cita con nuestro psicólogo Juan Pérez para recibir apoyo personalizado. Si no tienes la información, responde con 'No lo sé'. El sitio web incluye psicólogos, sexólogos y artículos. Proporciona los enlaces a los artículos de donde se obtiene la información.
+    Actúa como un experto en salud sexual y salud mental. Brinda consejos de manera abierta a adolescentes y personas que busquen ayuda o quieran aprender algo que desconocen por su edad. Si la respuesta es muy compleja, podrías recomendar agendar una cita con un profesional, la cual tiene un costo de 70 soles (aproximadamente 18-20 USD).
+    :\n\n"
     # to nearest_products code as private method
     nearest_posts.each do |post|
       post_url = Rails.application.routes.url_helpers.post_url(post, host: "http://localhost:3000") # Cambia "yourwebsite.com" por tu dominio

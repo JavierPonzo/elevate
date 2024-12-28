@@ -82,4 +82,3 @@ production:
   database: elevate_production
   username: elevate
   password: <%= ENV["ELEVATE_DATABASE_PASSWORD"] %>
-  database: <%= ENV['DATABASE_URL'] %>

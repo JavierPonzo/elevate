@@ -1,29 +1,35 @@
 <div class="container my-5">
   <div class="card shadow-lg">
-    <div class="card-header bg-primary text-white text-center">
+    <div class="card-header text-white text-center">
       <h1 class="hero-title mb-0">Detalles de Cita</h1>
     </div>
-    <div class="card-body">
-      <div class="mb-3">
+    <div class="card-body d-flex flex-column align-items-center mt-3">
+      <%= link_to appointment_path(@appointment) do %>
+            <img src="<%= @appointment.doctor.user.photo.attached? ? @appointment.doctor.user.photo.url : asset_path('default_user.jpg') %>"
+                alt="Appointment Image"
+                style="max-height: 150px; width: 150px; object-fit: cover;">
+          <% end %>
+      <div class="mt-3 mb-3 text-center">
         <p><strong>Doctor:</strong> <%= @appointment.doctor.user.name %> <%= @appointment.doctor.user.last_name %></p>
       </div>
-      <div class="mb-3">
+      <div class="mb-3 text-center">
         <p><strong>Paciente:</strong> <%= @appointment.user.name %> <%= @appointment.user.last_name %></p>
       </div>
-      <div class="mb-3">
+      <div class="mb-3 text-center">
         <p>
           <strong>Fecha:</strong>
           <%= @appointment.date.present? ? @appointment.date.strftime('%B %d, %Y at %I:%M %p') : 'Fecha no especificada' %>
         </p>
       </div>
-      <div class="mb-3">
+      <div class="mb-3 text-center">
         <p><strong>Detalles:</strong> <%= @appointment.details %></p>
       </div>
-        <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita
-        ?' }, class: 'btn btn-secondary' %>
+      <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita
+        ?' }, class: 'btn btn-primary text-white text-center' %>
+      </div>
     </div>
     <div class="card-footer text-center">
-      <%= link_to 'Volver a Mis Citas', my_appointments_path, class: 'btn btn-secondary' %>
+      <%= link_to 'Volver a Mis Citas', my_appointments_path, class: 'btn btn-secondary mt-5' %>
     </div>
   </div>
 </div>

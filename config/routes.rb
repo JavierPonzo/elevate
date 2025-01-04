@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   # Appointments with Stripe and confirmation actions
-  resources :appointments, except: [:destroy] do
+  resources :appointments do
     member do
       patch :confirm
       post :create_checkout_session

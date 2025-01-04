@@ -17,13 +17,10 @@
       <%= form.label :doctor_id, "Selecciona Doctor", class: "form-label" %>
       <%= form.select :doctor_id, @doctors.collect { |doctor| [doctor.user.name + ' ' + doctor.user.last_name, doctor.id] }, { prompt: "Elige un Doctor" }, class: "form-control" %>
     </div>
+
     <div class="form-group">
       <%= form.label :date, "Fecha de Cita", class: "form-label" %>
-      <%= form.date_field :date, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :time, "Hora de Cita", class: "form-label" %>
-      <%= form.select :time, options_for_select((8..21).map { |h| ["#{format('%02d', h)}:00", "#{format('%02d', h)}:00"] }), {}, class: "form-control" %>
+      <%= form.datetime_local_field :date, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= form.label :details, "Detalles Adicionales", class: "form-label" %>

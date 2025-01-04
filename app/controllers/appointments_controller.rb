@@ -97,8 +97,13 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
-    @appointment.destroy
-    redirect_to my_appointments_path, notice: "Tu cita ha sido cancelada."
+    @appointment = Appointment.find(params[:id])
+    if @appointment
+      @appointment.destroy
+      redirect_to my_appointments_path, notice: "Tu cita ha sido cancelada."
+    else
+      redirect_to my_appointments_path, alert: "No se pudo encontrar la cita."
+    end
   end
 
   def my_appointments

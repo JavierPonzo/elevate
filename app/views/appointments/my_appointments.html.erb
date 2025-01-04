@@ -20,23 +20,32 @@
             <p class="card-text" style="color: #00427A;">
               <i class="fas fa-info-circle"></i> Paciente: <%= appointment.user.name %> <%= appointment.user.last_name %>
             </p>
+        <p><strong>Estado:</strong>
+          <span class="badge <%= appointment.status == 'confirmado' ? 'bg-success' : 'bg-warning' %>">
+            <%= appointment.status.capitalize %>
+          </span>
+        </p>
           </div>
           <div class="card-footer bg-transparent text-center">
             <% if current_user.doctor? && appointment.status == "Pendiente" %>
-                <%= button_to "Confirmar", confirm_appointment_path(appointment),
+              <!-- Confirmar Cita -->
+              <%= button_to "Confirmar",
+                confirm_appointment_path(appointment),
                 method: :patch,
                 class: "btn text-white font-weight-bold",
                 style: "background-color: #1EDD88; border-radius: 8px;" %>
             <% elsif current_user.patient? %>
               <% if appointment.status == "Pendiente" %>
-
-                <%= form_with model: appointment, url: appointment_path(appointment), method: :patch, local: true do |f| %>
-                  <%= button_to "Pagar Ahora",
+                <!-- Pagar Ahora -->
+                <%= button_to "Pagar Ahora",
                   create_checkout_session_appointment_path(appointment),
                   class: "btn text-white font-weight-bold",
                   style: "background-color: #007bff; border-radius: 8px;",
                   method: :post,
                   data: { turbo: false } %>
+
+                <!-- Cancelar Cita -->
+                <%= form_with model: appointment, url: appointment_path(appointment), method: :patch, local: true do |f| %>
                   <%= f.hidden_field :status, value: "Cancelado" %>
                   <%= f.submit "Cancelar", class: "btn text-white font-weight-bold", style: "background-color: #FF6F61; border-radius: 8px;" %>
                 <% end %>

@@ -5,7 +5,7 @@
       <div class="col-md-4 col-lg-3 mb-4">
         <div class="card shadow border-0 h-100" style="border-radius: 12px; background-color: #FFFFFF;">
           <%= link_to appointment_path(appointment), class: "d-block" do %>
-            <img src="<%= appointment.doctor.user.photo.url %>"
+            <img src="<%= appointment.doctor.user.photo.attached? ? appointment.doctor.user.photo.url : asset_path('default_user.jpg') %>"
                 class="card-img-top"
                 alt="Appointment Image"
                 style="border-top-left-radius: 12px; border-top-right-radius: 12px; max-height: 150px; object-fit: cover;">
@@ -14,35 +14,38 @@
             <h5 class="card-title mb-3" style="color: #00BCD4;">
               <i class="fas fa-calendar-alt"></i> <%= appointment.date %>
             </h5>
-            <p class="card-text" style="color: #00427A; ">
+            <p class="card-text" style="color: #00427A;">
               <i class="fas fa-info-circle"></i> Doctor: <%= appointment.doctor.user.name %> <%= appointment.doctor.user.last_name %>
             </p>
-            <p class="card-text" style="color: #00427A; ">
+            <p class="card-text" style="color: #00427A;">
               <i class="fas fa-info-circle"></i> Paciente: <%= appointment.user.name %> <%= appointment.user.last_name %>
-            </p>
-            <p class="font-weight-bold" style="color: <%= appointment.status == 'completed' ? '#1EDD88' : '#FF6F61' %>;">
-              <i class="fas fa-circle"></i> Estado: <%= appointment.status.capitalize %>
             </p>
           </div>
           <div class="card-footer bg-transparent text-center">
             <% if current_user.doctor? && appointment.status == "Pendiente" %>
-              <%= button_to "Confirmar", confirm_appointment_path(appointment), method: :patch, class: "btn text-white font-weight-bold", style: "background-color: #1EDD88; border-radius: 8px;" %>
+                <%= button_to "Confirmar", confirm_appointment_path(appointment),
+                method: :patch,
+                class: "btn text-white font-weight-bold",
+                style: "background-color: #1EDD88; border-radius: 8px;" %>
             <% elsif current_user.patient? %>
               <% if appointment.status == "Pendiente" %>
 
                 <%= form_with model: appointment, url: appointment_path(appointment), method: :patch, local: true do |f| %>
+                  <%= button_to "Pagar Ahora",
+                  create_checkout_session_appointment_path(appointment),
+                  class: "btn text-white font-weight-bold",
+                  style: "background-color: #007bff; border-radius: 8px;",
+                  method: :post,
+                  data: { turbo: false } %>
                   <%= f.hidden_field :status, value: "Cancelado" %>
                   <%= f.submit "Cancelar", class: "btn text-white font-weight-bold", style: "background-color: #FF6F61; border-radius: 8px;" %>
                 <% end %>
-                <%# <%= link_to "Reprogramar", edit_appointment_path(appointment), class: "btn text-white font-weight-bold", style: "background-color: #00BCD4; border-radius: 8px;"%>
-                <%# <button type="button" class="btn btn-primary btn-lg shadow rounded-pill px-4 mt-3" data-bs-toggle="modal" data-bs-target="#appointmentModal">
-                  Nueva Cita
-                </button> %>
               <% else %>
-                <span class="text-muted">Estado: <%= appointment.status %></span>
+                <span class="badge <%= appointment.status.downcase == 'confirmado' ? 'bg-success text-white' : 'bg-warning text-dark' %> btn"
+                  style="border-radius: 8px;">
+                  Estado: <%= appointment.status.capitalize %>
+                </span>
               <% end %>
-            <% else %>
-              <span class="text-muted">Estado: <%= appointment.status %></span>
             <% end %>
           </div>
         </div>

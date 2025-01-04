@@ -21,11 +21,21 @@
           <%= @appointment.date.present? ? @appointment.date.strftime('%B %d, %Y at %I:%M %p') : 'Fecha no especificada' %>
         </p>
       </div>
-      <div class="mb-3 text-center">
+      <div class="mb-2 text-center">
         <p><strong>Detalles:</strong> <%= @appointment.details %></p>
       </div>
+      <% if current_user.doctor? && @appointment.status == "Pendiente" %>
+      <%= button_to "Confirmar Cita", confirm_appointment_path(@appointment), method: :patch, class: "btn btn-primary text-white font-weight-bold" %>
       <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita
-        ?' }, class: 'btn btn-primary text-white text-center' %>
+        ?' }, class: 'btn btn-primary text-white text-center mt-3 mb-2' %>
+        <% end %>
+      <% if current_user.patient? && @appointment.user == current_user && @appointment.status == "Confirmado" %>
+        <p>No puedes asistir a la cita? Cancela sin costo hasta 12hs antes de la cita.</p>
+      <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita
+        ?' }, class: 'btn btn-primary text-white text-center mt-3 mb-2' %>
+        <% end %>
+
+
       </div>
     </div>
     <div class="card-footer text-center">

@@ -72,7 +72,7 @@ class AppointmentsController < ApplicationController
           product_data: {
             name: "Cita con #{@appointment.doctor.user.name} #{@appointment.doctor.user.last_name}"
           },
-          unit_amount: 5000,
+          unit_amount: 3000,
         },
         quantity: 1,
       }],
@@ -99,10 +99,6 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment.destroy
     redirect_to my_appointments_path, notice: "Tu cita ha sido cancelada."
-  end
-
-  def set_appointment
-    @appointment = Appointment.find(params[:id])
   end
 
   def my_appointments

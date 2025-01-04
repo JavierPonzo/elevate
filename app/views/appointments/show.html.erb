@@ -17,20 +17,13 @@
         </p>
       </div>
       <div class="mb-3">
-        <p><strong>Estado:</strong>
-          <span class="badge <%= @appointment.status == 'completado' ? 'bg-success' : 'bg-warning' %>">
-            <%= @appointment.status.capitalize %>
-          </span>
-        </p>
-      </div>
-      <div class="mb-3">
         <p><strong>Detalles:</strong> <%= @appointment.details %></p>
       </div>
         <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita
         ?' }, class: 'btn btn-secondary' %>
     </div>
     <div class="card-footer text-center">
-      <%= link_to 'Volver a Mis Citas', appointments_path, class: 'btn btn-secondary' %>
+      <%= link_to 'Volver a Mis Citas', my_appointments_path, class: 'btn btn-secondary' %>
     </div>
   </div>
 </div>

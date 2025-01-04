@@ -4,6 +4,7 @@ class Appointment < ApplicationRecord
   validates :date, presence: true
   # before_save :set_default_status
   validates :status, inclusion: { in: ["Pendiente", "Confirmado", "Cancelado"] }
+  attribute :paid, :boolean, default: false
 
   private
 

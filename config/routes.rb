@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-
   devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health status for monitoring
   get "up" => "rails/health#show", as: :rails_health_check
 
+  # Custom routes
   get 'my_posts', to: 'posts#my_posts'
   get 'my_appointments', to: 'appointments#my_appointments'
+
+  # Posts with nested resources
   resources :posts do
     collection do
       get 'search_suggestions'
@@ -18,16 +18,22 @@ Rails.application.routes.draw do
     resources :question_answers, only: [:index, :new, :create]
   end
 
-  resources :appointments do
+  # Appointments with Stripe and confirmation actions
+  resources :appointments, except: [:destroy] do
     member do
       patch :confirm
+      post :create_checkout_session
+      get :payment_success
+      get :payment_cancel
     end
   end
 
+  # Questions resource
   resources :questions, only: [:index, :create]
-  resources :appointments, only: [:index, :new, :show, :create, :destroy, :edit]
-  # Defines the root path route ("/")
-  # root "posts#index"
+
+  # Static pages
   get 'about', to: 'pages#about'
+
+  # Users
   resources :users, only: [:show, :edit, :update]
 end

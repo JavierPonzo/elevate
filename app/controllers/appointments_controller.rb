@@ -1,3 +1,5 @@
+require 'stripe'
+
 class AppointmentsController < ApplicationController
   def index
     if current_user.doctor?
@@ -43,7 +45,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     if @appointment.user == current_user || @appointment.doctor && @appointment.doctor.user == current_user
     else
-      redirect_to appointments_path, alert: "Permiso denegado"
+      redirect_to my_appointments_path, alert: "Permiso denegado"
     end
   end
 
@@ -52,19 +54,48 @@ class AppointmentsController < ApplicationController
     @appointment.user = current_user
     @appointment.status = "Pendiente"
     if @appointment.save
-      redirect_to my_appointments_path, notice: 'Tu cita ha sido creada exitosamente'
+      redirect_to my_appointments_path(@appointment), notice: "Cita creada, procede al pago."
     else
       @doctors = Doctor.all
       render :new , alert: 'Tu cita no ha sido creada, por favor intenta nuevamente.'
     end
   end
 
-  # def destroy
-  #   @appointment = Appointment.find(params[:id])
-  #   @appointment.destroy
-  #   redirect_to appointments_path, notice: "Tu cita ha sido cancelada"
-  # end
-  #
+  def create_checkout_session
+    @appointment = Appointment.find(params[:id])
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: "Cita con #{@appointment.doctor.user.name} #{@appointment.doctor.user.last_name}"
+          },
+          unit_amount: 5000,
+        },
+        quantity: 1,
+      }],
+      mode: 'payment',
+      success_url: payment_success_appointment_url(@appointment),
+      cancel_url: payment_cancel_appointment_url(@appointment)
+    )
+
+    redirect_to session.url, allow_other_host: true
+  end
+
+  def payment_success
+    @appointment = Appointment.find(params[:id])
+    @appointment.update(paid: true, status: "Confirmado")
+    redirect_to my_appointments_path
+    flash[:notice] = "Pago exitoso. Tu cita ha sido confirmada!"
+  end
+
+  def payment_cancel
+    flash[:alert] = "El pago fue cancelado. Puedes intentarlo nuevamente."
+    redirect_to my_appointments_path
+  end
+
   def destroy
     @appointment.destroy
     redirect_to my_appointments_path, notice: "Tu cita ha sido cancelada."
@@ -90,7 +121,7 @@ class AppointmentsController < ApplicationController
   end
 
   private
-  
+
 
   def appointment_params
     params.require(:appointment).permit(:date, :details, :doctor_id, :status)

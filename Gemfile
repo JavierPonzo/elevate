@@ -82,6 +82,7 @@ gem "solid_cable", "~> 1.0"
 
 gem "solid_cache"
 
+gem "stripe"
 
 gem "solid_queue"
 

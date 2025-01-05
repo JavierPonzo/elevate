@@ -37,8 +37,12 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+    if current_user.patient?
     @appointment = Appointment.new
     @doctors = Doctor.all
+    else
+      redirect_to my_appointments_path, alert: "Solo pacientes pueden agendar citas!"
+    end
   end
 
   def show
@@ -50,6 +54,11 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+    if current_user.doctor?
+      flash[:alert] = "No tienes permiso para crear una cita."
+      redirect_to posts_path and return
+    end
+
     date = params[:appointment][:date]
     time = params[:appointment][:time]
 
@@ -70,9 +79,12 @@ class AppointmentsController < ApplicationController
       redirect_to my_appointments_path(@appointment), notice: "Cita creada, procede al pago."
     else
       @doctors = Doctor.all
-      render :new, alert: 'Tu cita no ha sido creada, por favor intenta nuevamente.'
+      flash[:alert] = 'Tu cita no ha sido creada, por favor intenta nuevamente.'
+      render :new, status: :unprocessable_entity
     end
   end
+
+
 
 
 
@@ -124,13 +136,21 @@ class AppointmentsController < ApplicationController
   def my_appointments
     user = User.find(current_user.id)
     role = user.role
+
     if role == "patient"
-      @appointments = user.appointments.order(date: :desc)
+      @appointments = user.appointments.order(date: :desc) # Lista vacía si no hay citas
     else
-      @doctor = Doctor.where(user: user)[0]
-      @appointments = @doctor.appointments.order(date: :desc)
+      @doctor = Doctor.find_by(user: user)
+      if @doctor.present?
+        @appointments = @doctor.appointments.order(date: :desc)
+      else
+        @appointments = []
+        flash[:alert] = "No se encontraron citas asociadas a este usuario."
+      end
     end
   end
+
+
 
   def edit
     @appointment = Appointment.find(params[:id])

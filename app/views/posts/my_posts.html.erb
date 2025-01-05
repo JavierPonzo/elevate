@@ -15,23 +15,28 @@
 
 <div class="container py-5">
   <div class="row">
-    <% @posts.each do |post| %>
-      <div class="col-12 col-sm-6 col-md-4 mb-3">
-        <%= link_to post_path(post), class: "text-decoration-none text-dark" do %>
-          <div class="card-category">
-            <div class="d-flex justify-content-center mb-3">
-              <% if post.photos.attached? %>
-                <% post.photos.each do |photo| %>
-                  <%= cl_image_tag photo.key, class: "img-fluid mb-4 ms-3 me-3", style: "height: 300px; width: 400px; object-fit: cover;", alt: post.title %>
+    <% if @posts.present? %>
+      <% @posts.each do |post| %>
+        <div class="col-12 col-sm-6 col-md-4 mb-3">
+          <%= link_to post_path(post), class: "text-decoration-none text-dark" do %>
+            <div class="card-category">
+              <div class="d-flex justify-content-center mb-3">
+                <% if post.photos.attached? %>
+                  <% post.photos.each do |photo| %>
+                    <%= cl_image_tag photo.key, class: "img-fluid mb-4 ms-3 me-3", style: "height: 300px; width: 400px; object-fit: cover;", alt: post.title %>
+                  <% end %>
+                <% else %>
+                  <p>No imagen disponible</p>
                 <% end %>
-              <% else %>
-                <p>No imagen disponible</p>
-              <% end %>
+              </div>
+              <h4 class="text-center"><%= post.title %></h4>
             </div>
-            <h4 class="text-center"><%= post.title %></h4>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <% else %>
+        <p class="text-center text-muted mt-5 mb-3"><strong>Oops! Aún no tienes ningún artículo creado.</strong></p>
+        <p class="text-center text-muted mt-5 mb-5"><strong>Puedes crear tu primer artículo cuando desees!</strong></p>
+      <% end %>
   </div>
 </div>

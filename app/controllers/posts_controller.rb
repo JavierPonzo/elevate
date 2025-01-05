@@ -50,17 +50,24 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def create
     if current_user.doctor?
-      @post = Post.new(post_params)
-      @post.doctor_id = current_user.doctor&.id
+      doctor = current_user.doctor
+      if doctor.nil?
+        flash[:alert] = "No se encontró un doctor asociado a este usuario."
+        redirect_to posts_path and return
+      end
+
+      @post = doctor.posts.new(post_params)
       if @post.save
-        redirect_to post_path(@post)
+        redirect_to post_path(@post), notice: "Artículo creado exitosamente."
       else
+        flash[:alert] = "No se pudo crear el artículo. Por favor, verifica los datos."
         render :new, status: :unprocessable_entity
       end
     else
-      redirect_to posts_path, alert: "Solo Doctores pueden crear articulos"
+      redirect_to posts_path, alert: "Solo los doctores pueden crear artículos."
     end
   end
+
 
   def edit
     redirect_to post_path, alert: "No tenes permiso para editar este articulo." unless @post.doctor_id == current_user.doctor&.id
@@ -81,9 +88,15 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def my_posts
-    @posts = current_user.doctor.posts if current_user.doctor?
-    redirect_to posts_path, alert: "No tienes permiso" if @posts.blank?
+  if current_user.doctor?
+    doctor = current_user.doctor
+    @posts = doctor.present? ? doctor.posts : []
+  else
+    flash[:alert] = "No tienes permiso para esta sección."
+    redirect_to posts_path
   end
+end
+
 
   private
 

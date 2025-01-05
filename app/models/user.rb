@@ -3,13 +3,20 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one :doctor
+
+  has_one :doctor, dependent: :destroy
   has_many :reviews
   has_many :question_answers
   has_many :appointments
-  # after_save :create_doctor
   has_many :questions
   has_one_attached :photo
+  has_one_attached :avatar
+
+  after_create :create_doctor_if_needed
+
+  validates :name, presence: true
+  validates :last_name, presence: true
+  validates :role, presence: true, inclusion: { in: ['doctor', 'patient'], message: "debe seleccionar Doctor o Paciente" }
 
   def doctor?
     role == "doctor"
@@ -19,9 +26,9 @@ class User < ApplicationRecord
     role == "patient"
   end
 
-  # def create_doctor
-  #   if role == "doctor"
-  #     Doctor.find_or_create_by(user_id: id)
-  #   end
-  # end
+  private
+
+  def create_doctor_if_needed
+    Doctor.find_or_create_by(user: self) if doctor?
+  end
 end

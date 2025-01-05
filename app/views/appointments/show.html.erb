@@ -1,25 +1,31 @@
-<div class="container my-5">
-  <div class="card shadow-lg">
-    <div class="card-header text-white text-center">
-      <h1 class="hero-title mb-0">Detalles de Cita</h1>
+<div class="container my-5 w-50">
+  <div class="card shadow-lg rounded-4">
+    <div class="card-header bg-primary rounded-4 text-center">
+      <h1 class="hero-title mb-0 text-white">Detalles de Cita</h1>
     </div>
 
     <div class="card-body">
-      <div class="d-flex justify-content-center align-items-center mb-4">
+      <div class="row justify-content-center align-items-center mb-2">
         <!-- Doctor Section -->
-        <div class="text-center mx-3">
-          <img src="<%= @appointment.doctor.user.photo.attached? ? @appointment.doctor.user.photo.url : asset_path('default_user.jpg') %>"
-              alt="Doctor Image"
-              style="height: 150px; width: 150px; object-fit: cover; border-radius: 50%;">
-          <p class="mt-2 font-weight-bold"><strong>Doctor:</strong> <%= @appointment.doctor.user.name %> <%= @appointment.doctor.user.last_name %></p>
+        <div class="col-md-4 text-center my-5">
+          <img src="<%= @appointment.doctor.user.avatar.attached? ? url_for(@appointment.doctor.user.avatar) : asset_path('default_user.jpg') %>"
+               alt="Doctor Image"
+               class="img-fluid rounded-circle"
+               style="height: 150px; width: 150px; object-fit: cover;">
+          <p class="mt-2 font-weight-bold">
+            <strong>Doctor:</strong> <%= @appointment.doctor.user.name %> <%= @appointment.doctor.user.last_name %>
+          </p>
         </div>
 
         <!-- Patient Section -->
-        <div class="text-center mx-3">
-          <img src="<%= @appointment.user.photo.attached? ? @appointment.user.photo.url : asset_path('default_user.jpg') %>"
-              alt="Patient Image"
-              style="height: 150px; width: 150px; object-fit: cover; border-radius: 50%;">
-          <p class="mt-2 font-weight-bold"><strong>Paciente:</strong> <%= @appointment.user.name %> <%= @appointment.user.last_name %></p>
+        <div class="col-md-4 text-center my-5">
+          <img src="<%= @appointment.user.avatar.attached? ? url_for(@appointment.user.avatar) : asset_path('default_user.jpg') %>"
+               alt="Patient Image"
+               class="img-fluid rounded-circle"
+               style="height: 150px; width: 150px; object-fit: cover;">
+          <p class="mt-2 font-weight-bold">
+            <strong>Paciente:</strong> <%= @appointment.user.name %> <%= @appointment.user.last_name %>
+          </p>
         </div>
       </div>
 
@@ -32,25 +38,23 @@
         <p><strong>Detalles:</strong> <%= @appointment.details.presence || 'Sin detalles adicionales' %></p>
       </div>
 
-      <!-- Actions for Doctor -->
+      <!-- Actions -->
       <div class="text-center mb-4 mt-4">
         <% if current_user.doctor? && @appointment.status == "Pendiente" %>
           <%= button_to "Confirmar Cita", confirm_appointment_path(@appointment), method: :patch, class: "btn btn-success text-white font-weight-bold mb-2", style: "background-color: #3AAFA9" %>
           <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita?' }, class: 'btn btn-danger text-white font-weight-bold mb-2' %>
         <% end %>
-
-        <!-- Actions for Patient -->
         <% if current_user.patient? && @appointment.user == current_user && @appointment.status == "Confirmado" %>
           <p class="text-danger mb-4">No puedes asistir a la cita? Cancela sin costo hasta 12hs antes de la cita.</p>
           <%= form_with model: @appointment, url: appointment_path(@appointment), method: :patch, local: true do |f| %>
-                  <%= f.hidden_field :status, value: "Cancelado" %>
-                  <button type="submit" class="btn text-white font-weight-bold w-25" style="background-color:rgb(223, 49, 33); border-radius: 8px;">Cancelar</button>
-                <% end %>
+            <%= f.hidden_field :status, value: "Cancelado" %>
+            <button type="submit" class="btn text-white font-weight-bold w-25" style="background-color:rgb(223, 49, 33); border-radius: 8px;">Cancelar</button>
+          <% end %>
         <% end %>
       </div>
     </div>
 
-    <div class="card-footer text-center">
+    <div class="card-footer text-center bg-primary rounded-4">
       <%= link_to 'Volver a Mis Citas', my_appointments_path, class: 'btn btn-secondary mt-3 mb-3' %>
     </div>
   </div>

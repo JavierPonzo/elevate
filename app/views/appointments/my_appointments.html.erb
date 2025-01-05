@@ -28,31 +28,31 @@
           </div>
           <div class="card-footer bg-transparent text-center">
             <% if current_user.doctor? && appointment.status == "Pendiente" %>
-              <!-- Confirmar Cita -->
-              <%= button_to "Confirmar",
-                confirm_appointment_path(appointment),
-                method: :patch,
-                class: "btn text-white font-weight-bold",
-                style: "background-color: #1EDD88; border-radius: 8px;" %>
+                <!-- Confirmar Cita -->
+            <%= button_to "Confirmar",
+              confirm_appointment_path(appointment),
+              method: :patch,
+              class: "btn text-white font-weight-bold w-75 mb-2",
+              style: "background-color: #3AAFA9; border-radius: 8px;" %>
             <% elsif current_user.patient? %>
               <% if appointment.status == "Pendiente" %>
                 <!-- Pagar Ahora -->
                 <%= button_to "Pagar Ahora",
                   create_checkout_session_appointment_path(appointment),
-                  class: "btn text-white font-weight-bold",
-                  style: "background-color: #007bff; border-radius: 8px;",
                   method: :post,
+                  class: "btn text-white font-weight-bold w-75 mb-2",
+                  style: "background-color: #007bff; border-radius: 8px;",
                   data: { turbo: false } %>
-
                 <!-- Cancelar Cita -->
                 <%= form_with model: appointment, url: appointment_path(appointment), method: :patch, local: true do |f| %>
                   <%= f.hidden_field :status, value: "Cancelado" %>
-                  <%= f.submit "Cancelar", class: "btn text-white font-weight-bold", style: "background-color: #FF6F61; border-radius: 8px;" %>
+                  <button type="submit" class="btn text-white font-weight-bold w-75" style="background-color: #FF6F61; border-radius: 8px;">Cancelar</button>
                 <% end %>
               <% else %>
-                <span class="badge <%= appointment.status.downcase == 'confirmado' ? 'bg-success text-white' : 'bg-warning text-dark' %> btn"
-                  style="border-radius: 8px;">
-                  Estado: <%= appointment.status.capitalize %>
+                <!-- Status Badge -->
+                <span class="badge <%= appointment.status.downcase == 'confirmado' ? '' : 'bg-warning' %> text-white"
+                  style="background-color: <%= appointment.status.downcase == 'confirmado' ? '#3AAFA9' : '' %>; border-radius: 8px; padding: 10px 20px; font-size: 16px;">
+                  ESTADO: <%= appointment.status.upcase %>
                 </span>
               <% end %>
             <% end %>

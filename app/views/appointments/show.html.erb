@@ -32,20 +32,22 @@
       </div>
 
       <!-- Actions for Doctor -->
-      <% if current_user.doctor? && @appointment.status == "Pendiente" %>
-        <%= button_to "Confirmar Cita", confirm_appointment_path(@appointment), method: :patch, class: "btn btn-success text-white font-weight-bold mb-2" %>
-        <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita?' }, class: 'btn btn-danger text-white font-weight-bold mb-2' %>
-      <% end %>
+      <div class="text-center mb-4 mt-4">
+        <% if current_user.doctor? && @appointment.status == "Pendiente" %>
+          <%= button_to "Confirmar Cita", confirm_appointment_path(@appointment), method: :patch, class: "btn btn-success text-white font-weight-bold mb-2", style: "background-color: #3AAFA9" %>
+          <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita?' }, class: 'btn btn-danger text-white font-weight-bold mb-2' %>
+        <% end %>
 
-      <!-- Actions for Patient -->
-      <% if current_user.patient? && @appointment.user == current_user && @appointment.status == "Confirmado" %>
-        <p class="text-danger mb-2">No puedes asistir a la cita? Cancela sin costo hasta 12hs antes de la cita.</p>
-        <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita?' }, class: 'btn btn-danger text-white font-weight-bold mb-2' %>
-      <% end %>
+        <!-- Actions for Patient -->
+        <% if current_user.patient? && @appointment.user == current_user && @appointment.status == "Confirmado" %>
+          <p class="text-danger mb-4">No puedes asistir a la cita? Cancela sin costo hasta 12hs antes de la cita.</p>
+          <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita?' }, class: 'btn btn-danger text-white font-weight-bold mb-2' %>
+        <% end %>
+      </div>
     </div>
 
     <div class="card-footer text-center">
-      <%= link_to 'Volver a Mis Citas', my_appointments_path, class: 'btn btn-secondary mt-5' %>
+      <%= link_to 'Volver a Mis Citas', my_appointments_path, class: 'btn btn-secondary mt-3 mb-3' %>
     </div>
   </div>
 </div>

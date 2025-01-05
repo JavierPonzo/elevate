@@ -18,7 +18,7 @@
         <div class="card p-4 shadow-sm mt-2 ">
           <div class="d-flex justify-content-around ">
             <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3' %>
-            <%= link_to "Borrar", post_path(@post), data: {turbo_method: :delete, turbo_confirm: "¿Estás seguro que lo deseas?"}, class: "btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3" %>
+            <%= link_to "Borrar", post_path(@post), data: {turbo_method: :delete, turbo_confirm: "¿Estás seguro que lo deseas borrar?"}, class: "btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3" %>
           </div>
         </div>
         <div class="p-5">

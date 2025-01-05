@@ -40,7 +40,8 @@
           <li class="nav-item dropdown">
             <% if current_user %>
               <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= image_tag current_user.photo.attached? ? current_user.photo : "default_user.jpg", alt: "User avatar", class: "avatar rounded-circle" %>
+                <%= image_tag current_user.photo.attached? ? current_user.photo : "default_user.jpg", alt: "User avatar",
+                  style: "width: 50px; height: 50px; object-fit: cover; border-radius: 50%;" %>
               </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Mi Perfil", user_path(current_user), class: "dropdown-item" %>

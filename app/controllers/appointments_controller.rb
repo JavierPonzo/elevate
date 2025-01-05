@@ -50,16 +50,31 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+    date = params[:appointment][:date]
+    time = params[:appointment][:time]
+
+    if date.present? && time.present?
+      combined_datetime = DateTime.parse("#{date} #{time}")
+    else
+      flash[:alert] = "La fecha y hora son requeridas."
+      redirect_to new_appointment_path and return
+    end
+
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
+    @appointment.date = combined_datetime.to_date
+    @appointment.time = combined_datetime.to_time
     @appointment.status = "Pendiente"
+
     if @appointment.save
       redirect_to my_appointments_path(@appointment), notice: "Cita creada, procede al pago."
     else
       @doctors = Doctor.all
-      render :new , alert: 'Tu cita no ha sido creada, por favor intenta nuevamente.'
+      render :new, alert: 'Tu cita no ha sido creada, por favor intenta nuevamente.'
     end
   end
+
+
 
   def create_checkout_session
     @appointment = Appointment.find(params[:id])
@@ -125,6 +140,6 @@ class AppointmentsController < ApplicationController
 
 
   def appointment_params
-    params.require(:appointment).permit(:date, :details, :doctor_id, :status)
+    params.require(:appointment).permit(:date, :time, :details, :doctor_id, :status)
   end
 end

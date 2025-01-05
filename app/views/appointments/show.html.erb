@@ -25,7 +25,8 @@
 
       <!-- Appointment Details -->
       <div class="text-center mb-3">
-        <p><strong>Fecha:</strong> <%= @appointment.date.present? ? @appointment.date.strftime('%B %d, %Y at %I:%M %p') : 'Fecha no especificada' %></p>
+        <p><strong>Fecha:</strong> <%= @appointment.date.present? ? @appointment.date.strftime('%B %d, %Y') : 'Fecha no especificada' %></p>
+        <p><strong>Hora:</strong> <%= @appointment.time.present? ? @appointment.time.strftime('%H:%M') : 'Hora no especificada' %></p>
       </div>
       <div class="text-center mb-4 mt-4">
         <p><strong>Detalles:</strong> <%= @appointment.details.presence || 'Sin detalles adicionales' %></p>
@@ -41,7 +42,10 @@
         <!-- Actions for Patient -->
         <% if current_user.patient? && @appointment.user == current_user && @appointment.status == "Confirmado" %>
           <p class="text-danger mb-4">No puedes asistir a la cita? Cancela sin costo hasta 12hs antes de la cita.</p>
-          <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita?' }, class: 'btn btn-danger text-white font-weight-bold mb-2' %>
+          <%= form_with model: @appointment, url: appointment_path(@appointment), method: :patch, local: true do |f| %>
+                  <%= f.hidden_field :status, value: "Cancelado" %>
+                  <button type="submit" class="btn text-white font-weight-bold w-25" style="background-color:rgb(223, 49, 33); border-radius: 8px;">Cancelar</button>
+                <% end %>
         <% end %>
       </div>
     </div>

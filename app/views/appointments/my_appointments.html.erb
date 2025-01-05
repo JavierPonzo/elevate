@@ -46,7 +46,7 @@
                 <!-- Cancelar Cita -->
                 <%= form_with model: appointment, url: appointment_path(appointment), method: :patch, local: true do |f| %>
                   <%= f.hidden_field :status, value: "Cancelado" %>
-                  <button type="submit" class="btn text-white font-weight-bold w-75" style="background-color: #FF6F61; border-radius: 8px;">Cancelar</button>
+                  <button type="submit" class="btn btn-warning text-white font-weight-bold w-75" style="background-color:rgb(223, 49, 33); border-radius: 8px;">Cancelar</button>
                 <% end %>
               <% else %>
                 <!-- Status Badge -->

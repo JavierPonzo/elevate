@@ -3,7 +3,7 @@ require 'stripe'
 class AppointmentsController < ApplicationController
   def index
     if current_user.doctor?
-      @appointments = Appointment.where(doctor_id: current_user.doctor.id, status: "Pendiente")
+      @appointments = Appointment.where(doctor_id: current_user.doctor.id, status: "Pendiente").order(date: :desc)
     else
       @appointments = current_user.appointments
     end
@@ -125,10 +125,10 @@ class AppointmentsController < ApplicationController
     user = User.find(current_user.id)
     role = user.role
     if role == "patient"
-      @appointments = user.appointments
+      @appointments = user.appointments.order(date: :desc)
     else
       @doctor = Doctor.where(user: user)[0]
-      @appointments = @doctor.appointments
+      @appointments = @doctor.appointments.order(date: :desc)
     end
   end
 

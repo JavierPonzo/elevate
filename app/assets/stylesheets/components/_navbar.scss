@@ -20,39 +20,38 @@
 /* Responsive Styles for Small Mobiles */
 @media (max-width: 576px) {
   .navbar-lewagon {
-    height: 70px; /* Reduce height for small devices */
-    padding: 10px; /* Add some space */
-    background: #ffffff; /* Change background color */
-    border-radius: 0; /* Remove border radius for mobile */
-    box-shadow: none; /* Remove shadow */
+    height: 70px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .navbar-lewagon .navbar-brand img {
-    width: 30px; /* Adjust logo size */
-    margin-left: 10px; /* Adjust spacing */
+    width: 30px;
+    margin-left: 10px;
   }
 
   .navbar-lewagon .navbar-toggler-icon {
-    background-color: #00AEEF; /* Update toggler color */
+    background-color: #00AEEF;
   }
 
   .navbar-lewagon .navbar-nav {
-    flex-direction: column; /* Stack menu items vertically */
-    align-items: center; /* Center-align items */
+    flex-direction: column;
+    align-items: center;
   }
 
   .navbar-lewagon .navbar-nav .nav-link {
-    font-size: 14px; /* Reduce font size */
-    margin: 5px 0; /* Add vertical spacing */
-    padding: 5px 10px; /* Adjust padding */
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 5px 10px;
   }
 
   .navbar-lewagon .avatar {
-    display: none; /* Hide avatar for small screens */
+    display: none;
   }
 }
 
-/* Scroll Effect for Navbar */
 .navbar-lewagon.navbar-scrolled {
   background: #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -61,6 +60,52 @@
 
 @media (max-width: 576px) {
   .navbar-lewagon.navbar-scrolled {
-    height: 60px; /* Smaller height when scrolled */
+    height: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-lewagon {
+    height: 70px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .navbar-lewagon .navbar-brand img {
+    width: 30px;
+    margin-left: 10px;
+  }
+
+  .navbar-lewagon .navbar-toggler-icon {
+    background-color: #00AEEF;
+  }
+
+  .navbar-lewagon .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-lewagon .navbar-nav .nav-link {
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 5px 10px;
+  }
+
+  .navbar-lewagon .avatar {
+    display: none;
+  }
+}
+
+.navbar-lewagon.navbar-scrolled {
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+}
+
+@media (max-width: 576px) {
+  .navbar-lewagon.navbar-scrolled {
+    height: 60px;
   }
 }

@@ -9,7 +9,7 @@
           <%= text_field_tag :query,
                               params[:query],
                               placeholder: "Busca un articulo..",
-                              data: {action: "keyup->search#suggestions", search_target: "input" },
+                              data: {action: "keyup->search#suggestions", search_target: "input"},
                               class: 'form-control' %>
           <ul data-search-target="list"
               class="list-group position-absolute"

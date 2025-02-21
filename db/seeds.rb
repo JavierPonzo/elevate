@@ -1,5 +1,10 @@
 require 'securerandom'
 
+# Skip validation only in development environment
+if Rails.env.development?
+  Post.skip_callback(:validate, :before, :at_least_one_photo)
+end
+
 # Limpiar datos anteriores
 Appointment.destroy_all
 Review.destroy_all
@@ -24,7 +29,6 @@ end
 # Doctores
 mental_health_doctor = Doctor.create!(
   user: User.find_by(email: "doctorm@gmail.com"),
-  # user: User.first,
   specialty: "Psicólogo",
   license: "LIC152643",
   address: "Av. de las Américas 1049, La Victoria 15034, Perú"
@@ -32,8 +36,6 @@ mental_health_doctor = Doctor.create!(
 
 sexual_health_doctor = Doctor.create!(
   user: User.find_by(email: "doctors@gmail.com"),
-
-  # user: User.second,
   specialty: "Sexólogo",
   license: "LIC123456",
   address: "Av. Carlos Izaguirre 126, Independencia 15311, Perú"
@@ -58,7 +60,8 @@ mental_health_posts.each do |post_data|
     title: post_data[:title],
     category: "Salud Mental",
     doctor_id: mental_health_doctor.id,
-    content: post_data[:content]
+    content: post_data[:content],
+    photos: [] # Skip validation for photos during seeding
   )
 end
 
@@ -81,15 +84,21 @@ sexual_health_posts.each do |post_data|
     title: post_data[:title],
     category: "Salud Sexual",
     doctor_id: sexual_health_doctor.id,
-    content: post_data[:content]
+    content: post_data[:content],
+    photos: [] # Skip validation for photos during seeding
   )
 end
 
 # Crear 3 appointments para cada usuario sin rol
 User.where(role: "patient").each do |user|
   3.times do
+    # Ensure the date and time are properly set
+    appointment_date = Time.now + rand(1..10).days
+    appointment_time = appointment_date.change(hour: rand(9..18), min: rand(0..59), sec: 0)  # Random time between 9 AM and 6 PM
+
     Appointment.create!(
-      date: Time.now + rand(1..10).days,
+      date: appointment_date,    # Use `date` field
+      time: appointment_time,    # Use `time` field (specific time of the day)
       status: "Pendiente",
       details: "Detalles de la cita asignada al usuario.",
       doctor_id: Doctor.all.sample.id,
@@ -101,8 +110,13 @@ end
 # Crear 3 appointments para cada doctor
 Doctor.all.each do |doctor|
   3.times do
+    # Ensure the date and time are properly set
+    appointment_date = Time.now + rand(1..10).days
+    appointment_time = appointment_date.change(hour: rand(9..18), min: rand(0..59), sec: 0)  # Random time between 9 AM and 6 PM
+
     Appointment.create!(
-      date: Time.now + rand(1..10).days,
+      date: appointment_date,    # Use `date` field
+      time: appointment_time,    # Use `time` field (specific time of the day)
       status: "Pendiente",
       details: "Detalles de la cita asignada al usuario.",
       doctor_id: doctor.id,
@@ -110,6 +124,7 @@ Doctor.all.each do |doctor|
     )
   end
 end
+
 
 
 # Preguntas y respuestas
@@ -120,6 +135,11 @@ Post.all.sample(4).each do |post|
     user_id: User.where(role: "patient").sample.id,
     post_id: post.id
   )
+end
+
+# Restaurar validación de fotos después de la siembra
+if Rails.env.development?
+  Post.set_callback(:validate, :before, :at_least_one_photo)
 end
 
 # Verificación de resultados

@@ -23,6 +23,9 @@
   flex-grow: 0;
 }
 
+.navbar-lewagon .navbar-nav {
+}
+
 .navbar-lewagon .navbar-brand img {
   width: 40px;
   margin-left: 20px;
@@ -88,7 +91,6 @@ body {
     padding: 10px;
   }
   .navbar-lewagon.navbar-scrolled {
-    height: 60px;
     transition: transform 7.0s;
   }
 }

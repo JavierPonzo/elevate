@@ -1,17 +1,14 @@
+/* General Styles for Navbar */
 .navbar-lewagon {
-  position: sticky;
-  z-index: 1000;
-  height: 80px;
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  justify-content: space-between;
-  background: #f4f7fc;
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  width: 100%;
+  max-width: 1300px;
+  height: 80px;
+  background: #f4f7fc;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 5px 5px;
   border-radius: 40px;
@@ -23,8 +20,6 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-nav {
-}
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
@@ -71,26 +66,97 @@ body {
   transition: all 0.3s ease;
 }
 
-.navbar-lewagon.navbar-scrolled {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 80px;
-  background: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 40px;
-  padding: 5px 15px;
-  z-index: 1000;
-}
-
-@media (max-width: 768px) {
+/* Responsive Styles for Small Mobiles */
+@media (max-width: 576px) {
   .navbar-lewagon {
     height: 70px;
     padding: 10px;
+    background: #ffffff;
+    border-radius: 0;
+    box-shadow: none;
   }
   .navbar-lewagon.navbar-scrolled {
     transition: transform 7.0s;
+
+  .navbar-lewagon .navbar-brand img {
+    width: 30px;
+    margin-left: 10px;
+  }
+
+  .navbar-lewagon .navbar-toggler-icon {
+    background-color: #00AEEF;
+  }
+
+  .navbar-lewagon .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-lewagon .navbar-nav .nav-link {
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 5px 10px;
+  }
+
+  .navbar-lewagon .avatar {
+    display: none;
+  }
+}
+
+.navbar-lewagon.navbar-scrolled {
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+}
+
+@media (max-width: 576px) {
+  .navbar-lewagon.navbar-scrolled {
+    height: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-lewagon {
+    height: 70px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .navbar-lewagon .navbar-brand img {
+    width: 30px;
+    margin-left: 10px;
+  }
+
+  .navbar-lewagon .navbar-toggler-icon {
+    background-color: #00AEEF;
+  }
+
+  .navbar-lewagon .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-lewagon .navbar-nav .nav-link {
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 5px 10px;
+  }
+
+  .navbar-lewagon .avatar {
+    display: none;
+  }
+}
+
+.navbar-lewagon.navbar-scrolled {
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+}
+
+@media (max-width: 576px) {
+  .navbar-lewagon.navbar-scrolled {
+    height: 60px;
   }
 }

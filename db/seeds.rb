@@ -41,6 +41,9 @@ sexual_health_doctor = Doctor.create!(
   address: "Av. Carlos Izaguirre 126, Independencia 15311, Perú"
 )
 
+# Dummy photo path
+dummy_image_path = Rails.root.join('app', 'assets', 'images', 'default_user.jpg')
+
 # Posts de Salud Mental
 mental_health_posts = [
   { title: "5 pasos para manejar la ansiedad", content: "La ansiedad puede ser abrumadora, pero existen pasos prácticos como la respiración profunda, la meditación y el ejercicio regular para aliviarla." },
@@ -62,7 +65,8 @@ mental_health_posts.each do |post_data|
     doctor_id: mental_health_doctor.id,
     content: post_data[:content]
   )
-  post.skip_photo_validation! # Skip photo validation during seeding
+  # Attach dummy image to satisfy validation
+  post.photos.attach(io: File.open(dummy_image_path), filename: 'default_user.jpg', content_type: 'image/jpg')
   post.save!
 end
 
@@ -87,7 +91,8 @@ sexual_health_posts.each do |post_data|
     doctor_id: sexual_health_doctor.id,
     content: post_data[:content]
   )
-  post.skip_photo_validation! # Skip photo validation during seeding
+  # Attach dummy image to satisfy validation
+  post.photos.attach(io: File.open(dummy_image_path), filename: 'default_user.jpg', content_type: 'image/jpg')
   post.save!
 end
 

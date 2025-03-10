@@ -1,9 +1,7 @@
 require 'securerandom'
 
-# Skip validation only in development environment
-if Rails.env.development?
-  Post.skip_callback(:validate, :before, :at_least_one_photo)
-end
+# Temporarily skip the validation for photos only during seeding
+Post.all.each { |post| post.skip_photo_validation! }
 
 # Limpiar datos anteriores
 Appointment.destroy_all
@@ -125,8 +123,6 @@ Doctor.all.each do |doctor|
   end
 end
 
-
-
 # Preguntas y respuestas
 Post.all.sample(4).each do |post|
   QuestionAnswer.create!(
@@ -138,9 +134,7 @@ Post.all.sample(4).each do |post|
 end
 
 # Restaurar validación de fotos después de la siembra
-if Rails.env.development?
-  Post.set_callback(:validate, :before, :at_least_one_photo)
-end
+Post.all.each { |post| post.skip_photo_validation! }
 
 # Verificación de resultados
 puts "Usuarios creados: #{User.count}"

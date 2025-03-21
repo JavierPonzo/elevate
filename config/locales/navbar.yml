@@ -1,0 +1,33 @@
+en:
+  navbar:
+    my_appointments: "My Appointments"
+    my_articles: "My Articles"
+    about_us: "About Us"
+    articles: "Articles"
+    my_profile: "My Profile"
+    logout: "Logout"
+    login: "Login"
+    search_placeholder: "Search for an article..."
+
+es:
+  navbar:
+    my_appointments: "Mis Citas"
+    my_articles: "Mis Artículos"
+    about_us: "Sobre Nosotros"
+    articles: "Artículos"
+    my_profile: "Mi Perfil"
+    logout: "Cerrar Sesión"
+    login: "Iniciar Sesión"
+    search_placeholder: "Buscar un artículo..."
+
+de:
+  navbar:
+    my_appointments: "Meine Termine"
+    my_articles: "Meine Artikel"
+    about_us: "Über uns"
+    articles: "Artikel"
+    my_profile: "Mein Profil"
+    logout: "Abmelden"
+    login: "Anmelden"
+    search_placeholder: "Artikel suchen..."
+

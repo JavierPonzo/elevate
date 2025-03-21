@@ -3,12 +3,11 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6">
-          <h1 class="hero-title">Descubre, aprende y crece en un espacio seguro creado para ti.</h1>
-          <p class="hero-text">Bienvenido a un lugar donde puedes explorar información confiable sobre salud sexual y mental. Aquí encontrarás orientación profesional, recursos educativos y un foro para compartir tus dudas de manera anónima.</p>
+          <h1 class="hero-title"><%= t('home.hero_title') %></h1>
+          <p class="hero-text"><%= t('home.hero_text') %></p>
           <div class="button-group mt-4">
-            <%= link_to "Salud Sexual", posts_path(category: "salud_sexual"), class: "btn btn-primary btn-lg" %>
-            <span class="mx-2">ó</span>
-            <%= link_to "Salud Mental", posts_path(category: "salud_mental"), class: "btn btn-primary btn-lg" %>
+            <%= link_to t('home.button_sexual_health'), posts_path(category: "salud_sexual"), class: "btn btn-primary btn-lg mb-2" %>
+            <%= link_to t('home.button_mental_health'), posts_path(category: "salud_mental"), class: "btn btn-primary btn-lg mb-2" %>
           </div>
         </div>
         <div class="col-md-6 text-center">
@@ -21,50 +20,55 @@
   <section class="services-section py-5">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title">Nuestros Servicios</h2>
+        <h2 class="section-title"><%= t('home.section_title') %></h2>
         <div class="section-underline mx-auto"></div>
       </div>
       <div class="row">
         <%= link_to posts_path(category: "salud_sexual"), class:"col-md-4 text-center border" do %>
-          <div class="service-item">
-            <i class="fa-solid fa-fire icon-ourservices"></i>
-            <h5 class="service-title-home">Salud Sexual</h5>
-            <p class="service-description">La salud sexual consiste en el <strong>bienestar</strong>, y no solamente en la <strong>ausencia de enfermedad</strong>. Implica respeto, seguridad y libertad frente a la violencia y la discriminación. Elevate.</p>
-          </div>
-        <% end %>
-        <%= link_to posts_path(category: "salud_mental"), class:"col-md-4 text-center border" do %>
-          <div class="service-item">
-            <i class="fa-solid fa-brain icon-ourservices"></i>
-            <h5 class="service-title-home">Salud Mental</h5>
-            <p class="service-description">La salud mental es un estado de <strong>bienestar mental</strong> que permite a las personas hacer frente a los momentos de estrés de la vida, desarrollar habilidades, aprender, trabajar y contribuir a su comunidad.</p>
-          </div>
-        <% end %>
-        <div class="col-md-4 text-center border">
-          <div class="service-item">
-            <i class="fa-solid fa-comment icon-ourservices"></i>
-            <h5 class="service-title-home">Consultas con especialistas</h5>
-            <p class="service-description">La consulta médica especializada es brindada por personal médico con <strong>especialidad certificada</strong>. Ofrecemos atención integral y garantizamos <strong>calidad</strong> en el cuidado a los usuarios.</p>
-          </div>
+        <div class="service-item">
+          <i class="fa-solid fa-fire icon-ourservices"></i>
+          <h5 class="service-title-home"><%= t('services.salud_sexual.title') %></h5>
+          <p class="service-description"><%= t('services.salud_sexual.description').html_safe %></p>
         </div>
-        <div class="col-md-4 text-center border">
-          <div class="service-item">
-            <i class="fa-regular fa-message icon-ourservices"></i>
-            <h5 class="service-title-home">Foro de consultas</h5>
-            <p class="service-description">Nuestro foro abierto es un <strong>espacio seguro</strong> para que puedas consultar con libertad sobre temas importantes, recibir respuestas de expertos y <strong>crecer juntos</strong> a la par como comunidad.</p>
-          </div>
+      <% end %>
+
+      <%= link_to posts_path(category: "salud_mental"), class:"col-md-4 text-center border" do %>
+        <div class="service-item">
+          <i class="fa-solid fa-brain icon-ourservices"></i>
+          <h5 class="service-title-home"><%= t('services.salud_mental.title') %></h5>
+          <p class="service-description"><%= t('services.salud_mental.description').html_safe %></p>
         </div>
-        <%= link_to questions_path, class:"col-md-4 text-center border" do %>
-          <div class="service-item">
-            <i class="fa-solid fa-robot icon-ourservices"></i>
-            <h5 class="service-title-home">Chatbot con IA</h5>
-            <p class="service-description">Realiza consultas detalladas sin miedo a ser juzgado, o pregunta sobre especialistas, horarios de atención, disponibilidad y dudas que prefieras tratar de <strong>manera privada</strong>, nuestros AI te guiara.</p>
-          </div>
-        <% end %>
+      <% end %>
+
+      <div class="col-md-4 text-center border">
+        <div class="service-item">
+          <i class="fa-solid fa-comment icon-ourservices"></i>
+          <h5 class="service-title-home"><%= t('services.consultas.title') %></h5>
+          <p class="service-description"><%= t('services.consultas.description').html_safe %></p>
+        </div>
+      </div>
+
+      <div class="col-md-4 text-center border">
+        <div class="service-item">
+          <i class="fa-regular fa-message icon-ourservices"></i>
+          <h5 class="service-title-home"><%= t('services.foro.title') %></h5>
+          <p class="service-description"><%= t('services.foro.description').html_safe %></p>
+        </div>
+      </div>
+
+      <%= link_to questions_path, class:"col-md-4 text-center border" do %>
+        <div class="service-item">
+          <i class="fa-solid fa-robot icon-ourservices"></i>
+          <h5 class="service-title-home"><%= t('services.chatbot.title') %></h5>
+          <p class="service-description"><%= t('services.chatbot.description').html_safe %></p>
+        </div>
+      <% end %>
+
         <div class="col-md-4 text-center border">
           <div class="service-item">
             <i class="fa-solid fa-info icon-ourservices"></i>
-            <h5 class="service-title-home">Información detallada</h5>
-            <p class="service-description">Brindamos información especializada y detallada sobre <strong>Salud Sexual</strong> y <strong>Salud Mental</strong>, mediante informes, infografías y <strong>contenido educativo</strong> de organizaciones reconocidas.</p>
+            <h5 class="service-title-home"><%= t('services.info.title') %></h5>
+            <p class="service-description"><%= t('services.info.description').html_safe %></p>
           </div>
         </div>
       </div>
@@ -72,183 +76,132 @@
   </section>
 
   <div class="container-fluid bg-dark-form text-white py-5 d-flex justify-content-center">
-    <div class="row align-items-center w-60">
-      <div class="col-lg-6 mb-4 text-center">
-        <h2 class="fw-bold mb-3">¿Cuándo estamos disponibles?</h2>
-        <p class="text-info-form">
-          <strong>Tu salud sexual y mental no descansan</strong>, estamos disponibles las 24/7 en línea, dispuesto a crecer contigo.
-        </p>
-        <p class="text-info-form">
-          Los principales casos de embarazos no deseados y suicidios siguen en aumento, aquí estamos para darte una mano profesional.
-        </p>
-        <div class="visit-hours mt-4">
-          <p class="mb-2"><strong>Lunes a Viernes</strong></p>
-          <p class="text-info-form">9:15 am – 9:30 pm</p>
-          <p class="mb-2 mt-4"><strong>Sábados y Domingos</strong></p>
-          <p class="text-info-form">9:15 am – 1:00 pm</p>
-        </div>
+  <div class="row align-items-center w-60">
+    <div class="col-lg-6 mb-4 text-center">
+      <h2 class="fw-bold mb-3"><%= t('home.availability.title') %></h2>
+      <p class="text-info-form"><%= t('home.availability.description_1').html_safe %></p>
+      <p class="text-info-form"><%= t('home.availability.description_2') %></p>
+      <div class="visit-hours mt-4">
+        <p class="mb-2"><strong><%= t('home.availability.weekdays') %></strong></p>
+        <p class="text-info-form">9:15 am – 9:30 pm</p>
+        <p class="mb-2 mt-4"><strong><%= t('home.availability.weekends') %></strong></p>
+        <p class="text-info-form">9:15 am – 1:00 pm</p>
       </div>
+    </div>
 
-      <div class="col-lg-6 d-flex justify-content-center">
-        <div class="bg-primary-form p-4 rounded w-100">
-          <h2 class="fw-bold text-white text-center">Reserva una cita</h2>
-          <form>
-            <div class="text-white mb-3">
-              <input type="text" class="form-control" placeholder="Nombre" required />
-            </div>
-            <div class="text-white mb-3">
-              <input type="email" class="form-control" placeholder="Email" required />
-            </div>
-            <div class="text-white mb-3">
-              <input type="text" class="form-control" placeholder="Tema a tratar" required />
-            </div>
-            <div class="mb-3">
-              <input class="form-control" type="date" placeholder="dd/mm/aaaa" class="form-control" required />
-            </div>
-            <div class="mb-3">
-              <textarea class="form-control" rows="3" placeholder="Descripción" required></textarea>
-            </div>
-            <button type="Enviar" class="col-lg-4 btn btn-info text-white fw-bold">
-              Enviar
-            </button>
-          </form>
-        </div>
+    <div class="col-lg-6 d-flex justify-content-center">
+      <div class="bg-primary-form p-4 rounded w-100">
+        <h2 class="fw-bold text-white text-center"><%= t('home.appointment.title') %></h2>
+        <form>
+          <div class="text-white mb-3">
+            <input type="text" class="form-control" placeholder="<%= t('home.appointment.name_placeholder') %>" required />
+          </div>
+          <div class="text-white mb-3">
+            <input type="email" class="form-control" placeholder="<%= t('home.appointment.email_placeholder') %>" required />
+          </div>
+          <div class="text-white mb-3">
+            <input type="text" class="form-control" placeholder="<%= t('home.appointment.topic_placeholder') %>" required />
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="date" placeholder="<%= t('home.appointment.date_placeholder') %>" required />
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" rows="3" placeholder="<%= t('home.appointment.description_placeholder') %>" required></textarea>
+          </div>
+          <button type="submit" class="col-lg-4 btn btn-info text-white fw-bold">
+            <%= t('home.appointment.submit_button') %>
+          </button>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Doctores hola -->
-  <div class="doctors-info container-fluid bg-turquoise py-5">
-    <div class="text-center mb-5">
-      <h2 class="text-white fw-bold">Especialistas de la salud</h2>
-      <p class="text-light">
-        Comprometidos con tu salud sexual y mental, somos profesionales del Colegio de Médicos, avalados y certificados.
-      </p>
-    </div>
-    <div class="row text-center">
+<!-- Doctors Section -->
+<div class="doctors-info container-fluid bg-turquoise py-5">
+  <div class="text-center mb-5">
+    <h2 class="text-white fw-bold"><%= t('home.doctors.title') %></h2>
+    <p class="text-light"><%= t('home.doctors.description') %></p>
+  </div>
+  <div class="row text-center">
+    <% doctors = [
+      { name: 'specialist_1', specialty: 'specialty_1', image: 'https://images.pexels.com/photos/3714743/pexels-photo-3714743.jpeg' },
+      { name: 'specialist_2', specialty: 'specialty_1', image: 'https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg' },
+      { name: 'specialist_3', specialty: 'specialty_2', image: 'https://images.pexels.com/photos/7578806/pexels-photo-7578806.jpeg' }
+    ] %>
+    <% doctors.each do |doctor| %>
       <div class="col-lg-4">
-        <img src="https://images.pexels.com/photos/3714743/pexels-photo-3714743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dr. Sresha Jenol" class="mb-3 img-doctors" width="200" height="300">
-        <h4 class="text-white fw-bold">Dr. Wanda Maximoff</h4>
-        <p class="text-light">Sexólogo</p>
+        <img src="<%= doctor[:image] %>" alt="<%= t("home.doctors.#{doctor[:name]}") %>" class="mb-3 img-doctors" width="200" height="300">
+        <h4 class="text-white fw-bold"><%= t("home.doctors.#{doctor[:name]}") %></h4>
+        <p class="text-light"><%= t("home.doctors.#{doctor[:specialty]}") %></p>
         <div class="social-icons">
           <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
           <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
           <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-      <div class="col-lg-4">
-        <img src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dr. Jevgen Kore" class="mb-3 img-doctors" width="200" height="300">
-        <h4 class="text-white fw-bold">Dr. Natasha Romanoff</h4>
-        <p class="text-light">Sexólogo</p>
-        <div class="social-icons">
-          <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <img src="https://images.pexels.com/photos/7578806/pexels-photo-7578806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dr. Nesur Khohla" class="mb-3 img-doctors" width="200" height="300">
-        <h4 class="text-white fw-bold">Dr. May Parker</h4>
-        <p class="text-light">Psicólogo</p>
-        <div class="social-icons">
-          <a href="#" class="a text-light me-3"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="a text-light me-3"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="a text-light"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<!-- Testimonials -->
+<div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active text-center">
+      <h5 class="text-success"><%= t('home.testimonials.title') %></h5>
+      <h2 class="fw-bold"><%= t('home.testimonials.subtitle') %></h2>
+      <p class="fst-italic">"<%= t('home.testimonials.user_1') %>"</p>
+      <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg" class="mx-auto d-block img-thumbnail rounded-circle" alt="User 1" width="140" height="160">
+      <p class="mt-3 fw-bold">Peggy Carter</p>
+      <p class="text-muted fw-bold">(Patient)</p>
+    </div>
+
+    <div class="carousel-item text-center">
+      <h5 class="text-success"><%= t('home.testimonials.title') %></h5>
+      <h2 class="fw-bold"><%= t('home.testimonials.subtitle') %></h2>
+      <p class="fst-italic">"<%= t('home.testimonials.user_2') %>"</p>
+      <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg" class="mx-auto d-block img-thumbnail rounded-circle" alt="User 2" width="140" height="160">
+      <p class="mt-3 fw-bold">Tony Stark</p>
+      <p class="text-muted fw-bold">(Patient)</p>
     </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
-  <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active text-center">
-        <h5 class="text-success">Testimonios</h5>
-        <h2 class="fw-bold">Lo que dicen nuestros usuarios</h2>
-        <p class="fst-italic">
-          "No sabía nada de mi sexualidad y de sexo, gracias a ELEVATE puedo tener salud plena en mi sexualidad y conseguridad. Gracias a los sexólogos expertos."
-        </p>
-        <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="mx-auto d-block img-thumbnail rounded-top-circle" alt="User 1" width="200" height="200">
-        <p class="mt-3 fw-bold">Peggy Carter</p>
-        <p class="text-muted">Usuario</p>
-      </div>
-      <div class="carousel-item text-center">
-        <h5 class="text-success">Testimonios</h5>
-        <h2 class="fw-bold">Lo que dicen nuestros usuarios</h2>
-        <p class="fst-italic">
-          "Tenía problemas de ansidad y mucho más. Gracias a ELEVATE, pude acceder a consultas con psicólogos expertos, ahora me encuentro muy bien. Gracias ELEVATE."
-        </p>
-        <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="mx-auto d-block img-thumbnail rounded-top-circle" alt="User 2" width="200" height="200">
-        <p class="mt-3 fw-bold">Tony Stark</p>
-        <p class="text-muted">Usuario</p>
-      </div>
-      <%# <div class="carousel-item text-center">
-        <h5 class="text-success">Testimonios</h5>
-        <h2 class="fw-bold">Lo que dicen nuestros usuarios</h2>
-        <p class="fst-italic">
-          "Tengo mucho buscando una plantaforma donde me puedan orientar sobre salud sexual sin juzgarme, ahora lo encontré gracias a ELEVATE. Puedo estar segura de consultar y aprender."
-        </p>
-        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="mx-auto d-block img-thumbnail rounded-top-circle" alt="User 3" width="150px" height="150px">
-        <p class="mt-3 fw-bold">Bruce Banner</p>
-        <p class="text-muted">Usuario</p>
-      </div> %>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 
+<!-- Statistics Section -->
   <div class="container-numbers-principal">
-    <div class="container container-numbers text-center py-5 bg-gray">
-      <h2 class="mb-3">Nuestros datos</h2>
-      <p class="mb-5">
-        Muchas personas confian en nosotros, y hacemos un cambio de impacto en la sociedad. Aprender para enseñar, crecer y ser libre. Somo ELEVATE, educación integral en salud sexual y salud mental.
-      </p>
+    <div class="container container-numbers text-center py-5 bg-gray mb-3 rounded-3">
+      <h2 class="mb-3"><%= t('home.statistics.title') %></h2>
+      <p class="mb-5"><%= t('home.statistics.description') %></p>
       <div class="row justify-content-center">
-        <div class="col-md-3 col-sm-6 mb-4">
-          <div class="card shadow border-0">
-            <div class="card-body">
-              <i class="fa-solid fa-thumbs-up icon-ourservices-data"></i>
-              <h3 class="text-primary data">406+</h3>
-              <p class="text-muted">Usuarios satisfechos</p>
+        <% stats = [
+          { icon: 'fa-thumbs-up', key: 'satisfied_users', value: '406+' },
+          { icon: 'fa-award', key: 'awards', value: '4+' },
+          { icon: 'fa-handshake-angle', key: 'resolved_cases', value: '52+' },
+          { icon: 'fa-face-laugh-wink', key: 'years_experience', value: '15+' }
+        ] %>
+        <% stats.each do |stat| %>
+          <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card shadow border-0">
+              <div class="card-body">
+                <i class="fa-solid <%= stat[:icon] %> icon-ourservices-data"></i>
+                <h3 class="text-primary data"><%= stat[:value] %></h3>
+                <p class="text-muted"><%= t("home.statistics.#{stat[:key]}") %></p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <div class="card shadow border-0">
-            <div class="card-body">
-              <i class="fa-solid fa-award icon-ourservices-data"></i>
-              <h3 class="text-primary data">4+</h3>
-              <p class="text-muted">Premios obtenidos</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <div class="card shadow border-0">
-            <div class="card-body">
-              <i class="fa-solid fa-handshake-angle icon-ourservices-data"></i>
-              <h3 class="text-primary data">52+</h3>
-              <p class="text-muted">Casos resueltos</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <div class="card shadow border-0">
-            <div class="card-body">
-              <i class="fa-solid fa-face-laugh-wink icon-ourservices-data"></i>
-              <h3 class="text-primary data">15+</h3>
-              <p class="text-muted">Años de experiencia</p>
-            </div>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
-
     <%= render "pages/chatbot" %>
-
   </div>
 </div>

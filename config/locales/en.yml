@@ -1,31 +1,137 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  home:
+    hero_title: "Discover, learn, and grow in a safe space created for you."
+    hero_text: "Welcome to a place where you can explore reliable information about sexual and mental health."
+    button_sexual_health: "Sexual Health"
+    button_mental_health: "Mental Health"
+    section_title: "Our Services"
+
+    availability:
+      title: "When are we available?"
+      description_1: "Your sexual and mental health never rest, we are available 24/7 online, ready to grow with you."
+      description_2: "The main cases of unwanted pregnancies and suicides continue to rise. We are here to provide professional help."
+      weekdays: "Monday to Friday"
+      weekends: "Saturdays and Sundays"
+
+    appointment:
+      title: "Book an Appointment"
+      name_placeholder: "Name"
+      email_placeholder: "Email"
+      topic_placeholder: "Topic"
+      date_placeholder: "dd/mm/yyyy"
+      description_placeholder: "Description"
+      submit_button: "Send"
+
+    doctors:
+      title: "Health Specialists"
+      description: "Committed to your sexual and mental health, we are professionals certified by the Medical College."
+      specialist_1: "Dr. Wanda Maximoff"
+      specialist_2: "Dr. Natasha Romanoff"
+      specialist_3: "Dr. May Parker"
+      specialty_1: "Sexologist"
+      specialty_2: "Psychologist"
+
+    testimonials:
+      title: "Testimonials"
+      subtitle: "Happy Patients"
+      user_1: "When I found out I was pregnant, I felt overwhelmed and unsure of what to do. Thanks to Elevate, I was able to book a quick appointment and speak with a specialist who guided me through my options. Their support gave me clarity and peace of mind during a difficult time."
+      user_2: "I was struggling with anxiety for months, and it started affecting my daily life. Through this website, I quickly connected with a therapist who truly listened and helped me develop coping strategies. Having that support made all the difference in my journey to feeling better."
+
+    statistics:
+      title: "Our Numbers"
+      description: "Many people trust us, and we make a significant impact on society. Learn to teach, grow, and be free. We are Elevate, comprehensive education in sexual and mental health."
+      satisfied_users: "Satisfied users"
+      awards: "Awards received"
+      resolved_cases: "Resolved cases"
+      years_experience: "Years of experience"
+
+  services:
+    salud_sexual:
+      title: "Sexual Health"
+      description: "Sexual health is about well-being, not just the absence of disease. It includes respect, safety, and freedom from violence and discrimination."
+    salud_mental:
+      title: "Mental Health"
+      description: "Mental health is a state of emotional well-being that allows individuals to cope with life's stress, develop skills, learn, work, and contribute to their community."
+    consultas:
+      title: "Specialist Consultations"
+      description: "Consultations are provided by certified specialists. We offer integral care and guarantee quality in patient services."
+    foro:
+      title: "Consultation Forum"
+      description: "Our open forum is a safe space where you can freely ask important questions, get expert responses, and grow together as a community."
+    chatbot:
+      title: "AI Chatbot"
+      description: "Ask detailed questions without fear of judgment, inquire about specialists, appointment schedules, availability, or anything you prefer to discuss privately."
+    info:
+      title: "Detailed Information"
+      description: "We provide specialized and detailed information on Sexual Health and Mental Health through reports, infographics, and educational content from recognized organizations."
+
+  posts:
+    create_article: "Create Article"
+    no_image_available: "No image available"
+    article: "Article"
+
+  appointments:
+    title: "My Appointments"
+    doctor: "Doctor"
+    patient: "Patient"
+    status: "Status"
+    confirm: "Confirm"
+    pay_now: "Pay Now"
+    cancel: "Cancel"
+    status_label: "STATUS"
+    no_appointments_1: "Oops! You haven't scheduled any appointments yet."
+    no_appointments_2: "You can schedule a new one on your preferred doctor's article!"
+
+  about:
+    banner_title: "Empowering Your Journey to Wellness: Integrated Care for Mind, Body & Relationships"
+    intro: "At Elevate, we are dedicated to supporting individuals and couples on their path to holistic health and wellness. Whether you're seeking help for sexual health, mental health challenges, or both, we provide a safe, compassionate space for healing, self-discovery, and growth."
+
+    mission:
+      title: "Our Mission: Compassionate & Evidence-Based Care"
+      text: "We understand every journey is unique. Our mission is to empower patients with the tools and resources to live fuller, healthier lives. By integrating sexual health and psychological counseling, we take a whole-person approach that honors the deep connection between emotional well-being and physical health."
+
+    services:
+      title: "Services Tailored to Your Needs"
+      description: "Our team of licensed therapists, physicians, and specialists offers a wide range of services, including:"
+      sexual_health:
+        title: "Sexual Health Care:"
+        description: "Private consultations and treatment for intimacy concerns, sexual dysfunction, and identity exploration."
+      counseling:
+        title: "Counseling & Therapy:"
+        description: "Support for anxiety, depression, trauma, relationship issues, and more."
+      couples_therapy:
+        title: "Couples Therapy:"
+        description: "Strengthen relationships with therapy that addresses both psychological and sexual concerns."
+      lgbtq_support:
+        title: "LGBTQ+ Community Support:"
+        description: "Respectful and specialized services tailored to LGBTQ+ individuals and couples."
+      trauma:
+        title: "Trauma Recovery:"
+        description: "Therapeutic approaches focused on healing emotional and physical trauma."
+      relationship_wellbeing:
+        title: "Relational Well-being Counseling:"
+        description: "Guidance to improve communication, resolve conflicts, and build healthy relationships."
+
+    approach:
+      title: "Our Approach: Respect, Confidentiality & Empowerment"
+      text_1: "At Elevate, we honor your privacy and prioritize confidentiality. We understand that talking about sexual and mental health can be difficult, and we’re here to offer a safe, non-judgmental space."
+      text_2: "Our approach is centered on autonomy. We listen, understand your needs, and co-create solutions that empower you on your journey. We don’t just treat symptoms — we support long-term resilience and well-being."
+
+    why_choose_us:
+      title: "Why Choose Us?"
+      experienced:
+        title: "Experienced Professionals:"
+        text: "Therapists, physicians, and counselors committed to best practices and the latest research."
+      personalized:
+        title: "Personalized Care:"
+        text: "Individualized treatment plans that reflect your unique needs and preferences."
+      compassionate:
+        title: "Compassionate Environment:"
+        text: "We create a welcoming, empathetic, and judgment-free atmosphere."
+      holistic:
+        title: "Holistic Approach:"
+        text: "We enhance emotional, physical, and relational health through integrative care."
+
+    final_call:
+      title: "Take the First Step Toward Healing"
+      text: "Seeking support is a brave first step, and we’re honored to walk with you. At Elevate, we’re here to offer expert, compassionate care to help you thrive in every aspect of life."

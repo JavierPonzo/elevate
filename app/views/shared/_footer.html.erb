@@ -3,9 +3,9 @@
   <div class="container pb-1">
     <div class="row">
       <div class="col-md-3">
-        <h5 class="fw-bold">Salud <span class="text-success">Integral</span></h5>
+        <h5 class="fw-bold"><%= t('footer.health_title') %> <span class="text-success"><%= t('footer.health_highlight') %></span></h5>
         <hr class="bg-white mb-3 mt-1" style="width: 60px; height: 2px;">
-        <p>Conoce tu cuerpo. Tu salud, en tus manos. Vive una vida sexual y mental en total plenitud, crezcamos de la mano y marquemos la diferencia.</p>
+        <p><%= t('footer.health_description') %></p>
         <div class="d-flex gap-2 justify-content-center">
           <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
           <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
@@ -14,27 +14,27 @@
       </div>
 
       <div class="col-md-3 mb-4">
-        <h5 class="fw-bold">Servicios</h5>
+        <h5 class="fw-bold"><%= t('footer.services_title') %></h5>
         <hr class="bg-white mb-3 mt-1" style="width: 60px; height: 2px;">
         <ul class="list-unstyled">
-          <li>Educación Sexual</li>
-          <li>Terapia Sexual</li>
-          <li>Salud Mental</li>
-          <li>Salud Sexual</li>
-          <li>Depresión</li>
+          <li><%= t('footer.service_education') %></li>
+          <li><%= t('footer.service_therapy') %></li>
+          <li><%= t('footer.service_mental_health') %></li>
+          <li><%= t('footer.service_sexual_health') %></li>
+          <li><%= t('footer.service_depression') %></li>
         </ul>
       </div>
 
       <div class="col-md-3 mb-4">
-        <h5 class="fw-bold">Contactos</h5>
+        <h5 class="fw-bold"><%= t('footer.contact_title') %></h5>
         <hr class="bg-white mb-3 mt-1" style="width: 60px; height: 2px;">
-        <p><strong>Location:</strong> Av. El Sol 254, Lima, Perú</p>
-        <p><strong>Email:</strong> info@elevate.com</p>
-        <p><strong>Support:</strong> +51 900 912 854</p>
+        <p><strong><%= t('footer.contact_location') %>:</strong> Av. El Sol 254, Lima, Perú</p>
+        <p><strong><%= t('footer.contact_email') %>:</strong> info@elevate.com</p>
+        <p><strong><%= t('footer.contact_support') %>:</strong> +51 900 912 854</p>
       </div>
 
       <div class="col-md-3 mb-4">
-        <h5 class="fw-bold">Nuestras Ubicaciones</h5>
+        <h5 class="fw-bold"><%= t('footer.locations_title') %></h5>
         <hr class="bg-white mb-3 mt-1" style="width: 60px; height: 2px;">
         <div id="footer-map" style="height: 200px; width: 100%; border-radius: 10px; overflow: hidden;"></div>
       </div>
@@ -42,7 +42,7 @@
 
     <div class="row">
       <div class="col text-center">
-        <p class="mb-0">&copy; ELEVATE. Derechos reservados</p>
+        <p class="mb-0">&copy; ELEVATE. <%= t('footer.rights_reserved') %></p>
       </div>
     </div>
   </div>

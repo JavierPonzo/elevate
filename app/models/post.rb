@@ -16,7 +16,7 @@ class Post < ApplicationRecord
     against: [:title, :content],
     using: { tsearch: { prefix: true } }
 
-  private
+private
 
   def at_least_one_photo
     errors.add(:photos, "Debe incluir al menos una foto") if photos.blank?

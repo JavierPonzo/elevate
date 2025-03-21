@@ -8,21 +8,19 @@
 .banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                     url(https://iili.io/3zRn2kl.png) !important;
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 60vh;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 0 20px;
   text-align: center;
 }
 
 @media (max-width: 768px) {
   .banner {
-    height: 40vh;
-    padding: 0 10px;
+    height: 40vh !important; /* Smaller banner height for mobile */
+    min-height: 250px !important; /* Prevents it from being too small */
+    background-size: cover !important; /* Ensures it fills the space */
   }
 }

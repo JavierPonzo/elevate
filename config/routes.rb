@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
 
   # Health status for monitoring
   get "up" => "rails/health#show", as: :rails_health_check
@@ -18,6 +17,10 @@ Rails.application.routes.draw do
     resources :question_answers, only: [:index, :new, :create]
   end
 
+  scope "(:locale)", locale: /en|es|de/ do
+    root to: "pages#home"
+    resources :posts
+  end
   # Appointments with Stripe and confirmation actions
   resources :appointments do
     member do

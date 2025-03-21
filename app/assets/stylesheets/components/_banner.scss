@@ -1,0 +1,28 @@
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Ajusta la altura del banner según tus necesidades */
+  overflow: hidden; /* Asegura que el contenido extra no se vea */
+}
+
+.banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                    url(https://iili.io/3zRn2kl.png) !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 40vh;
+    padding: 0 10px;
+  }
+}

@@ -1,0 +1,137 @@
+es:
+  home:
+    hero_title: "Descubre, aprende y crece en un espacio seguro creado para ti."
+    hero_text: "Bienvenido a un lugar donde puedes explorar información confiable sobre salud sexual y mental."
+    button_sexual_health: "Salud Sexual"
+    button_mental_health: "Salud Mental"
+    section_title: "Nuestros Servicios"
+
+    availability:
+      title: "¿Cuándo estamos disponibles?"
+      description_1: "<strong>Tu salud sexual y mental no descansan</strong>, estamos disponibles las 24/7 en línea, listos para crecer contigo."
+      description_2: "Los principales casos de embarazos no deseados y suicidios siguen en aumento. Estamos aquí para brindarte ayuda profesional."
+      weekdays: "Lunes a Viernes"
+      weekends: "Sábados y Domingos"
+
+    appointment:
+      title: "Reserva una cita"
+      name_placeholder: "Nombre"
+      email_placeholder: "Correo Electrónico"
+      topic_placeholder: "Tema"
+      date_placeholder: "dd/mm/aaaa"
+      description_placeholder: "Descripción"
+      submit_button: "Enviar"
+
+    doctors:
+      title: "Especialistas en Salud"
+      description: "Comprometidos con tu salud sexual y mental, somos profesionales certificados por el Colegio Médico."
+      specialist_1: "Dra. Wanda Maximoff"
+      specialist_2: "Dra. Natasha Romanoff"
+      specialist_3: "Dra. May Parker"
+      specialty_1: "Sexólogo"
+      specialty_2: "Psicólogo"
+
+    testimonials:
+      title: "Testimonios"
+      subtitle: "Pacientes Satisfechos"
+      user_1: "Descubrí que estaba embarazada en un momento complicado de mi vida y no sabía qué hacer. Gracias a Elevate, pude agendar una cita rápidamente y recibir el apoyo médico y emocional que necesitaba. Tener acceso inmediato a especialistas marcó la diferencia en mi camino."
+      user_2: "Durante meses sufrí de ansiedad que afectaba mi vida diaria. A través de este sitio, pude contactar rápidamente con un terapeuta que me escuchó de verdad y me ayudó a desarrollar estrategias para afrontar los desafíos. Su apoyo fue clave en mi proceso de recuperación."
+
+    statistics:
+      title: "Nuestros Datos"
+      description: "Muchas personas confían en nosotros y generamos un impacto positivo en la sociedad. Aprende para enseñar, crece y sé libre. Somos ELEVATE, educación integral en salud sexual y mental."
+      satisfied_users: "Usuarios Satisfechos"
+      awards: "Premios Obtenidos"
+      resolved_cases: "Casos Resueltos"
+      years_experience: "Años de Experiencia"
+
+  services:
+    salud_sexual:
+      title: "Salud Sexual"
+      description: "La salud sexual implica <strong>bienestar</strong> y no solo la <strong>ausencia de enfermedades</strong>. Abarca el respeto, la seguridad y la libertad de violencia y discriminación."
+    salud_mental:
+      title: "Salud Mental"
+      description: "La salud mental es un estado de <strong>bienestar emocional</strong> que permite afrontar el estrés de la vida, desarrollar habilidades, aprender, trabajar y contribuir a la comunidad."
+    consultas:
+      title: "Consultas con Especialistas"
+      description: "Las consultas son brindadas por <strong>especialistas certificados</strong>. Ofrecemos atención integral y garantizamos <strong>calidad</strong> en los servicios para los pacientes."
+    foro:
+      title: "Foro de Consultas"
+      description: "Nuestro foro abierto es un <strong>espacio seguro</strong> donde puedes plantear preguntas importantes, recibir respuestas de expertos y <strong>crecer juntos</strong> como comunidad."
+    chatbot:
+      title: "Chatbot con IA"
+      description: "Haz preguntas detalladas sin miedo a ser juzgado. Consulta sobre especialistas, horarios de atención, disponibilidad o cualquier duda que prefieras tratar <strong>en privado</strong>."
+    info:
+      title: "Información Detallada"
+      description: "Brindamos información especializada y detallada sobre <strong>Salud Sexual</strong> y <strong>Salud Mental</strong>, mediante informes, infografías y <strong>contenido educativo</strong> de organizaciones reconocidas."
+
+  posts:
+    create_article: "Crear Artículo"
+    no_image_available: "No hay imagen disponible"
+    article: "Artículo"
+
+  appointments:
+    title: "Mis Citas"
+    doctor: "Doctor"
+    patient: "Paciente"
+    status: "Estado"
+    confirm: "Confirmar"
+    pay_now: "Pagar Ahora"
+    cancel: "Cancelar"
+    status_label: "ESTADO"
+    no_appointments_1: "Oops! Aún no has agendado ninguna cita."
+    no_appointments_2: "Puedes agendar una nueva cita en el artículo del doctor que desees."
+
+  about:
+    banner_title: "Empodera tu camino hacia el bienestar: cuidado integral para la mente, el cuerpo y las relaciones"
+    intro: "En Elevate, nos dedicamos a apoyar a personas y parejas en su camino hacia la salud y el bienestar integral. Ya sea que necesites ayuda con la salud sexual, desafíos de salud mental o ambos, ofrecemos un espacio seguro y compasivo para sanar, descubrirte y crecer."
+
+    mission:
+      title: "Nuestra misión: cuidado compasivo y basado en evidencia"
+      text: "Entendemos que cada camino es único. Nuestra misión es empoderar a los pacientes con herramientas y recursos para vivir una vida más plena y saludable. Al integrar la salud sexual y la consejería psicológica, adoptamos un enfoque integral que honra la profunda conexión entre el bienestar emocional y la salud física."
+
+    services:
+      title: "Servicios adaptados a tus necesidades"
+      description: "Nuestro equipo de terapeutas, médicos y especialistas certificados ofrece una amplia gama de servicios, incluyendo:"
+      sexual_health:
+        title: "Cuidado de la salud sexual:"
+        description: "Consultas privadas y tratamiento para problemas de intimidad, disfunciones sexuales y exploración de identidad."
+      counseling:
+        title: "Consejería y terapia:"
+        description: "Apoyo para la ansiedad, depresión, trauma, problemas de pareja y más."
+      couples_therapy:
+        title: "Terapia de pareja:"
+        description: "Fortalecemos relaciones con terapias que abordan tanto temas psicológicos como sexuales."
+      lgbtq_support:
+        title: "Apoyo a la comunidad LGBTQ+:"
+        description: "Servicios respetuosos y especializados, adaptados a las personas y parejas LGBTQ+."
+      trauma:
+        title: "Recuperación de trauma:"
+        description: "Enfoques terapéuticos centrados en la sanación de traumas emocionales y físicos."
+      relationship_wellbeing:
+        title: "Asesoría en bienestar relacional:"
+        description: "Guía para mejorar la comunicación, resolver conflictos y construir relaciones saludables."
+
+    approach:
+      title: "Nuestro enfoque: respeto, confidencialidad y empoderamiento"
+      text_1: "En Elevate, respetamos tu privacidad y priorizamos la confidencialidad. Sabemos que hablar sobre salud sexual y mental puede ser difícil, y estamos aquí para ofrecerte un espacio seguro y sin juicios."
+      text_2: "Nuestro enfoque se centra en tu autonomía. Escuchamos, entendemos tus necesidades y co-creamos soluciones que te empoderan en tu camino. No solo tratamos síntomas: apoyamos tu resiliencia y bienestar a largo plazo."
+
+    why_choose_us:
+      title: "¿Por qué elegirnos?"
+      experienced:
+        title: "Profesionales con experiencia:"
+        text: "Terapeutas, médicos y consejeros comprometidos con las mejores prácticas y la investigación más reciente."
+      personalized:
+        title: "Cuidado personalizado:"
+        text: "Planes de tratamiento individualizados que reflejan tus necesidades y preferencias únicas."
+      compassionate:
+        title: "Entorno compasivo:"
+        text: "Creamos un ambiente acogedor, empático y libre de juicios."
+      holistic:
+        title: "Enfoque holístico:"
+        text: "Mejoramos tu salud emocional, física y relacional a través de un cuidado integrador."
+
+    final_call:
+      title: "Da el primer paso hacia la sanación"
+      text: "Buscar apoyo es un acto valiente, y estamos honrados de acompañarte. En Elevate, estamos aquí para ofrecerte un cuidado experto y compasivo que te ayude a prosperar en todos los aspectos de tu vida."

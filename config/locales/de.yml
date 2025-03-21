@@ -1,0 +1,168 @@
+de:
+  home:
+    hero_title: "Entdecken, lernen und wachsen in einem sicheren Raum, der für Sie geschaffen wurde."
+    hero_text: "Willkommen an einem Ort, an dem Sie verlässliche Informationen über sexuelle und mentale Gesundheit erkunden können."
+    button_sexual_health: "Sexuelle Gesundheit"
+    button_mental_health: "Mentale Gesundheit"
+    section_title: "Unsere Dienstleistungen"
+
+    availability:
+      title: "Wann sind wir verfügbar?"
+      description_1: "<strong>Ihre sexuelle und mentale Gesundheit ruht nie</strong>, wir sind rund um die Uhr online verfügbar und begleiten Sie auf Ihrem Weg."
+      description_2: "Die Anzahl ungewollter Schwangerschaften und Suizide steigt weiter. Wir sind hier, um professionelle Hilfe anzubieten."
+      weekdays: "Montag bis Freitag"
+      weekends: "Samstag und Sonntag"
+
+    appointment:
+      title: "Termin buchen"
+      name_placeholder: "Name"
+      email_placeholder: "E-Mail"
+      topic_placeholder: "Thema"
+      date_placeholder: "TT/MM/JJJJ"
+      description_placeholder: "Beschreibung"
+      submit_button: "Senden"
+
+    doctors:
+      title: "Gesundheitsspezialisten"
+      description: "Engagiert für Ihre sexuelle und mentale Gesundheit – wir sind zertifizierte Fachkräfte der Ärztekammer."
+      specialist_1: "Dr. Wanda Maximoff"
+      specialist_2: "Dr. Natasha Romanoff"
+      specialist_3: "Dr. May Parker"
+      specialty_1: "Sexologe"
+      specialty_2: "Psychologe"
+
+    testimonials:
+      title: "Erfahrungsberichte"
+      subtitle: "Zufriedene Patienten"
+      user_1: "Ich stellte fest, dass ich schwanger war, und befand mich in einer schwierigen Situation. Dank Elevate konnte ich schnell einen Termin vereinbaren und die medizinische sowie emotionale Unterstützung erhalten, die ich brauchte. Der sofortige Zugang zu Spezialisten machte einen entscheidenden Unterschied für mich."
+      user_2: "Monatelang litt ich unter Angstzuständen, die meinen Alltag beeinträchtigten. Durch diese Plattform konnte ich schnell mit einem Therapeuten in Kontakt treten, der mir wirklich zuhörte und mir half, Bewältigungsstrategien zu entwickeln. Diese Unterstützung war entscheidend für meinen Weg zur Besserung."
+
+    statistics:
+      title: "Unsere Zahlen"
+      description: "Viele Menschen vertrauen uns, und wir leisten einen bedeutenden Beitrag zur Gesellschaft. Lernen, um zu lehren, wachsen und frei sein. Wir sind ELEVATE – umfassende Bildung zu sexueller und mentaler Gesundheit."
+      satisfied_users: "Zufriedene Nutzer"
+      awards: "Erhaltene Auszeichnungen"
+      resolved_cases: "Gelöste Fälle"
+      years_experience: "Jahre Erfahrung"
+
+  services:
+    salud_sexual:
+      title: "Sexuelle Gesundheit"
+      description: "Sexuelle Gesundheit bedeutet <strong>Wohlbefinden</strong> und nicht nur das <strong>Fehlen von Krankheiten</strong>. Sie umfasst Respekt, Sicherheit und Freiheit von Gewalt und Diskriminierung."
+    salud_mental:
+      title: "Mentale Gesundheit"
+      description: "Mentale Gesundheit ist ein Zustand des <strong>emotionalen Wohlbefindens</strong>, der es Menschen ermöglicht, mit den Herausforderungen des Lebens umzugehen, Fähigkeiten zu entwickeln, zu lernen, zu arbeiten und einen Beitrag zur Gemeinschaft zu leisten."
+    consultas:
+      title: "Fachärztliche Beratungen"
+      description: "Unsere Beratungen werden von <strong>zertifizierten Fachärzten</strong> durchgeführt. Wir bieten eine umfassende Betreuung und garantieren <strong>Qualität</strong> in der Patientenversorgung."
+    foro:
+      title: "Beratungsforum"
+      description: "Unser offenes Forum ist ein <strong>sicherer Raum</strong>, in dem Sie wichtige Fragen anonym stellen, Antworten von Experten erhalten und <strong>gemeinsam wachsen</strong> können."
+    chatbot:
+      title: "KI-Chatbot"
+      description: "Stellen Sie detaillierte Fragen ohne Angst vor Bewertung, fragen Sie nach Fachärzten, Terminzeiten, Verfügbarkeit oder anderen Themen, die Sie lieber <strong>privat</strong> besprechen möchten."
+    info:
+      title: "Detaillierte Informationen"
+      description: "Wir bieten spezialisierte und detaillierte Informationen zu <strong>Sexueller Gesundheit</strong> und <strong>Mentaler Gesundheit</strong> durch Berichte, Infografiken und <strong>pädagogische Inhalte</strong> von anerkannten Organisationen."
+
+  posts:
+    create_article: "Artikel erstellen"
+    no_image_available: "Kein Bild verfügbar"
+    article: "Artikel"
+
+  appointments:
+    title: "Meine Termine"
+    doctor: "Arzt"
+    patient: "Patient"
+    status: "Status"
+    confirm: "Bestätigen"
+    pay_now: "Jetzt bezahlen"
+    cancel: "Absagen"
+    status_label: "STATUS"
+    no_appointments_1: "Ups! Sie haben noch keinen Termin vereinbart."
+    no_appointments_2: "Sie können einen neuen Termin auf der Seite des gewünschten Arztes buchen!"
+
+  about:
+    banner_title: "Stärken Sie Ihre Reise zum Wohlbefinden: Ganzheitliche Betreuung für Geist, Körper und Beziehungen"
+    intro: "Bei Elevate unterstützen wir Einzelpersonen und Paare auf ihrem Weg zu ganzheitlicher Gesundheit und Wohlbefinden..."
+    mission_title: "Unsere Mission: Mitfühlende und evidenzbasierte Betreuung"
+    mission_text: "Wir wissen, dass jeder Mensch eine einzigartige Geschichte hat..."
+    services_title: "Individuell Angepasste Leistungen"
+    services_list:
+      - title: "Sexuelle Gesundheitsversorgung"
+        description: "Diskrete Beratung und Behandlung von Intimitätsproblemen..."
+      - title: "Psychologische Beratung & Therapie"
+        description: "Hilfe bei Angstzuständen, Depressionen, Trauma, Beziehungsproblemen..."
+      - title: "Paartherapie"
+        description: "Stärkung von Beziehungen durch Bearbeitung psychischer und sexueller Themen..."
+      - title: "LGBTQ+ Unterstützung"
+        description: "Spezialisierte und respektvolle Dienste für die LGBTQ+-Community..."
+      - title: "Traumatherapie"
+        description: "Fokussierte Betreuung zur Heilung emotionaler und physischer Traumata..."
+      - title: "Beratung für Beziehungsgesundheit"
+        description: "Hilfe zur Verbesserung von Kommunikation und Konfliktlösung..."
+    approach_title: "Unser Ansatz: Respekt, Vertraulichkeit und Stärkung"
+    approach_text_1: "Wir respektieren Ihre Privatsphäre und wahren strengste Vertraulichkeit..."
+    approach_text_2: "Wir hören Ihnen zu, verstehen Ihre Bedürfnisse und entwickeln gemeinsam Lösungen..."
+    why_us_title: "Warum Uns Wählen?"
+    why_us_list:
+      - "Erfahrene Fachkräfte"
+      - "Individuelle Betreuung"
+      - "Mitfühlendes Umfeld"
+      - "Ganzheitlicher Ansatz"
+    call_to_action_title: "Machen Sie Heute den Ersten Schritt zur Heilung"
+    call_to_action_text: "Hilfe zu suchen ist ein mutiger und wichtiger Schritt..."
+
+  about:
+    banner_title: "Stärken Sie Ihren Weg zum Wohlbefinden: Ganzheitliche Betreuung für Geist, Körper und Beziehungen"
+    intro: "Bei Elevate unterstützen wir Einzelpersonen und Paare auf ihrem Weg zu ganzheitlicher Gesundheit und Wohlbefinden. Ob Sie Hilfe bei sexueller Gesundheit, psychischen Herausforderungen oder beidem suchen – wir bieten einen sicheren und einfühlsamen Raum für Heilung, Selbstentdeckung und persönliches Wachstum."
+
+    mission:
+      title: "Unsere Mission: Mitfühlende und evidenzbasierte Betreuung"
+      text: "Wir wissen, dass jeder Weg einzigartig ist. Unsere Mission ist es, unsere Patient:innen mit den Werkzeugen und Ressourcen auszustatten, die sie für ein gesünderes und erfüllteres Leben benötigen. Durch die Verbindung von sexueller Gesundheit und psychologischer Beratung verfolgen wir einen ganzheitlichen Ansatz, der die tiefe Verbindung zwischen emotionalem Wohlbefinden und körperlicher Gesundheit anerkennt."
+
+    services:
+      title: "Individuell angepasste Dienstleistungen"
+      description: "Unser Team aus zugelassenen Therapeut:innen, Ärzt:innen und Fachleuten bietet eine breite Palette an Leistungen an, darunter:"
+      sexual_health:
+        title: "Sexuelle Gesundheitsversorgung:"
+        description: "Diskrete Beratungen und Behandlungen bei Intimitätsproblemen, sexuellen Funktionsstörungen und zur Identitätsfindung."
+      counseling:
+        title: "Beratung und Therapie:"
+        description: "Unterstützung bei Angst, Depression, Trauma, Beziehungsproblemen und mehr."
+      couples_therapy:
+        title: "Paartherapie:"
+        description: "Stärkung von Beziehungen durch Therapieansätze, die sowohl psychologische als auch sexuelle Themen ansprechen."
+      lgbtq_support:
+        title: "Unterstützung für die LGBTQ+-Community:"
+        description: "Respektvolle und spezialisierte Angebote, die auf die Bedürfnisse von LGBTQ+-Personen und -Paaren zugeschnitten sind."
+      trauma:
+        title: "Traumabewältigung:"
+        description: "Therapeutische Ansätze, die auf die Heilung emotionaler und körperlicher Traumata ausgerichtet sind."
+      relationship_wellbeing:
+        title: "Beratung zum Beziehungswohlbefinden:"
+        description: "Begleitung zur Verbesserung der Kommunikation, Konfliktlösung und Förderung gesunder Beziehungen."
+
+    approach:
+      title: "Unser Ansatz: Respekt, Vertraulichkeit und Selbstbestimmung"
+      text_1: "Bei Elevate achten wir Ihre Privatsphäre und legen großen Wert auf Vertraulichkeit. Wir wissen, dass es schwierig sein kann, über sexuelle und mentale Gesundheit zu sprechen, und schaffen deshalb einen sicheren und urteilsfreien Raum."
+      text_2: "Unser Ansatz basiert auf Selbstbestimmung. Wir hören zu, verstehen Ihre Bedürfnisse und entwickeln gemeinsam Lösungen, die Sie auf Ihrem Weg stärken. Wir behandeln nicht nur Symptome – wir fördern langfristige Resilienz und Wohlbefinden."
+
+    why_choose_us:
+      title: "Warum Sie sich für uns entscheiden sollten"
+      experienced:
+        title: "Erfahrene Fachkräfte:"
+        text: "Therapeut:innen, Ärzt:innen und Berater:innen, die sich für bewährte Methoden und aktuelle Forschung engagieren."
+      personalized:
+        title: "Individuelle Betreuung:"
+        text: "Behandlungspläne, die auf Ihre persönlichen Bedürfnisse und Wünsche abgestimmt sind."
+      compassionate:
+        title: "Einfühlsame Atmosphäre:"
+        text: "Ein herzliches, empathisches Umfeld ohne Bewertungen oder Vorurteile."
+      holistic:
+        title: "Ganzheitlicher Ansatz:"
+        text: "Förderung emotionaler, körperlicher und zwischenmenschlicher Gesundheit durch integrative Betreuung."
+
+    final_call:
+      title: "Machen Sie den ersten Schritt zur Heilung"
+      text: "Hilfe zu suchen ist ein mutiger und wichtiger erster Schritt, und wir fühlen uns geehrt, Sie auf Ihrem Weg zu begleiten. Bei Elevate bieten wir Ihnen professionelle, einfühlsame Unterstützung, damit Sie in allen Lebensbereichen aufblühen können."

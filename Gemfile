@@ -84,6 +84,8 @@ gem "solid_cache"
 
 gem "stripe"
 
+gem 'rails-i18n'
+
 gem "solid_queue"
 
 gem 'neighbor'

@@ -81,7 +81,17 @@ de:
       status_label: "STATUS"
       no_appointments_1: "Ups! Sie haben noch keinen Termin vereinbart."
       no_appointments_2: "Sie können einen neuen Termin auf der Seite des gewünschten Arztes buchen!"
-
+      new:
+        title: "Neuen Termin vereinbaren"
+        errors: "%{count} Fehler haben die Erstellung dieses Termins verhindert."
+        select_doctor: "Arzt/Ärztin auswählen"
+        choose_doctor: "Wählen Sie einen Arzt oder eine Ärztin"
+        date: "Termindatum"
+        time: "Terminzeit"
+        details: "Zusätzliche Details"
+        submit: "Termin erstellen"
+        back: "Zurück zu den Terminen"
+        
   about:
     banner_title: "Stärken Sie Ihre Reise zum Wohlbefinden: Ganzheitliche Betreuung für Geist, Körper und Beziehungen"
     intro: "Bei Elevate unterstützen wir Einzelpersonen und Paare auf ihrem Weg zu ganzheitlicher Gesundheit und Wohlbefinden. Ob Sie Unterstützung bei sexueller Gesundheit, psychischen Herausforderungen oder beidem suchen – wir bieten einen sicheren, einfühlsamen Raum für Heilung, Selbstentdeckung und Wachstum."
@@ -195,16 +205,7 @@ de:
       confirm_cancel: "Sind Sie sicher, dass Sie diesen Termin absagen möchten?"
     back_to_appointments: "Zurück zu meinen Terminen"
     patient_notice: "Sie können bis zu 12 Stunden vor dem Termin kostenlos stornieren."
-    new:
-      title: "Neuen Termin vereinbaren"
-      errors: "%{count} Fehler haben die Erstellung dieses Termins verhindert."
-      select_doctor: "Arzt/Ärztin auswählen"
-      choose_doctor: "Wählen Sie einen Arzt oder eine Ärztin"
-      date: "Termindatum"
-      time: "Terminzeit"
-      details: "Zusätzliche Details"
-      submit: "Termin erstellen"
-      back: "Zurück zu den Terminen"
+
 
   question_answers:
     new:

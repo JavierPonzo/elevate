@@ -81,7 +81,17 @@ en:
     status_label: "STATUS"
     no_appointments_1: "Oops! You haven't scheduled any appointments yet."
     no_appointments_2: "You can schedule a new one on your preferred doctor's article!"
-
+    new:
+      title: "Schedule a New Appointment"
+      errors: "%{count} error(s) prevented this appointment from being created."
+      select_doctor: "Select Doctor"
+      choose_doctor: "Choose a Doctor"
+      date: "Appointment Date"
+      time: "Appointment Time"
+      details: "Additional Details"
+      submit: "Create Appointment"
+      back: "Back to Appointments"
+      
   about:
     banner_title: "Empowering Your Journey to Wellness: Integrated Care for Mind, Body & Relationships"
     intro: "At Elevate, we are dedicated to supporting individuals and couples on their path to holistic health and wellness. Whether you're seeking help for sexual health, mental health challenges, or both, we provide a safe, compassionate space for healing, self-discovery, and growth."
@@ -195,16 +205,7 @@ en:
       confirm_cancel: "Are you sure you want to cancel this appointment?"
     back_to_appointments: "Back to My Appointments"
     patient_notice: "Can't attend? Cancel free of charge up to 12 hours before."
-    new:
-      title: "Schedule a New Appointment"
-      errors: "%{count} error(s) prevented this appointment from being created."
-      select_doctor: "Select Doctor"
-      choose_doctor: "Choose a Doctor"
-      date: "Appointment Date"
-      time: "Appointment Time"
-      details: "Additional Details"
-      submit: "Create Appointment"
-      back: "Back to Appointments"
+
 
   question_answers:
     new:

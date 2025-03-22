@@ -1,15 +1,13 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-black mt-5">
-
-    <h1 class="hero-title"> Mis Articulos </h1>
+    <h1 class="hero-title"><%= t('post.my_posts') %></h1>
     <h3 class="typed-js" data-controller="typed-js"></h3>
 
     <% if current_user.doctor? %>
       <div class="mt-4">
-        <%= link_to 'Crear Artículo', new_post_path, class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-5' %>
+        <%= link_to t('post.new.new_article'), new_post_path, class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-5' %>
       </div>
     <% end %>
-
   </div>
 </div>
 
@@ -19,14 +17,13 @@
       <% @posts.each do |post| %>
         <div class="col-12 col-sm-6 col-md-4 mb-3">
           <%= link_to post_path(post), class: "text-decoration-none text-dark" do %>
-            <div class="card-category">
+            <div class="card-category shadow-sm">
               <div class="d-flex justify-content-center mb-3">
                 <% if post.photos.attached? %>
-                  <% post.photos.each do |photo| %>
-                    <%= cl_image_tag photo.key, class: "img-fluid mb-4 ms-3 me-3", style: "height: 300px; width: 400px; object-fit: cover;", alt: post.title %>
-                  <% end %>
+                  <% photo = post.photos.first %>
+                  <%= cl_image_tag photo.key, class: "img-fluid mb-4 ms-3 me-3", style: "height: 300px; width: 400px; object-fit: cover;", alt: post.title %>
                 <% else %>
-                  <p>No imagen disponible</p>
+                  <%= image_tag "default_post.jpg", class: "img-fluid mb-4 ms-3 me-3", style: "height: 300px; width: 400px; object-fit: cover;", alt: t('post.no_image_available') %>
                 <% end %>
               </div>
               <h4 class="text-center"><%= post.title %></h4>
@@ -34,9 +31,9 @@
           <% end %>
         </div>
       <% end %>
-      <% else %>
-        <p class="text-center text-muted mt-5 mb-3"><strong>Oops! Aún no tienes ningún artículo creado.</strong></p>
-        <p class="text-center text-muted mt-5 mb-5"><strong>Puedes crear tu primer artículo cuando desees!</strong></p>
-      <% end %>
+    <% else %>
+      <p class="text-center text-muted mt-5 mb-3"><strong><%= t('post.no_posts_yet') %></strong></p>
+      <p class="text-center text-muted mb-5"><strong><%= t('post.create_your_first') %></strong></p>
+    <% end %>
   </div>
 </div>

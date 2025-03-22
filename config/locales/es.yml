@@ -135,3 +135,91 @@ es:
     final_call:
       title: "Da el primer paso hacia la sanación"
       text: "Buscar apoyo es un acto valiente, y estamos honrados de acompañarte. En Elevate, estamos aquí para ofrecerte un cuidado experto y compasivo que te ayude a prosperar en todos los aspectos de tu vida."
+
+  post:
+    title: "Artículo"
+    category: "Categoría"
+    content: "Contenido"
+    reviews: "Opiniones"
+    rating: "Calificación"
+    useful_info: "¿Esta información te fue útil?"
+    comment: "Comentario"
+    submit_rating: "Enviar Calificación"
+    back_to_articles: "Volver a Artículos"
+    my_posts: "Mis Artículos"
+    no_image_available: "No hay imagen disponible"
+    no_posts_yet: "Oops! Aún no tienes ningún artículo creado."
+    create_your_first: "¡Puedes crear tu primer artículo cuando desees!"
+    new:
+      new_article: "Publicar Artículo"
+      title: "Título"
+      description: "Descripción"
+      category: "Categoría"
+      images: "Imágenes"
+      submit_article: "Publicar Artículo"
+    edit:
+      edit_article: "Actualizar Artículo"
+      title: "Título"
+      description: "Descripción"
+      category: "Categoría"
+      images: "Imágenes"
+      current_images: "Imágenes actuales:"
+      no_images: "No hay imágenes cargadas."
+      submit: "Actualizar Artículo"
+
+  appointment:
+    new: "Nueva Cita"
+    doctor: "Doctor:"
+    specialty: "Especialidad:"
+    license: "Licencia:"
+    date: "Fecha de la Cita"
+    time: "Hora de la Cita"
+    additional_details: "Detalles Adicionales"
+    create_appointment: "Crear Cita"
+    confirm_delete: "¿Estás seguro de que deseas eliminarla?"
+    edit: "Editar"
+    delete: "Eliminar"
+    details:
+      title: "Detalles de la Cita"
+      doctor: "Doctor:"
+      patient: "Paciente:"
+      date: "Fecha:"
+      time: "Hora:"
+      extra_details: "Detalles:"
+      no_date: "Fecha no especificada"
+      no_time: "Hora no especificada"
+      no_details: "Sin detalles adicionales"
+    actions:
+      confirm: "Confirmar Cita"
+      cancel: "Cancelar Cita"
+      confirm_cancel: "¿Estás seguro de que deseas cancelar esta cita?"
+    back_to_appointments: "Volver a Mis Citas"
+    patient_notice: "¿No puedes asistir? Cancela sin costo hasta 12 horas antes."
+    new:
+      title: "Agendar una Nueva Cita"
+      errors: "%{count} error(es) impidieron que se creara la cita."
+      select_doctor: "Selecciona Doctor"
+      choose_doctor: "Elige un Doctor"
+      date: "Fecha de la Cita"
+      time: "Hora de la Cita"
+      details: "Detalles Adicionales"
+      submit: "Crear Cita"
+      back: "Volver a Citas"
+
+  question_answers:
+    new:
+      title: "Haz una pregunta:"
+      errors: "%{count} error(es) impidieron que se guardara esta pregunta:"
+      label: "Tu pregunta"
+      placeholder: "Escribe tu pregunta aquí"
+      submit: "Enviar pregunta"
+      back_to_post: "Volver al artículo"
+
+  questions:
+    new:
+      label: "Tu pregunta para DrBot"
+      placeholder: "Escribe algo para DrBot..."
+      submit: "Preguntar"
+
+  profile:
+    no_photo: "Foto de perfil por defecto"

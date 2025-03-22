@@ -71,98 +71,129 @@ de:
     article: "Artikel"
 
   appointments:
-    title: "Meine Termine"
-    doctor: "Arzt"
-    patient: "Patient"
-    status: "Status"
-    confirm: "Bestätigen"
-    pay_now: "Jetzt bezahlen"
-    cancel: "Absagen"
-    status_label: "STATUS"
-    no_appointments_1: "Ups! Sie haben noch keinen Termin vereinbart."
-    no_appointments_2: "Sie können einen neuen Termin auf der Seite des gewünschten Arztes buchen!"
+      title: "Meine Termine"
+      doctor: "Arzt"
+      patient: "Patient"
+      status: "Status"
+      confirm: "Bestätigen"
+      pay_now: "Jetzt bezahlen"
+      cancel: "Absagen"
+      status_label: "STATUS"
+      no_appointments_1: "Ups! Sie haben noch keinen Termin vereinbart."
+      no_appointments_2: "Sie können einen neuen Termin auf der Seite des gewünschten Arztes buchen!"
 
   about:
     banner_title: "Stärken Sie Ihre Reise zum Wohlbefinden: Ganzheitliche Betreuung für Geist, Körper und Beziehungen"
-    intro: "Bei Elevate unterstützen wir Einzelpersonen und Paare auf ihrem Weg zu ganzheitlicher Gesundheit und Wohlbefinden..."
-    mission_title: "Unsere Mission: Mitfühlende und evidenzbasierte Betreuung"
-    mission_text: "Wir wissen, dass jeder Mensch eine einzigartige Geschichte hat..."
-    services_title: "Individuell Angepasste Leistungen"
-    services_list:
-      - title: "Sexuelle Gesundheitsversorgung"
-        description: "Diskrete Beratung und Behandlung von Intimitätsproblemen..."
-      - title: "Psychologische Beratung & Therapie"
-        description: "Hilfe bei Angstzuständen, Depressionen, Trauma, Beziehungsproblemen..."
-      - title: "Paartherapie"
-        description: "Stärkung von Beziehungen durch Bearbeitung psychischer und sexueller Themen..."
-      - title: "LGBTQ+ Unterstützung"
-        description: "Spezialisierte und respektvolle Dienste für die LGBTQ+-Community..."
-      - title: "Traumatherapie"
-        description: "Fokussierte Betreuung zur Heilung emotionaler und physischer Traumata..."
-      - title: "Beratung für Beziehungsgesundheit"
-        description: "Hilfe zur Verbesserung von Kommunikation und Konfliktlösung..."
-    approach_title: "Unser Ansatz: Respekt, Vertraulichkeit und Stärkung"
-    approach_text_1: "Wir respektieren Ihre Privatsphäre und wahren strengste Vertraulichkeit..."
-    approach_text_2: "Wir hören Ihnen zu, verstehen Ihre Bedürfnisse und entwickeln gemeinsam Lösungen..."
-    why_us_title: "Warum Uns Wählen?"
-    why_us_list:
-      - "Erfahrene Fachkräfte"
-      - "Individuelle Betreuung"
-      - "Mitfühlendes Umfeld"
-      - "Ganzheitlicher Ansatz"
-    call_to_action_title: "Machen Sie Heute den Ersten Schritt zur Heilung"
-    call_to_action_text: "Hilfe zu suchen ist ein mutiger und wichtiger Schritt..."
-
-  about:
-    banner_title: "Stärken Sie Ihren Weg zum Wohlbefinden: Ganzheitliche Betreuung für Geist, Körper und Beziehungen"
-    intro: "Bei Elevate unterstützen wir Einzelpersonen und Paare auf ihrem Weg zu ganzheitlicher Gesundheit und Wohlbefinden. Ob Sie Hilfe bei sexueller Gesundheit, psychischen Herausforderungen oder beidem suchen – wir bieten einen sicheren und einfühlsamen Raum für Heilung, Selbstentdeckung und persönliches Wachstum."
+    intro: "Bei Elevate unterstützen wir Einzelpersonen und Paare auf ihrem Weg zu ganzheitlicher Gesundheit und Wohlbefinden. Ob Sie Unterstützung bei sexueller Gesundheit, psychischen Herausforderungen oder beidem suchen – wir bieten einen sicheren, einfühlsamen Raum für Heilung, Selbstentdeckung und Wachstum."
 
     mission:
       title: "Unsere Mission: Mitfühlende und evidenzbasierte Betreuung"
-      text: "Wir wissen, dass jeder Weg einzigartig ist. Unsere Mission ist es, unsere Patient:innen mit den Werkzeugen und Ressourcen auszustatten, die sie für ein gesünderes und erfüllteres Leben benötigen. Durch die Verbindung von sexueller Gesundheit und psychologischer Beratung verfolgen wir einen ganzheitlichen Ansatz, der die tiefe Verbindung zwischen emotionalem Wohlbefinden und körperlicher Gesundheit anerkennt."
+      text: "Wir wissen, dass jede Reise einzigartig ist. Unsere Mission ist es, Patient:innen mit den Werkzeugen und Ressourcen auszustatten, die sie für ein gesünderes und erfüllteres Leben benötigen. Durch die Integration sexueller Gesundheit und psychologischer Beratung verfolgen wir einen ganzheitlichen Ansatz, der die tiefe Verbindung zwischen emotionalem Wohlbefinden und körperlicher Gesundheit anerkennt."
 
     services:
-      title: "Individuell angepasste Dienstleistungen"
-      description: "Unser Team aus zugelassenen Therapeut:innen, Ärzt:innen und Fachleuten bietet eine breite Palette an Leistungen an, darunter:"
+      title: "Individuell angepasste Leistungen"
+      description: "Unser Team aus approbierten Therapeut:innen, Ärzt:innen und Fachkräften bietet ein breites Spektrum an Leistungen an, darunter:"
       sexual_health:
         title: "Sexuelle Gesundheitsversorgung:"
-        description: "Diskrete Beratungen und Behandlungen bei Intimitätsproblemen, sexuellen Funktionsstörungen und zur Identitätsfindung."
+        description: "Diskrete Beratungen und Behandlungen bei Intimitätsproblemen, sexuellen Funktionsstörungen und Fragen der sexuellen Identität."
       counseling:
         title: "Beratung und Therapie:"
-        description: "Unterstützung bei Angst, Depression, Trauma, Beziehungsproblemen und mehr."
+        description: "Unterstützung bei Angstzuständen, Depressionen, Traumata, Beziehungsproblemen und mehr."
       couples_therapy:
         title: "Paartherapie:"
-        description: "Stärkung von Beziehungen durch Therapieansätze, die sowohl psychologische als auch sexuelle Themen ansprechen."
+        description: "Stärkung von Beziehungen durch Therapien, die sowohl psychologische als auch sexuelle Aspekte berücksichtigen."
       lgbtq_support:
         title: "Unterstützung für die LGBTQ+-Community:"
-        description: "Respektvolle und spezialisierte Angebote, die auf die Bedürfnisse von LGBTQ+-Personen und -Paaren zugeschnitten sind."
+        description: "Respektvolle und spezialisierte Angebote für LGBTQ+-Einzelpersonen und -Paare."
       trauma:
         title: "Traumabewältigung:"
-        description: "Therapeutische Ansätze, die auf die Heilung emotionaler und körperlicher Traumata ausgerichtet sind."
+        description: "Therapeutische Ansätze zur Heilung emotionaler und körperlicher Traumata."
       relationship_wellbeing:
         title: "Beratung zum Beziehungswohlbefinden:"
-        description: "Begleitung zur Verbesserung der Kommunikation, Konfliktlösung und Förderung gesunder Beziehungen."
+        description: "Begleitung zur Verbesserung der Kommunikation, Lösung von Konflikten und Aufbau gesunder Beziehungen."
 
     approach:
-      title: "Unser Ansatz: Respekt, Vertraulichkeit und Selbstbestimmung"
-      text_1: "Bei Elevate achten wir Ihre Privatsphäre und legen großen Wert auf Vertraulichkeit. Wir wissen, dass es schwierig sein kann, über sexuelle und mentale Gesundheit zu sprechen, und schaffen deshalb einen sicheren und urteilsfreien Raum."
-      text_2: "Unser Ansatz basiert auf Selbstbestimmung. Wir hören zu, verstehen Ihre Bedürfnisse und entwickeln gemeinsam Lösungen, die Sie auf Ihrem Weg stärken. Wir behandeln nicht nur Symptome – wir fördern langfristige Resilienz und Wohlbefinden."
+      title: "Unser Ansatz: Respekt, Vertraulichkeit & Selbstbestimmung"
+      text_1: "Bei Elevate respektieren wir Ihre Privatsphäre und legen höchsten Wert auf Vertraulichkeit. Wir wissen, dass Gespräche über sexuelle und mentale Gesundheit herausfordernd sein können, und schaffen deshalb einen sicheren, urteilsfreien Raum."
+      text_2: "Unser Ansatz stellt Ihre Selbstbestimmung in den Mittelpunkt. Wir hören zu, verstehen Ihre Bedürfnisse und entwickeln gemeinsam Lösungen, die Sie auf Ihrem Weg stärken. Wir behandeln nicht nur Symptome – wir unterstützen Ihre langfristige Resilienz und Ihr ganzheitliches Wohlbefinden."
 
     why_choose_us:
       title: "Warum Sie sich für uns entscheiden sollten"
       experienced:
         title: "Erfahrene Fachkräfte:"
-        text: "Therapeut:innen, Ärzt:innen und Berater:innen, die sich für bewährte Methoden und aktuelle Forschung engagieren."
+        text: "Therapeut:innen, Ärzt:innen und Berater:innen, die sich auf bewährte Verfahren und aktuelle Forschung stützen."
       personalized:
         title: "Individuelle Betreuung:"
-        text: "Behandlungspläne, die auf Ihre persönlichen Bedürfnisse und Wünsche abgestimmt sind."
+        text: "Maßgeschneiderte Behandlungspläne, die Ihre persönlichen Bedürfnisse und Wünsche berücksichtigen."
       compassionate:
         title: "Einfühlsame Atmosphäre:"
-        text: "Ein herzliches, empathisches Umfeld ohne Bewertungen oder Vorurteile."
+        text: "Einladendes, empathisches Umfeld ohne Bewertungen oder Vorurteile."
       holistic:
         title: "Ganzheitlicher Ansatz:"
-        text: "Förderung emotionaler, körperlicher und zwischenmenschlicher Gesundheit durch integrative Betreuung."
+        text: "Verbesserung von emotionaler, physischer und zwischenmenschlicher Gesundheit durch integrative Betreuung."
 
     final_call:
       title: "Machen Sie den ersten Schritt zur Heilung"
-      text: "Hilfe zu suchen ist ein mutiger und wichtiger erster Schritt, und wir fühlen uns geehrt, Sie auf Ihrem Weg zu begleiten. Bei Elevate bieten wir Ihnen professionelle, einfühlsame Unterstützung, damit Sie in allen Lebensbereichen aufblühen können."
+      text: "Sich Unterstützung zu suchen, ist ein mutiger erster Schritt – und wir fühlen uns geehrt, Sie auf diesem Weg zu begleiten. Bei Elevate bieten wir professionelle und mitfühlende Betreuung, damit Sie in allen Lebensbereichen aufblühen können."
+
+  post:
+    title: "Artikel"
+    category: "Kategorie"
+    content: "Inhalt"
+    reviews: "Bewertungen"
+    rating: "Bewertung"
+    useful_info: "War diese Information hilfreich?"
+    comment: "Kommentar"
+    submit_rating: "Bewertung abschicken"
+    back_to_articles: "Zurück zu den Artikeln"
+    my_posts: "Meine Artikel"
+    no_image_available: "Kein Bild verfügbar"
+    no_posts_yet: "Ups! Du hast noch keine Artikel erstellt."
+    create_your_first: "Du kannst deinen ersten Artikel jederzeit erstellen!"
+    new:
+      new_article: "Beitrag veröffentlichen"
+      title: "Titel"
+      description: "Beschreibung"
+      category: "Kategorie"
+      images: "Bilder"
+      submit_article: "Beitrag veröffentlichen"
+    edit:
+      edit_article: "Artikel aktualisieren"
+      title: "Titel"
+      description: "Beschreibung"
+      category: "Kategorie"
+      images: "Bilder"
+      current_images: "Aktuelle Bilder:"
+      no_images: "Keine Bilder hochgeladen."
+      submit: "Artikel aktualisieren"
+
+  appointment:
+    new: "Neuer Termin"
+    doctor: "Arzt/Ärztin:"
+    specialty: "Fachgebiet:"
+    license: "Lizenz:"
+    date: "Termin Datum"
+    time: "Terminzeit"
+    additional_details: "Zusätzliche Details"
+    create_appointment: "Termin erstellen"
+    confirm_delete: "Sind Sie sicher, dass Sie es löschen möchten?"
+    edit: "Bearbeiten"
+    delete: "Löschen"
+
+  question_answers:
+    new:
+      title: "Stellen Sie eine Frage:"
+      errors: "%{count} Fehler haben das Speichern dieser Frage verhindert:"
+      label: "Ihre Frage"
+      placeholder: "Geben Sie Ihre Frage hier ein"
+      submit: "Frage absenden"
+      back_to_post: "Zurück zum Artikel"
+
+  questions:
+    new:
+      label: "Ihre Frage an DrBot"
+      placeholder: "Stellen Sie DrBot eine Frage..."
+      submit: "Fragen"
+
+  profile:
+    no_photo: "Standard-Profilbild"

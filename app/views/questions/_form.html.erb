@@ -1,9 +1,13 @@
 <%= simple_form_for question do |f| %>
   <div class="input-group mb-3 w-100">
     <div class="form-floating">
-      <%= f.input :user_question, label: false, wrapper: false %>
-      <%= f.label :user_question, "Tu pregunta" %>
+      <%= f.input :user_question,
+                  label: false,
+                  placeholder: t("question.new.placeholder"),
+                  wrapper: false,
+                  input_html: { class: "form-control", placeholder: t("question.new.placeholder") } %>
+      <%= f.label :user_question, t("question.new.label") %>
     </div>
-    <%= f.submit "Pregunta", id: "new-question-button", class: "btn btn-primary" %>
+    <%= f.submit t("question.new.submit"), id: "new-question-button", class: "btn btn-primary" %>
   </div>
 <% end %>

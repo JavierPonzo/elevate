@@ -1,7 +1,7 @@
 <div class="container my-5 w-50">
   <div class="card shadow-lg rounded-4">
     <div class="card-header bg-primary rounded-4 text-center">
-      <h1 class="hero-title mb-0 text-white">Detalles de Cita</h1>
+      <h1 class="hero-title mb-0 text-white"><%= t('appointment.details.title') %></h1>
     </div>
 
     <div class="card-body">
@@ -13,7 +13,8 @@
                class="img-fluid rounded-circle"
                style="height: 150px; width: 150px; object-fit: cover;">
           <p class="mt-2 font-weight-bold">
-            <strong>Doctor:</strong> <%= @appointment.doctor.user.name %> <%= @appointment.doctor.user.last_name %>
+            <strong><%= t('appointment.details.doctor') %></strong>
+            <%= @appointment.doctor.user.name %> <%= @appointment.doctor.user.last_name %>
           </p>
         </div>
 
@@ -24,38 +25,47 @@
                class="img-fluid rounded-circle"
                style="height: 150px; width: 150px; object-fit: cover;">
           <p class="mt-2 font-weight-bold">
-            <strong>Paciente:</strong> <%= @appointment.user.name %> <%= @appointment.user.last_name %>
+            <strong><%= t('appointment.details.patient') %></strong>
+            <%= @appointment.user.name %> <%= @appointment.user.last_name %>
           </p>
         </div>
       </div>
 
       <!-- Appointment Details -->
       <div class="text-center mb-3">
-        <p><strong>Fecha:</strong> <%= @appointment.date.present? ? @appointment.date.strftime('%B %d, %Y') : 'Fecha no especificada' %></p>
-        <p><strong>Hora:</strong> <%= @appointment.time.present? ? @appointment.time.strftime('%H:%M') : 'Hora no especificada' %></p>
+        <p><strong><%= t('appointment.details.date') %></strong>
+          <%= @appointment.date.present? ? l(@appointment.date, format: :long) : t('appointment.details.no_date') %></p>
+        <p><strong><%= t('appointment.details.time') %></strong>
+          <%= @appointment.time.present? ? @appointment.time.strftime('%H:%M') : t('appointment.details.no_time') %></p>
       </div>
+
       <div class="text-center mb-4 mt-4">
-        <p><strong>Detalles:</strong> <%= @appointment.details.presence || 'Sin detalles adicionales' %></p>
+        <p><strong><%= t('appointment.details.extra_details') %></strong>
+          <%= @appointment.details.presence || t('appointment.details.no_details') %></p>
       </div>
 
       <!-- Actions -->
       <div class="text-center mb-4 mt-4">
         <% if current_user.doctor? && @appointment.status == "Pendiente" %>
-          <%= button_to "Confirmar Cita", confirm_appointment_path(@appointment), method: :patch, class: "btn btn-success text-white font-weight-bold mb-2", style: "background-color: #3AAFA9" %>
-          <%= button_to 'Cancelar Cita', appointment_path(@appointment), method: :delete, data: { turbo_confirm: 'Estas seguro que quieres cancelar esta cita?' }, class: 'btn btn-danger text-white font-weight-bold mb-2' %>
+          <%= button_to t('appointment.actions.confirm'), confirm_appointment_path(@appointment), method: :patch, class: "btn btn-success text-white font-weight-bold mb-2", style: "background-color: #3AAFA9" %>
+          <%= button_to t('appointment.actions.cancel'), appointment_path(@appointment), method: :delete, data: { turbo_confirm: t('appointment.actions.confirm_cancel') }, class: 'btn btn-danger text-white font-weight-bold mb-2' %>
         <% end %>
+
         <% if current_user.patient? && @appointment.user == current_user && @appointment.status == "Confirmado" %>
-          <p class="text-danger mb-4">No puedes asistir a la cita? Cancela sin costo hasta 12hs antes de la cita.</p>
+          <p class="text-danger mb-4"><%= t('appointment.patient_notice') %></p>
           <%= form_with model: @appointment, url: appointment_path(@appointment), method: :patch, local: true do |f| %>
             <%= f.hidden_field :status, value: "Cancelado" %>
-            <button type="submit" class="btn text-white font-weight-bold w-25" style="background-color:rgb(223, 49, 33); border-radius: 8px;">Cancelar</button>
+            <button type="submit" class="btn text-white font-weight-bold w-25"
+                    style="background-color:rgb(223, 49, 33); border-radius: 8px;">
+              <%= t('appointment.actions.cancel') %>
+            </button>
           <% end %>
         <% end %>
       </div>
     </div>
 
     <div class="card-footer text-center bg-primary rounded-4">
-      <%= link_to 'Volver a Mis Citas', my_appointments_path, class: 'btn btn-secondary mt-3 mb-3' %>
+      <%= link_to t('appointment.back_to_appointments'), my_appointments_path, class: 'btn btn-secondary mt-3 mb-3' %>
     </div>
   </div>
 </div>

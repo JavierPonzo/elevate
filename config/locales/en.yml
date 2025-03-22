@@ -135,3 +135,93 @@ en:
     final_call:
       title: "Take the First Step Toward Healing"
       text: "Seeking support is a brave first step, and we’re honored to walk with you. At Elevate, we’re here to offer expert, compassionate care to help you thrive in every aspect of life."
+
+  post:
+    title: "Post"
+    category: "Category"
+    content: "Content"
+    reviews: "Reviews"
+    rating: "Rating"
+    useful_info: "Was this information useful?"
+    comment: "Comment"
+    submit_rating: "Submit Rating"
+    back_to_articles: "Back to Articles"
+    my_posts: "My Articles"
+    no_image_available: "No image available"
+    no_posts_yet: "Oops! You haven't created any articles yet."
+    create_your_first: "You can create your first article anytime!"
+    new:
+      new_article: "Publish Article"
+      title: "Title"
+      description: "Description"
+      category: "Category"
+      images: "Images"
+      submit_article: "Publish Article"
+    edit:
+      edit_article: "Update Article"
+      title: "Title"
+      description: "Description"
+      category: "Category"
+      images: "Images"
+      current_images: "Current Images:"
+      no_images: "No images uploaded."
+      submit: "Update Article"
+
+  appointment:
+    new: "New Appointment"
+    doctor: "Doctor:"
+    specialty: "Specialty:"
+    license: "License:"
+    date: "Appointment Date"
+    time: "Appointment Time"
+    additional_details: "Additional Details"
+    create_appointment: "Create Appointment"
+    confirm_delete: "Are you sure you want to delete it?"
+    edit: "Edit"
+    delete: "Delete"
+    details:
+      title: "Appointment Details"
+      doctor: "Doctor:"
+      patient: "Patient:"
+      date: "Date:"
+      time: "Time:"
+      extra_details: "Details:"
+      no_date: "No date specified"
+      no_time: "No time specified"
+      no_details: "No additional details"
+    actions:
+      confirm: "Confirm Appointment"
+      cancel: "Cancel Appointment"
+      confirm_cancel: "Are you sure you want to cancel this appointment?"
+    back_to_appointments: "Back to My Appointments"
+    patient_notice: "Can't attend? Cancel free of charge up to 12 hours before."
+    new:
+      title: "Schedule a New Appointment"
+      errors: "%{count} error(s) prevented this appointment from being created."
+      select_doctor: "Select Doctor"
+      choose_doctor: "Choose a Doctor"
+      date: "Appointment Date"
+      time: "Appointment Time"
+      details: "Additional Details"
+      submit: "Create Appointment"
+      back: "Back to Appointments"
+
+
+  question_answers:
+    new:
+      title: "Ask a Question:"
+      errors: "%{count} error(s) prevented this question from being saved:"
+      label: "Your Question"
+      placeholder: "Type your question here"
+      submit: "Submit Question"
+      back_to_post: "Back to Post"
+
+  questions:
+    new:
+      label: "Your Question for DrBot"
+      placeholder: "Type something for DrBot..."
+      submit: "Ask"
+
+
+  profile:
+    no_photo: "Default profile picture"

@@ -168,17 +168,43 @@ de:
       submit: "Artikel aktualisieren"
 
   appointment:
-    new: "Neuer Termin"
+    neww: "Neuer Termin"
     doctor: "Arzt/Ärztin:"
     specialty: "Fachgebiet:"
     license: "Lizenz:"
-    date: "Termin Datum"
+    date: "Termindatum"
     time: "Terminzeit"
     additional_details: "Zusätzliche Details"
     create_appointment: "Termin erstellen"
-    confirm_delete: "Sind Sie sicher, dass Sie es löschen möchten?"
+    confirm_delete: "Sind Sie sicher, dass Sie diesen Termin löschen möchten?"
     edit: "Bearbeiten"
     delete: "Löschen"
+    details:
+      title: "Termindetails"
+      doctor: "Arzt/Ärztin:"
+      patient: "Patient:"
+      date: "Datum:"
+      time: "Uhrzeit:"
+      extra_details: "Details:"
+      no_date: "Kein Datum angegeben"
+      no_time: "Keine Uhrzeit angegeben"
+      no_details: "Keine zusätzlichen Details"
+    actions:
+      confirm: "Termin bestätigen"
+      cancel: "Termin absagen"
+      confirm_cancel: "Sind Sie sicher, dass Sie diesen Termin absagen möchten?"
+    back_to_appointments: "Zurück zu meinen Terminen"
+    patient_notice: "Sie können bis zu 12 Stunden vor dem Termin kostenlos stornieren."
+    new:
+      title: "Neuen Termin vereinbaren"
+      errors: "%{count} Fehler haben die Erstellung dieses Termins verhindert."
+      select_doctor: "Arzt/Ärztin auswählen"
+      choose_doctor: "Wählen Sie einen Arzt oder eine Ärztin"
+      date: "Termindatum"
+      time: "Terminzeit"
+      details: "Zusätzliche Details"
+      submit: "Termin erstellen"
+      back: "Zurück zu den Terminen"
 
   question_answers:
     new:

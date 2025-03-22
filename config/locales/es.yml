@@ -168,7 +168,7 @@ es:
       submit: "Actualizar Artículo"
 
   appointment:
-    new: "Nueva Cita"
+    neww: "Nueva Cita"
     doctor: "Doctor:"
     specialty: "Especialidad:"
     license: "Licencia:"

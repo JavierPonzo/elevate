@@ -168,7 +168,7 @@ en:
       submit: "Update Article"
 
   appointment:
-    new: "New Appointment"
+    neww: "New Appointment"
     doctor: "Doctor:"
     specialty: "Specialty:"
     license: "License:"
@@ -205,7 +205,6 @@ en:
       details: "Additional Details"
       submit: "Create Appointment"
       back: "Back to Appointments"
-
 
   question_answers:
     new:

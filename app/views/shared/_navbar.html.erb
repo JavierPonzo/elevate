@@ -1,11 +1,10 @@
 <div class="container-navbar">
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id="navbar">
+  <div class="navbar navbar-light" id="navbar">
     <div class="container-fluid d-flex rounded-5 bg-white pe-4 ps-4">
 
       <%= link_to root_path do %>
         <img src="https://i.imghippo.com/files/lfR2625Iw.png" alt="Elevate Logo" style="height: 50px; width: 100px;">
       <% end %>
-
       <div class="dropdown">
         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
           🌐 <%= I18n.locale.upcase %>
@@ -67,7 +66,7 @@
             <% end %>
           </li>
 
-          <li class="nav-item d-block d-sm-none">
+          <li class="nav-item d-block">
             <div data-controller="search">
               <%= form_with url: posts_path, method: :get do %>
                 <%= text_field_tag :query,

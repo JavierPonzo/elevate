@@ -14,8 +14,6 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
     end
   end
 
-
-
   def search_suggestions
     query = params[:query]
     @posts = Post.elevate_search(query).limit(5)

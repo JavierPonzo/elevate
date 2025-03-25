@@ -25,10 +25,42 @@ textarea.form-control {
 
 .form-control {
   border-color: #00c1d4;
-  width: 8rem !important;
+  width: 100% !important;
 }
 
 .container-fluid {
   align-items: center;
   display: block
+}
+
+.custom-input,
+.custom-textarea {
+  font-size: 1rem;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 100%;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus,
+.custom-textarea:focus {
+  border-color: #007bff;
+  background-color: #e9f5ff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.custom-textarea {
+  resize: vertical;
+}
+
+@media (min-width: 768px) {
+  .bg-primary-form {
+    max-width: 600px;
+    margin: auto;
+  }
 }

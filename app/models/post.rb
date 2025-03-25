@@ -24,12 +24,12 @@ class Post < ApplicationRecord
     'youth_support'
   ]
 
+
+private
+
   def category_label
     I18n.t("categories.#{category}")
   end
-
-
-private
 
   def at_least_one_photo
     errors.add(:photos, "Debe incluir al menos una foto") if photos.blank?

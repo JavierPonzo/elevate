@@ -94,19 +94,19 @@
         <h2 class="fw-bold text-white text-center"><%= t('home.appointment.title') %></h2>
         <form>
           <div class="text-white mb-3">
-            <input type="text" class="form-control" placeholder="<%= t('home.appointment.name_placeholder') %>" required />
+            <input type="text" class="custom-input w-100" placeholder="<%= t('home.appointment.name_placeholder') %>" required />
           </div>
           <div class="text-white mb-3">
-            <input type="email" class="form-control" placeholder="<%= t('home.appointment.email_placeholder') %>" required />
+            <input type="email" class="custom-input w-100" placeholder="<%= t('home.appointment.email_placeholder') %>" required />
           </div>
           <div class="text-white mb-3">
-            <input type="text" class="form-control" placeholder="<%= t('home.appointment.topic_placeholder') %>" required />
+            <input type="text" class="custom-input w-100" placeholder="<%= t('home.appointment.topic_placeholder') %>" required />
           </div>
           <div class="mb-3">
-            <input class="form-control" type="date" placeholder="<%= t('home.appointment.date_placeholder') %>" required />
+            <input class="custom-input w-100" type="date" placeholder="<%= t('home.appointment.date_placeholder') %>" required />
           </div>
           <div class="mb-3">
-            <textarea class="form-control" rows="3" placeholder="<%= t('home.appointment.description_placeholder') %>" required></textarea>
+            <textarea class="custom-textarea" rows="3" placeholder="<%= t('home.appointment.description_placeholder') %>" required></textarea>
           </div>
           <button type="submit" class="col-lg-4 btn btn-info text-white fw-bold">
             <%= t('home.appointment.submit_button') %>

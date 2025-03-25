@@ -144,6 +144,32 @@
   </div>
 </div>
 
+
+<%= simple_form_for [@post, QuestionAnswer.new] do |f| %>
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="mb-3">
+        <%= f.label :question, t('post.ask_question'), class: "form-label" %>
+        <%= f.text_field :question, class: "form-control" %>
+      </div>
+      <%= f.submit t('post.ask'), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
+<div class="list-group mt-4">
+  <% @post.question_answers.each do |question_answer| %>
+    <div class="list-group-item">
+      <p><strong><%= t('post.question') %>:</strong> <%= question_answer.question %></p>
+      <% if question_answer.answer.present? %>
+        <p><strong><%= t('post.answer') %>:</strong> <%= question_answer.answer %></p>
+      <% else %>
+        <p><em><%= t('post.no_answer_yet') %></em></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-black mt-5">
     <div class="mt-4 mb-5">

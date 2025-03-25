@@ -161,6 +161,11 @@ en:
     no_image_available: "No image available"
     no_posts_yet: "Oops! You haven't created any articles yet."
     create_your_first: "You can create your first article anytime!"
+    ask_question: "Ask a question:"
+    ask: "Ask"
+    question: "Question"
+    answer: "Answer"
+    no_answer_yet: "This question has not been answered yet."
     new:
       new_article: "Publish Article"
       title: "Title"

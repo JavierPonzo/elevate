@@ -161,6 +161,11 @@ es:
     no_image_available: "No hay imagen disponible"
     no_posts_yet: "Oops! Aún no tienes ningún artículo creado."
     create_your_first: "¡Puedes crear tu primer artículo cuando desees!"
+    ask_question: "Haz una pregunta:"
+    ask: "Preguntar"
+    question: "Pregunta"
+    answer: "Respuesta"
+    no_answer_yet: "Esta pregunta aún no tiene respuesta."
     new:
       new_article: "Publicar Artículo"
       title: "Título"

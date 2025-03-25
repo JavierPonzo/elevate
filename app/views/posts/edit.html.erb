@@ -8,8 +8,9 @@
         <%= f.input :title, label: t('post.edit.title'), required: true, input_html: { class: 'form-control' } %>
       </div>
 
-      <div class="f-inputs mb-4">
-        <%= f.input :content, label: t('post.edit.description'), as: :text, required: true, input_html: { class: 'form-control', rows: 4 } %>
+      <div class="mb-4">
+        <%= f.label :rich_content, t('post.new.description'), class: 'form-label fw-bold' %>
+        <%= f.rich_text_area :rich_content %>
       </div>
 
       <div class="f-inputs mb-4">

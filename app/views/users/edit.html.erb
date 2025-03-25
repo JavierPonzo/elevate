@@ -6,25 +6,25 @@
           <%= form_with(model: @user, local: true) do |f| %>
             <div class="form-group">
               <%= f.label :name, "Nombre" %>
-              <%= f.text_field :name, class: "form-control" %>
+              <%= f.text_field :name, class: "w-100 h4" %>
             </div>
 
               <div class="form-group">
               <%= f.label :last_name, "Apellido" %>
-              <%= f.text_field :last_name, class: "form-control" %>
+              <%= f.text_field :last_name, class: "w-100 h4" %>
             </div>
 
             <div class="form-group">
               <%= f.label :email, "Correo Electrónico" %>
-              <%= f.email_field :email, class: "form-control" %>
+              <%= f.email_field :email, class: "w-100 h4" %>
             </div>
 
             <div class="form-group">
               <%= f.label :photo, "Foto de Perfil" %>
-              <%= f.file_field :photo, class: "form-control" %>
+              <%= f.file_field :photo, class: "w-100 h4" %>
             </div>
 
-            <%= f.submit "Guardar Cambios", class: "btn btn-primary" %>
+            <%= f.submit "Guardar Cambios", class: "btn btn-primary w-100" %>
           <% end %>
 
           <% if @doctor %>
@@ -33,15 +33,15 @@
             <%= form_with(model: @user, local: true, url: user_path(@user)) do |f| %>
               <div class="form-group">
                 <%= f.label :specialty, "Especialidad" %>
-                <%= f.text_field :specialty, class: "form-control" %>
+                <%= f.text_field :specialty, class: "w-100 h4" %>
               </div>
 
               <div class="form-group">
                 <%= f.label :license, "Licencia" %>
-                <%= f.text_field :license, class: "form-control" %>
+                <%= f.text_field :license, class: "w-100 h4" %>
               </div>
 
-              <%= f.submit "Guardar Cambios en Doctor", class: "btn btn-primary btn-lg shadow-lg rounded-pill px-5" %>
+              <%= f.submit "Guardar Cambios en Doctor", class: "btn btn-primary btn-lg shadow-lg rounded-pill px-5 w-100" %>
             <% end %>
           <% end %>
       </div>

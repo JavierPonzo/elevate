@@ -15,29 +15,28 @@
   <div class="appointment-form">
     <div class="form-group">
       <%= form.label :doctor_id, t('appointment.new.select_doctor'), class: "form-label" %>
-      <%= form.select :doctor_id, @doctors.collect { |doctor| [doctor.user.name + ' ' + doctor.user.last_name, doctor.id] }, { prompt: t('appointment.new.choose_doctor') }, class: "form-control" %>
+      <%= form.select :doctor_id, @doctors.collect { |doctor| [doctor.user.name + ' ' + doctor.user.last_name, doctor.id] }, { prompt: t('appointment.new.choose_doctor') } %>
     </div>
 
     <div class="form-group">
       <%= form.label :date, t('appointment.new.date'), class: "form-label" %>
-      <%= form.date_field :date, class: "form-control", min: Date.tomorrow %>
+      <%= form.date_field :date, min: Date.tomorrow %>
     </div>
 
     <div class="form-group">
       <%= form.label :time, t('appointment.new.time'), class: "form-label" %>
       <%= form.select :time,
             options_for_select((8..20).map { |h| ["#{format('%02d', h)}:00", "#{format('%02d', h)}:00"] }),
-            {},
-            class: "form-control" %>
+            {} %>
     </div>
 
     <div class="form-group">
       <%= form.label :details, t('appointment.new.details'), class: "form-label" %>
-      <%= form.text_area :details, class: "form-control", rows: 4 %>
+      <%= form.text_area :details, rows: 4 %>
     </div>
 
     <div class="form-group text-center">
-      <%= form.submit t('appointment.new.submit'), class: "btn btn-primary btn-lg" %>
+      <%= form.submit t('appointment.new.submit'), class: "btn btn-primary btn-lg w-100" %>
     </div>
   </div>
 <% end %>

@@ -1,104 +1,179 @@
-<div class="container my-5">
-  <div class="row">
-    <!-- Main Content -->
+<div class="my-5 ms-5">
+  <div class="row container-fluid">
     <div class="col-md-8">
-      <h1 class="hero-title mb-3"><%= @post.title %></h1>
-      <% @post.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, class: "banner-image img-fluid mb-3 shadow", style: "width: 100%; object-fit: cover;", alt: @post.title %>
-      <% end %>
-      <div class="mb-4">
-        <%= @post.rich_content.body.to_s.html_safe %>
+      <div class="mb-2">
+        <h1 class="hero-title mb-2"><%= @post.title %></h1>
+        <% @post.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, class: "banner-image img-fluid mb-3 shadow", style: "width: 1280px; object-fit: cover;", alt: @post.title %>
+        <% end %>
+      </div>
+      <div>
+        <div class="mb-4">
+          <%= @post.rich_content.body.to_s.html_safe %>
+        </div>
       </div>
     </div>
 
-    <!-- Sidebar -->
-    <div class="col-md-4">
-      <% if current_user&.==(@post.doctor.user) %>
-        <div class="card p-4 shadow-sm mb-4">
+    <div class="col-md-4 mt-5">
+      <% if current_user.present? && current_user == @post.doctor.user %>
+        <div class="card p-4 shadow-sm mt-2">
           <div class="d-flex justify-content-around">
-            <%= link_to t('appointment.edit'), edit_post_path(@post), class: 'btn btn-primary btn-lg rounded-pill' %>
-            <%= link_to t('appointment.delete'), post_path(@post), data: { turbo_method: :delete, turbo_confirm: t('appointment.confirm_delete') }, class: "btn btn-danger btn-lg rounded-pill" %>
+            <%= link_to t('appointment.edit'), edit_post_path(@post), class: 'btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3' %>
+            <%= link_to t('appointment.delete'), post_path(@post), data: { turbo_method: :delete, turbo_confirm: t('appointment.confirm_delete') }, class: "btn btn-primary btn-lg shadow-lg rounded-pill px-4 mb-3" %>
+          </div>
+        </div>
+        <div class="p-5">
+          <h1 class="hero-title"><%= t('post.reviews') %></h1>
+          <div class="list-group">
+            <% @post.reviews.each do |review| %>
+              <li class="list-group-item">
+                <small>
+                  <% count = 0 %>
+                  <% 5.times do %>
+                    <% if review.rating > count %>
+                      <i class="fa-solid fa-star"></i>
+                    <% else %>
+                      <i class="fa-regular fa-star"></i>
+                    <% end %>
+                    <% count += 1 %>
+                  <% end %>
+                </small>
+                <p><%= review.content %></p>
+              </li>
+            <% end %>
           </div>
         </div>
       <% else %>
-        <div class="card p-4 shadow-sm text-center mb-4">
-          <% if @post.doctor.user.photo.attached? %>
-            <%= cl_image_tag @post.doctor.user.photo.key, class: "img-thumbnail rounded-circle mb-3", style: "height: 120px; width: 120px; object-fit: cover;", alt: t('profile.no_photo') %>
-          <% else %>
-            <%= image_tag "default_user.jpg", class: "img-thumbnail rounded-circle mb-3", style: "height: 120px; width: 120px; object-fit: cover;", alt: t('profile.no_photo') %>
-          <% end %>
-          <p><strong><%= t('appointment.doctor') %>:</strong> <%= @post.doctor.user.full_name %></p>
+        <div class="col-md-4 card p-4 shadow-sm mt-2">
+          <div class="d-flex justify-content-center align-items-center">
+            <% if @post.doctor.user.photo.attached? %>
+              <%= cl_image_tag @post.doctor.user.photo.key, class: "img-thumbnail rounded-circle mb-3", style: "height: 200px; width: 200px; object-fit: cover;", alt: t('profile.no_photo') %>
+            <% else %>
+              <%= image_tag "default_user.jpg", class: "img-thumbnail rounded-circle mb-3", style: "height: 200px; width: 200px; object-fit: cover;", alt: t('profile.no_photo') %>
+            <% end %>
+          </div>
+
+          <p><strong><%= t('appointment.doctor') %></strong> <%= @post.doctor.user.name %> <%= @post.doctor.user.last_name %></p>
           <p><strong><%= t('appointment.specialty') %>:</strong> <%= @post.doctor.specialty %></p>
           <p><strong><%= t('appointment.license') %>:</strong> <%= @post.doctor.license %></p>
-          <button type="button" class="btn btn-primary btn-lg rounded-pill mt-3" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+
+          <div style="width: 100%; height: 150px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+          <button type="button" class="btn btn-primary btn-lg shadow rounded-pill px-4 mt-3" data-bs-toggle="modal" data-bs-target="#appointmentModal">
             <%= t('appointment.neww') %>
           </button>
         </div>
-      <% end %>
 
-      <!-- Reviews -->
-      <div class="p-4">
-        <h2 class="hero-title mb-3"><%= t('post.reviews') %></h2>
-        <ul class="list-group">
-          <% @post.reviews.each do |review| %>
-            <li class="list-group-item">
-              <small>
-                <% (1..5).each do |i| %>
-                  <i class="fa-<%= review.rating >= i ? 'solid' : 'regular' %> fa-star"></i>
-                <% end %>
-              </small>
-              <p><%= review.content %></p>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Appointment Modal -->
-<div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="appointmentModalLabel"><%= t('appointment.new') %></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <%= form_with(model: @appointment, local: true) do |form| %>
-          <%= form.hidden_field :doctor_id, value: @post.doctor.id %>
-          <%= form.date_field :date, class: "form-control mb-3", min: Date.tomorrow %>
-          <%= form.select :time, options_for_select((8..20).map { |h| ["#{format('%02d', h)}:00", "#{format('%02d', h)}:00"] }), {}, class: "form-control mb-3" %>
-          <%= form.text_area :details, class: "form-control", rows: 4 %>
-          <div class="text-center mt-3">
-            <%= form.submit t('appointment.create_appointment'), class: "btn btn-primary btn-lg" %>
+        <div class="p-5 col-md-4">
+          <h1 class="hero-title"><%= t('post.reviews') %></h1>
+          <div class="list-group">
+            <% @post.reviews.each do |review| %>
+              <li class="list-group-item">
+                <small>
+                  <% count = 0 %>
+                  <% 5.times do %>
+                    <% if review.rating > count %>
+                      <i class="fa-solid fa-star"></i>
+                    <% else %>
+                      <i class="fa-regular fa-star"></i>
+                    <% end %>
+                    <% count += 1 %>
+                  <% end %>
+                </small>
+                <p><%= review.content %></p>
+              </li>
+            <% end %>
           </div>
-        <% end %>
+
+          <%= simple_form_for [@post, Review.new] do |f| %>
+            <div class="mb-3 col-md-4">
+              <%= f.label :rating, t('post.rating'), class: "form-label" %>
+              <div class="stars d-flex justify-content-center mt-1">
+                <%= f.input :rating, collection: (1..5).to_a, label: t('post.useful_info'), input_html: { data: { controller: "star-rating" } } %>
+              </div>
+            </div>
+            <div class="form-grou col-md-4">
+              <%= f.input :content, label: t('post.comment'), as: :text %>
+            </div>
+            <%= f.submit t('post.submit_rating'), class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="card-body d-flex justify-content-center mt-5">
+  <div class="col-12 p-5 w-75">
+    <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="appointmentModalLabel"><%= t('appointment.new') %></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= form_with(model: @appointment, local: true) do |form| %>
+              <div class="form-group">
+                <p><%= t('appointment.doctor') %> <%= @post.doctor.user.name %> <%= @post.doctor.user.last_name %></p>
+                <%= form.hidden_field :doctor_id, value: @post.doctor.id %>
+              </div>
+              <div class="form-group">
+                <%= form.label :date, t('appointment.date'), class: "form-label" %>
+                <%= form.date_field :date, class: "form-control", min: Date.tomorrow %>
+              </div>
+              <div class="form-group">
+                <%= form.label :time, t('appointment.time'), class: "form-label" %>
+                <%= form.select :time, options_for_select((8..20).map { |h| ["#{format('%02d', h)}:00", "#{format('%02d', h)}:00"] }), {}, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= form.label :details, t('appointment.additional_details'), class: "form-label" %>
+                <%= form.text_area :details, class: "form-control", rows: 4 %>
+              </div>
+              <div class="text-center">
+                <%= form.submit t('appointment.create_appointment'), class: "btn btn-primary btn-lg" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Q&A Section -->
-<div class="container my-5">
-  <h2 class="hero-title mb-3"><%= t('post.questions') %></h2>
-  <%= simple_form_for [@post, QuestionAnswer.new] do |f| %>
-    <div class="mb-3">
-      <%= f.text_field :question, class: "form-control", placeholder: t('post.ask_question') %>
+
+<%= simple_form_for [@post, QuestionAnswer.new] do |f| %>
+  <div class="row-fluid">
+    <div class="container-md">
+      <div class="mb-3">
+        <%= f.label :question, t('post.ask_question'), class: "form-label" %>
+        <%= f.text_field :question, class: "form-control" %>
+      </div>
+      <%= f.submit t('post.ask'), class: "btn btn-primary" %>
     </div>
-    <%= f.submit t('post.ask'), class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<div class="list-group mt-4 container-md">
+  <% @post.question_answers.each do |question_answer| %>
+    <div class="list-group-item">
+      <p><strong><%= t('post.question') %>:</strong> <%= question_answer.question %></p>
+      <% if question_answer.answer.present? %>
+        <p><strong><%= t('post.answer') %>:</strong> <%= question_answer.answer %></p>
+      <% else %>
+        <p><em><%= t('post.no_answer_yet') %></em></p>
+      <% end %>
+    </div>
   <% end %>
-  <div class="list-group mt-4">
-    <% @post.question_answers.each do |qa| %>
-      <div class="list-group-item">
-        <p><strong><%= t('post.question') %>:</strong> <%= qa.question %></p>
-        <p><strong><%= t('post.answer') %>:</strong> <%= qa.answer.presence || t('post.no_answer_yet') %></p>
-      </div>
-    <% end %>
-  </div>
 </div>
 
-<!-- Back Button -->
-<div class="text-center my-5">
-  <%= link_to t('post.back_to_articles'), posts_path, class: "btn btn-outline-primary" %>
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-black mt-5">
+    <div class="mt-4 mb-5">
+      <%= link_to t('post.back_to_articles'), posts_path, class: "btn btn-outline-primary text-center" %>
+    </div>
+  </div>
 </div>

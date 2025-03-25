@@ -66,6 +66,7 @@ de:
       description: "Wir bieten spezialisierte und detaillierte Informationen zu <strong>Sexueller Gesundheit</strong> und <strong>Mentaler Gesundheit</strong> durch Berichte, Infografiken und <strong>pädagogische Inhalte</strong> von anerkannten Organisationen."
 
   posts:
+    h1: "Artikel"
     create_article: "Artikel erstellen"
     no_image_available: "Kein Bild verfügbar"
     article: "Artikel"
@@ -91,7 +92,7 @@ de:
         details: "Zusätzliche Details"
         submit: "Termin erstellen"
         back: "Zurück zu den Terminen"
-        
+
   about:
     banner_title: "Stärken Sie Ihre Reise zum Wohlbefinden: Ganzheitliche Betreuung für Geist, Körper und Beziehungen"
     intro: "Bei Elevate unterstützen wir Einzelpersonen und Paare auf ihrem Weg zu ganzheitlicher Gesundheit und Wohlbefinden. Ob Sie Unterstützung bei sexueller Gesundheit, psychischen Herausforderungen oder beidem suchen – wir bieten einen sicheren, einfühlsamen Raum für Heilung, Selbstentdeckung und Wachstum."

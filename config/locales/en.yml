@@ -66,6 +66,7 @@ en:
       description: "We provide specialized and detailed information on Sexual Health and Mental Health through reports, infographics, and educational content from recognized organizations."
 
   posts:
+    h1: "Articles"
     create_article: "Create Article"
     no_image_available: "No image available"
     article: "Article"
@@ -91,7 +92,7 @@ en:
       details: "Additional Details"
       submit: "Create Appointment"
       back: "Back to Appointments"
-      
+
   about:
     banner_title: "Empowering Your Journey to Wellness: Integrated Care for Mind, Body & Relationships"
     intro: "At Elevate, we are dedicated to supporting individuals and couples on their path to holistic health and wellness. Whether you're seeking help for sexual health, mental health challenges, or both, we provide a safe, compassionate space for healing, self-discovery, and growth."

@@ -66,6 +66,7 @@ es:
       description: "Brindamos información especializada y detallada sobre <strong>Salud Sexual</strong> y <strong>Salud Mental</strong>, mediante informes, infografías y <strong>contenido educativo</strong> de organizaciones reconocidas."
 
   posts:
+    h1: "Artículos"
     create_article: "Crear Artículo"
     no_image_available: "No hay imagen disponible"
     article: "Artículo"

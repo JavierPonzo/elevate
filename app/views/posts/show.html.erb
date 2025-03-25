@@ -123,15 +123,15 @@
               </div>
               <div class="form-group">
                 <%= form.label :date, t('appointment.date'), class: "form-label" %>
-                <%= form.date_field :date, class: "form-control", min: Date.tomorrow %>
+                <%= form.date_field :date, class: "w-100 h4", min: Date.tomorrow %>
               </div>
               <div class="form-group">
                 <%= form.label :time, t('appointment.time'), class: "form-label" %>
-                <%= form.select :time, options_for_select((8..20).map { |h| ["#{format('%02d', h)}:00", "#{format('%02d', h)}:00"] }), {}, class: "form-control" %>
+                <%= form.select :time, options_for_select((8..20).map { |h| ["#{format('%02d', h)}:00", "#{format('%02d', h)}:00"] }), {}, class: "w-100 h4" %>
               </div>
               <div class="form-group">
                 <%= form.label :details, t('appointment.additional_details'), class: "form-label" %>
-                <%= form.text_area :details, class: "form-control", rows: 4 %>
+                <%= form.text_area :details, class: "w-100 h4", rows: 4 %>
               </div>
               <div class="text-center">
                 <%= form.submit t('appointment.create_appointment'), class: "btn btn-primary btn-lg" %>

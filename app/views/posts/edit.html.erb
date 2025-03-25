@@ -5,7 +5,7 @@
     </div>
     <div class="card-body">
       <div class="f-inputs mb-4">
-        <%= f.input :title, label: t('post.edit.title'), required: true, input_html: { class: 'form-control' } %>
+        <%= f.input :title, label: t('post.edit.title'), required: true, input_html: { class: 'w-100 h4' } %>
       </div>
 
       <div class="mb-4">
@@ -14,11 +14,15 @@
       </div>
 
       <div class="f-inputs mb-4">
-        <%= f.input :category, label: t('post.edit.category'), required: true, input_html: { class: 'form-control' } %>
+        <%= f.input :category,
+        collection: Post::CATEGORIES.map { |key| [I18n.t("categories.#{key}"), key] },
+        prompt: t('post.new.select_category'),
+        label: t('post.edit.category'),
+        input_html: { class: 'form-select' } %>
       </div>
 
       <div class="f-inputs mb-4">
-        <%= f.input :photos, label: t('post.edit.images'), as: :file, input_html: { class: 'form-control-file', multiple: true } %>
+        <%= f.input :photos, label: t('post.edit.images'), as: :file, input_html: { class: 'w-100 h4', multiple: true } %>
       </div>
 
       <% if @post.photos.attached? %>
@@ -44,3 +48,19 @@
     </div>
   </div>
 <% end %>
+
+<script>
+document.addEventListener("trix-initialize", function (event) {
+  const toolbar = event.target.toolbarElement;
+
+  const unwanted = [
+    "strike", "quote", "attachFiles", "code", "decreaseNestingLevel", "increaseNestingLevel"
+  ];
+
+  unwanted.forEach(attr => {
+    const button = toolbar.querySelector(`[data-trix-attribute='${attr}'], [data-trix-action='${attr}']`);
+    if (button) button.remove();
+  });
+});
+
+</script>

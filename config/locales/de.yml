@@ -174,11 +174,6 @@ de:
       select_category: "Kategorie wählen"
       images: "Bilder"
       submit_article: "Veröffentlichen"
-  categories:
-    mental_health: "Psychische Gesundheit"
-    nutrition: "Ernährung"
-    general_medicine: "Allgemeinmedizin"
-    youth_support: "Jugendhilfe"
     edit:
       edit_article: "Artikel aktualisieren"
       title: "Titel"
@@ -198,6 +193,11 @@ de:
       no_doctor: "Kein Arzt mit diesem Benutzer verknüpft."
     edit:
       not_allowed: "Sie haben keine Berechtigung, diesen Artikel zu bearbeiten."
+  categories:
+    mental_health: "Psychische Gesundheit"
+    nutrition: "Ernährung"
+    general_medicine: "Allgemeinmedizin"
+    youth_support: "Jugendhilfe"
 
   appointment:
     neww: "Neuer Termin"

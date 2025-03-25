@@ -174,11 +174,6 @@ en:
       select_category: "Select a category"
       images: "Images"
       submit_article: "Submit"
-  categories:
-    mental_health: "Mental Health"
-    nutrition: "Nutrition"
-    general_medicine: "General Medicine"
-    youth_support: "Youth Support"
     edit:
       edit_article: "Update Article"
       title: "Title"
@@ -198,6 +193,11 @@ en:
       no_doctor: "No doctor associated with this user was found."
     edit:
       not_allowed: "You don’t have permission to edit this post."
+  categories:
+    mental_health: "Mental Health"
+    nutrition: "Nutrition"
+    general_medicine: "General Medicine"
+    youth_support: "Youth Support"
 
   appointment:
     neww: "New Appointment"

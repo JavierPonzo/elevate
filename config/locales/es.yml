@@ -174,11 +174,6 @@ es:
       select_category: "Selecciona una categoría"
       images: "Imágenes"
       submit_article: "Publicar"
-  categories:
-    mental_health: "Salud Mental"
-    nutrition: "Nutrición"
-    general_medicine: "Medicina General"
-    youth_support: "Juventud"
     edit:
       edit_article: "Actualizar Artículo"
       title: "Título"
@@ -198,6 +193,11 @@ es:
       no_doctor: "No se encontró un doctor asociado a este usuario."
     edit:
       not_allowed: "No tenés permiso para editar este artículo."
+  categories:
+    mental_health: "Salud Mental"
+    nutrition: "Nutrición"
+    general_medicine: "Medicina General"
+    youth_support: "Juventud"
 
   appointment:
     neww: "Nueva Cita"

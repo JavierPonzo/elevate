@@ -134,7 +134,7 @@
                 <%= form.text_area :details, class: "w-100 h4", rows: 4 %>
               </div>
               <div class="text-center">
-                <%= form.submit t('appointment.create_appointment'), class: "btn btn-primary btn-lg" %>
+                <%= form.submit t('appointment.create_appointment'), class: "btn btn-primary btn-lg w-50" %>
               </div>
             <% end %>
           </div>
@@ -152,7 +152,7 @@
         <%= f.label :question, t('post.ask_question'), class: "form-label" %>
         <%= f.text_field :question, class: "form-control" %>
       </div>
-      <%= f.submit t('post.ask'), class: "btn btn-primary" %>
+      <%= f.submit t('post.ask'), class: "btn btn-primary w-25" %>
     </div>
   </div>
 <% end %>

@@ -166,8 +166,14 @@ de:
       title: "Titel"
       description: "Beschreibung"
       category: "Kategorie"
+      select_category: "Kategorie wählen"
       images: "Bilder"
-      submit_article: "Beitrag veröffentlichen"
+      submit_article: "Veröffentlichen"
+  categories:
+    mental_health: "Psychische Gesundheit"
+    nutrition: "Ernährung"
+    general_medicine: "Allgemeinmedizin"
+    youth_support: "Jugendhilfe"
     edit:
       edit_article: "Artikel aktualisieren"
       title: "Titel"
@@ -177,6 +183,16 @@ de:
       current_images: "Aktuelle Bilder:"
       no_images: "Keine Bilder hochgeladen."
       submit: "Artikel aktualisieren"
+    index:
+      related_to_search: "Verwandt mit Ihrer Suche"
+      all_articles: "Alle Artikel"
+    create:
+      success: "Artikel erfolgreich erstellt."
+      failure: "Der Artikel konnte nicht erstellt werden. Bitte überprüfen Sie die Angaben."
+      not_allowed: "Nur Ärzte dürfen Artikel erstellen."
+      no_doctor: "Kein Arzt mit diesem Benutzer verknüpft."
+    edit:
+      not_allowed: "Sie haben keine Berechtigung, diesen Artikel zu bearbeiten."
 
   appointment:
     neww: "Neuer Termin"

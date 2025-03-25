@@ -166,8 +166,14 @@ es:
       title: "Título"
       description: "Descripción"
       category: "Categoría"
+      select_category: "Selecciona una categoría"
       images: "Imágenes"
-      submit_article: "Publicar Artículo"
+      submit_article: "Publicar"
+  categories:
+    mental_health: "Salud Mental"
+    nutrition: "Nutrición"
+    general_medicine: "Medicina General"
+    youth_support: "Juventud"
     edit:
       edit_article: "Actualizar Artículo"
       title: "Título"
@@ -177,6 +183,16 @@ es:
       current_images: "Imágenes actuales:"
       no_images: "No hay imágenes cargadas."
       submit: "Actualizar Artículo"
+    index:
+      related_to_search: "Relacionado con tu búsqueda"
+      all_articles: "Todos los artículos"
+    create:
+      success: "Artículo creado exitosamente."
+      failure: "No se pudo crear el artículo. Por favor, verifica los datos."
+      not_allowed: "Solo los doctores pueden crear artículos."
+      no_doctor: "No se encontró un doctor asociado a este usuario."
+    edit:
+      not_allowed: "No tenés permiso para editar este artículo."
 
   appointment:
     neww: "Nueva Cita"

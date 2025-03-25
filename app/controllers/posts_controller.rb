@@ -3,21 +3,17 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:category].present?
-      if params[:category] == 'salud_mental'
-        @posts = Post.where(category: 'Salud Mental')
-        @category = 'Salud Mental'
-      elsif params[:category] == 'salud_sexual'
-        @posts = Post.where(category: 'Salud Sexual')
-        @category = 'Salud Sexual'
-      end
+      @posts = Post.where(category: params[:category])
+      @category = I18n.t("categories.#{params[:category]}")
     elsif params[:query].present?
       @posts = Post.where("title ILIKE ?", "%#{params[:query]}%")
-      @category = 'Relacionado con tu busqueda'
+      @category = t('post.index.related_to_search')
     else
       @posts = Post.all
-      @category = 'Articulos'
+      @category = t('post.index.all_articles')
     end
   end
+
 
 
   def search_suggestions
@@ -52,22 +48,21 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
     if current_user.doctor?
       doctor = current_user.doctor
       if doctor.nil?
-        flash[:alert] = "No se encontró un doctor asociado a este usuario."
+        flash[:alert] = t('post.create.no_doctor')
         redirect_to posts_path and return
       end
 
       @post = doctor.posts.new(post_params)
       if @post.save
-        redirect_to post_path(@post), notice: "Artículo creado exitosamente."
+        redirect_to post_path(@post), notice: t('post.create.success')
       else
-        flash[:alert] = "No se pudo crear el artículo. Por favor, verifica los datos."
+        flash.now[:alert] = t('post.create.failure')
         render :new, status: :unprocessable_entity
       end
     else
-      redirect_to posts_path, alert: "Solo los doctores pueden crear artículos."
+      redirect_to posts_path, alert: t('post.create.not_allowed')
     end
   end
-
 
   def edit
     redirect_to post_path, alert: "No tenes permiso para editar este articulo." unless @post.doctor_id == current_user.doctor&.id
@@ -105,6 +100,6 @@ end
   end
 
   def post_params
-    params.require(:post).permit(:title, :category, :content, photos: [])
+    params.require(:post).permit(:title, :category, :rich_content, photos: [])
   end
 end

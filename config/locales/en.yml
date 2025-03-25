@@ -166,8 +166,14 @@ en:
       title: "Title"
       description: "Description"
       category: "Category"
+      select_category: "Select a category"
       images: "Images"
-      submit_article: "Publish Article"
+      submit_article: "Submit"
+  categories:
+    mental_health: "Mental Health"
+    nutrition: "Nutrition"
+    general_medicine: "General Medicine"
+    youth_support: "Youth Support"
     edit:
       edit_article: "Update Article"
       title: "Title"
@@ -177,6 +183,16 @@ en:
       current_images: "Current Images:"
       no_images: "No images uploaded."
       submit: "Update Article"
+    index:
+      related_to_search: "Related to your search"
+      all_articles: "All articles"
+    create:
+      success: "Post created successfully."
+      failure: "Could not create the post. Please check the data."
+      not_allowed: "Only doctors can create posts."
+      no_doctor: "No doctor associated with this user was found."
+    edit:
+      not_allowed: "You don’t have permission to edit this post."
 
   appointment:
     neww: "New Appointment"

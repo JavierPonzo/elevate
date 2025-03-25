@@ -5,8 +5,9 @@ class Post < ApplicationRecord
   has_many :question_answers, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many_attached :photos
+  has_rich_text :rich_content
 
-  validates :title, :content, :category, presence: true
+  validates :title, :rich_content, :category, presence: true
   validate :at_least_one_photo
 
   has_neighbors :embedding
@@ -15,6 +16,18 @@ class Post < ApplicationRecord
   pg_search_scope :elevate_search,
     against: [:title, :content],
     using: { tsearch: { prefix: true } }
+
+  CATEGORIES = [
+    'mental_health',
+    'nutrition',
+    'general_medicine',
+    'youth_support'
+  ]
+
+  def category_label
+    I18n.t("categories.#{category}")
+  end
+
 
 private
 

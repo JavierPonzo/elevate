@@ -1,4 +1,4 @@
-<div class="my-5 ms-5 container-fluid">
+<div class="my-5 container-fluid">
   <div class="row">
     <div class="col-md-8">
       <div class="mb-2">
@@ -89,7 +89,7 @@
           </div>
 
           <%= simple_form_for [@post, Review.new] do |f| %>
-            <div class="mb-3 col-md-4">
+            <div class="mb-3">
               <%= f.label :rating, t('post.rating'), class: "form-label" %>
               <div class="stars d-flex justify-content-center mt-1">
                 <%= f.input :rating, collection: (1..5).to_a, label: t('post.useful_info'), input_html: { data: { controller: "star-rating" } } %>
@@ -98,7 +98,7 @@
             <div class="form-group">
               <%= f.input :content, label: t('post.comment'), as: :text %>
             </div>
-            <%= f.submit t('post.submit_rating'), class: 'btn btn-primary w-50' %>
+            <%= f.submit t('post.submit_rating'), class: 'btn btn-primary w-100' %>
           <% end %>
         </div>
       <% end %>
